@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">SmartBot</string>
+    <string name="appbar_title">SmartBot</string>
+    <string name="lessons">Lessons</string>
+    <string name="fields">Fields</string>
+    <string name="remote">Remote</string>
+    <string name="scratch">Scratch</string>
+    <string name="materials">Materials</string>
+    <string name="select_language">Select Language</string>
+    <string name="version">Version 1.1</string>
+    <string name="about">About App</string>
+    <string name="ble_dialog_title">Available Devices</string>
+    <string name="ble_success">Hooray! The Bee is ready to go</string>
+    <string name="start">Start</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="ble_scan_complete">Ble Scan Complete</string>
+    <string name="ble_is_scanning">Scanning For Ble Devices</string>
+    <string name="lessons_search_hint">Enter subject or field id</string>
+    <string name="select_month">Select Month</string>
+    <string name="lessons_list_1">Preschoolers\nGEFTopics</string>
+    <string name="lessons_list_2">Preschoolers\nHolidays</string>
+    <string name="back_to_topics"><u>back to topics</u></string>
+    <string name="download_pdf">Download Lesson  in Pdf</string>
+    <string name="fields_1">Colors and Shapes</string>
+    <string name="fields_2">City Street</string>
+    <string name="fields_3">Fairy Tale</string>
+    <string name="fields_4">Farm</string>
+    <string name="fields_5">Alphabet</string>
+    <string name="fields_6">Treasure Island</string>
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">Jun</string>
+    <string name="jul">Jul</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
+
+
+
+
+
+</resources>
