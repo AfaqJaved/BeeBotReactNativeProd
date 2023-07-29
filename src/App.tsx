@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  PermissionsAndroid,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomePage from './pages/HomePage';
@@ -15,10 +21,19 @@ import store from './redux/Store';
 import FieldsPage from './pages/FieldsPage';
 import FieldsViewPage from './pages/FieldViewPage';
 import ImageViewPage from './pages/ImageViewPage';
+import {
+  check,
+  PERMISSIONS,
+  requestMultiple,
+  RESULTS,
+} from 'react-native-permissions';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+
+
+
   return (
     <Provider store={store}>
       <NavigationContainer>

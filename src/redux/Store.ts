@@ -1,14 +1,17 @@
 import { Store, combineReducers, createStore } from "redux";
 import counterReducer, { CounterState } from "./reducers/CountReducer";
+import bleStateReducer, { BleState } from "./reducers/BleReducer";
 
 
 export interface RootReducer {
-    countReducer : CounterState
+    countReducer : CounterState,
+    bleReducer : BleState
 }
 
 
 const rootReducer = combineReducers<RootReducer>({
-    countReducer : counterReducer
+    countReducer : counterReducer,
+    bleReducer : bleStateReducer
 });
 
 

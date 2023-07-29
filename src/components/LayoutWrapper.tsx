@@ -1,4 +1,4 @@
-import {ScrollView, View} from 'react-native';
+import {PermissionsAndroid, Platform, ScrollView, View} from 'react-native';
 import {AppBar} from './AppBar';
 import {CONSTANTS} from '../constants/Contants';
 import {
@@ -10,6 +10,8 @@ import React from 'react';
 import {MenuItem} from './Menu';
 import {BottomBar} from './BottomBar';
 import {LangDialog} from '../dialog/LangDialog';
+import {BleDialog} from '../dialog/BleDialog';
+import Toast from 'react-native-toast-message';
 
 export interface LayoutWrapperProps {
   navigation: any;
@@ -21,11 +23,31 @@ export const LayoutWrapper = ({navigation, children}: LayoutWrapperProps) => {
   const mainContentHeight = isPortrait()
     ? useResponsiveHeight(80)
     : useResponsiveHeight(70);
-  const [isLangDialogVisible , setIsLangDialogVisible] = React.useState(false);
+  const [isLangDialogVisible, setIsLangDialogVisible] = React.useState(false);
+  const [isBleDialogVisible, setIsBleDialogVisible] = React.useState(false);
+
+  if (Platform.OS === 'android') {
+    PermissionsAndroid.requestMultiple([
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+    ]).then(result => {
+      console.log(result);
+    });
+  }
   return (
     <View
-      style={{position: 'relative' , width : useResponsiveWidth(100),height : useResponsiveHeight(100)}}>
-      <LangDialog onClose={()=>setIsLangDialogVisible(!isLangDialogVisible)} visible={isLangDialogVisible}></LangDialog>
+      style={{
+        position: 'relative',
+        width: useResponsiveWidth(100),
+        height: useResponsiveHeight(100),
+      }}>
+      <Toast />
+      <LangDialog
+        onClose={() => setIsLangDialogVisible(!isLangDialogVisible)}
+        visible={isLangDialogVisible}></LangDialog>
+      <BleDialog
+        onClose={() => setIsBleDialogVisible(!isBleDialogVisible)}
+        visible={isBleDialogVisible}></BleDialog>
       <AppBar
         onLanguageCliclk={() => {
           console.log('on Language Click');
@@ -36,6 +58,7 @@ export const LayoutWrapper = ({navigation, children}: LayoutWrapperProps) => {
         }}
         onBleClick={() => {
           console.log('Ble Clicked');
+          setIsBleDialogVisible(!isBleDialogVisible);
         }}
       />
 
@@ -62,7 +85,6 @@ export const LayoutWrapper = ({navigation, children}: LayoutWrapperProps) => {
         <View style={{height: useResponsiveHeight(1)}}></View>
       </ScrollView>
       <BottomBar />
-
     </View>
   );
 };

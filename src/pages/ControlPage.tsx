@@ -23,10 +23,11 @@ import {CONSTANTS} from '../constants/Contants';
 import WebView from 'react-native-webview';
 import {BEEBOT_HTML} from '../constants/BeeBot';
 import {LayoutWrapper} from '../components/LayoutWrapper';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootReducer } from '../redux/Store';
-import { INCREMENT } from '../redux/Actions';
+import {useTranslation} from 'react-i18next';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootReducer} from '../redux/Store';
+import {INCREMENT} from '../redux/Actions';
+import base64 from 'react-native-base64'
 
 const ControlPage = ({navigation}: any) => {
   const [showLoading, setShowLoading] = React.useState(true);
@@ -36,9 +37,7 @@ const ControlPage = ({navigation}: any) => {
     ? useResponsiveHeight(85)
     : useResponsiveHeight(70);
   const {t} = useTranslation();
-  // const count = useSelector((state : RootReducer) => state.countReducer.count);
-  // const dispatch = useDispatch();
-
+  const char = useSelector((state: RootReducer) => state.bleReducer.char);
 
   React.useEffect(() => {
     Dimensions.addEventListener('change', () => {
@@ -46,18 +45,17 @@ const ControlPage = ({navigation}: any) => {
     });
   }, []);
 
-  const handleWebViewMessage = (event: any) => {
+  const handleWebViewMessage = async (event: any) => {
     const message = event.nativeEvent.data;
-    console.log('Message received from WebView:', message);
+    if (char != null) await char.writeWithoutResponse(base64.encode(message));
   };
 
   return (
     <LayoutWrapper navigation={navigation}>
-
       {showLoading ? (
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{fontSize: useResponsiveFontSize(5), color: 'black'}}>
-            {t("loading")}
+            {t('loading')}
           </Text>
         </View>
       ) : (

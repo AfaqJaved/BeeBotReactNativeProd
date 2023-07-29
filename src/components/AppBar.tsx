@@ -21,7 +21,6 @@ import {
   useResponsiveHeight,
   useResponsiveWidth,
 } from '../utils/Utils';
-import {LanguageDialog} from '../dialog/LanguageDialog';
 import {LangDialog} from '../dialog/LangDialog';
 import i18n from '../../translation';
 
@@ -85,7 +84,7 @@ export const AppBar = (props: AppBarProps) => {
             justifyContent: isPortrait() ? 'space-between' : 'space-around',
             alignItems: 'center',
           }}>
-          <TouchableOpacity onPress={props.onHomeClick}>
+          <TouchableOpacity onPress={props.onBleClick}>
             <Image
               resizeMode="contain"
               source={Ble}
