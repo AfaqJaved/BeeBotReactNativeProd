@@ -75,6 +75,8 @@ export class CustomBleManger {
         this.bleManager.startDeviceScan(null, { allowDuplicates: false }, async (error, device) => {
             if (error) {
                 console.log(error.message);
+                console.log(error);
+                console.log(error.reason);
                 return
             }
             if (device != null) {

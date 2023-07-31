@@ -13,24 +13,39 @@ import {CONSTANTS} from '../constants/Contants';
 import Home from '../assets/img/home-alt.png';
 import Logo from '../assets/img/logo.png';
 import Ble from '../assets/img/bt.png';
-import {isLandscape, isPortrait, useResponsiveFontSize, useResponsiveHeight, useResponsiveWidth} from '../utils/Utils';
+import {
+  isLandscape,
+  isPortrait,
+  useResponsiveFontSize,
+  useResponsiveHeight,
+  useResponsiveWidth,
+} from '../utils/Utils';
 
 export interface AppBarProps {
   onClick(): void;
   number: string;
   month: string;
   children?: any;
+  backgroundColor: string;
+  isActive: boolean;
+  isEnabled: boolean;
 }
 
 export const MonthBlock = (props: AppBarProps) => {
-  const monthRectWidth = isPortrait() ? useResponsiveHeight(10) : useResponsiveWidth(13);
+  const monthRectWidth = isPortrait()
+    ? useResponsiveHeight(10)
+    : useResponsiveWidth(13);
   const monthNameFontSize = useResponsiveFontSize(3);
-  const numberFontSize = isPortrait() ? useResponsiveFontSize(5) : useResponsiveFontSize(6);
+  const numberFontSize = isPortrait()
+    ? useResponsiveFontSize(5)
+    : useResponsiveFontSize(6);
   const padding = useResponsiveWidth(2);
 
-
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        props.onClick();
+      }}
       style={{
         justifyContent: 'center',
         alignItems: 'center',
@@ -39,16 +54,24 @@ export const MonthBlock = (props: AppBarProps) => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
-          width:monthRectWidth,
-          aspectRatio : 1,
-          backgroundColor: CONSTANTS.COLORS.LIGHT_GRAY,
+          width: monthRectWidth,
+          aspectRatio: 1,
+          backgroundColor: props.isEnabled
+            ? props.isActive
+              ? props.backgroundColor
+              : CONSTANTS.COLORS.LIGHT_GRAY
+            : CONSTANTS.COLORS.LIGHT_GRAY,
           padding: padding,
         }}>
         <Text
           style={{
             fontSize: numberFontSize,
             fontWeight: 'bold',
-            color: CONSTANTS.COLORS.GREEN,
+            color: props.isEnabled
+              ? props.isActive
+                ? 'white'
+                : props.backgroundColor
+              : CONSTANTS.COLORS.GRAY,
           }}>
           {props.number}
         </Text>
@@ -56,11 +79,13 @@ export const MonthBlock = (props: AppBarProps) => {
       <Text
         style={{
           fontSize: monthNameFontSize,
-          color: CONSTANTS.COLORS.GREEN,
+          color: props.isEnabled
+            ? props.backgroundColor
+            : CONSTANTS.COLORS.GRAY,
           fontFamily: 'Robot-Regular',
         }}>
         {props.month}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };

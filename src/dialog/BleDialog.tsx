@@ -33,14 +33,7 @@ import {RootReducer} from '../redux/Store';
 import {ISCONNECTING, PUSHDEVICE} from '../redux/Actions';
 import {Characteristic} from 'react-native-ble-plx';
 import {err} from 'react-native-svg/lib/typescript/xml';
-// import {
-//   requestBackGroundLocation,
-//   requestBluetoothAdvertisePermission,
-//   requestBluetoothConnectPermission,
-//   requestBluetoothScanPermission,
-//   requestCoarseLocationPermission,
-//   requestFineLocationPermission,
-// } from '../utils/Permission';
+import {RoundedButton} from '../components/RoundedButton';
 
 export interface LangProps {
   visible: boolean;
@@ -72,6 +65,9 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
   );
   const isScanning = useSelector(
     (state: RootReducer) => state.bleReducer.isScanning,
+  );
+  const connectedDevice = useSelector(
+    (state: RootReducer) => state.bleReducer.connectedDevice,
   );
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -134,29 +130,64 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
           marginTop: useResponsiveHeight(2),
           height: useResponsiveHeight(0.2),
         }}></View>
-      <FlatList
-        data={foundDevices}
-        keyExtractor={(item, index) => String(index)}
-        renderItem={({item}) => {
-          return (
-            <BleItem
-              onConnectClick={() => {
-                dispatch({
-                  type: ISCONNECTING,
-                  payload: true,
-                  deviceId: item.deviceId,
-                });
-                CustomBleManger.getInstance().connectDevice(item.device);
-              }}
-              onDisconnectClick={() => {
-                CustomBleManger.getInstance().disconnectDevice(item.device);
-              }}
-              connected={item.connected}
-              deviceName={item.device.name != null ? item.device.name : ''}
-              isConnecting={item.isConnecting}></BleItem>
-          );
-        }}
-      />
+      <View
+        style={{
+          height: isPortrait()
+            ? useResponsiveHeight(30)
+            : useResponsiveHeight(20),
+          marginBottom: isPortrait() ? useResponsiveHeight(5) : 0,
+        }}>
+        <FlatList
+          data={foundDevices}
+          keyExtractor={(item, index) => String(index)}
+          renderItem={({item}) => {
+            return (
+              <BleItem
+                onConnectClick={() => {
+                  dispatch({
+                    type: ISCONNECTING,
+                    payload: true,
+                    deviceId: item.deviceId,
+                  });
+                  CustomBleManger.getInstance().connectDevice(item.device);
+                }}
+                onDisconnectClick={() => {
+                  CustomBleManger.getInstance().disconnectDevice(item.device);
+                }}
+                connected={item.connected}
+                deviceName={item.device.name != null ? item.device.name : ''}
+                isConnecting={item.isConnecting}></BleItem>
+            );
+          }}
+        />
+      </View>
+
+      {connectedDevice != undefined ? (
+        <View
+          style={{
+            width: isPortrait()
+              ? useResponsiveWidth(60)
+              : useResponsiveWidth(40),
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+          <Text
+            style={{
+              fontSize: useResponsiveFontSize(3),
+              color: 'black',
+              textAlign: 'center',
+              marginBottom: isPortrait() ? useResponsiveWidth(5) : 0,
+            }}>
+            {t('ble_success')}
+          </Text>
+          <RoundedButton
+            onClick={onClose}
+            backgroundColor={CONSTANTS.COLORS.GREEN}
+            label={t('start')}></RoundedButton>
+        </View>
+      ) : (
+        ''
+      )}
     </View>
   ) : (
     <View style={{display: 'none'}}></View>

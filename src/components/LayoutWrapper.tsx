@@ -30,7 +30,8 @@ export const LayoutWrapper = ({navigation, children}: LayoutWrapperProps) => {
     PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-    ]).then(result => {
+      PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+        ]).then(result => {
       console.log(result);
     });
   }

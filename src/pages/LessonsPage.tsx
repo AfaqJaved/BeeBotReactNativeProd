@@ -19,6 +19,7 @@ import {MenuItem} from '../components/Menu';
 import {useResponsiveHeight, useResponsiveWidth} from '../utils/Utils';
 import {Accordian} from '../components/Accordian';
 import {LayoutWrapper} from '../components/LayoutWrapper';
+import {LESSONS_MODELS} from '../data/LessonsData';
 
 const LessonsPage = ({navigation}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -30,8 +31,8 @@ const LessonsPage = ({navigation}: any) => {
   const roudedBorderHeight = useResponsiveHeight(6);
   const roudedBorderMarginTop = useResponsiveHeight(-3);
 
-  const [visibility, setVisibility] = React.useState(false);
-  const [visibility1, setVisibility1] = React.useState(false);
+  const [lessons, setLessons] = React.useState(LESSONS_MODELS);
+
 
   useEffect(() => {
     Dimensions.addEventListener('change', () => {
@@ -41,17 +42,40 @@ const LessonsPage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
-      <Accordian
-        show={visibility}
-        onClick={() => {
-          setVisibility(!visibility);
-        }}></Accordian>
-
-      <Accordian
-        show={visibility1}
-        onClick={() => {
-          setVisibility1(!visibility1);
-        }}></Accordian>
+      {lessons.map((lesson, index) => {
+        return (
+          <Accordian
+            key={index.toString()}
+            accordianBackgroundColor={lesson.accordianBackgroundColor}
+            accordianImage={lesson.accordianImage}
+            accordianTitle={lesson.accordianTitle}
+            show={lesson.isAccordianBodyVisible}
+            monthAndTopics={lesson.months}
+            onMonthClick={month => {
+              const updated = lessons.map(hold => {
+                hold.months.map(monthHold => {
+                  if (month.month === monthHold.month) {
+                    monthHold.isTopicsVisible = !monthHold.isTopicsVisible;
+                  } else {
+                    monthHold.isTopicsVisible = false;
+                  }
+                  return monthHold;
+                });
+                return hold;
+              });
+              setLessons(updated);
+            }}
+            onClick={() => {
+              const updated = lessons.map(hold => {
+                if (hold.accordianTitle === lesson.accordianTitle) {
+                  hold.isAccordianBodyVisible = !hold.isAccordianBodyVisible;
+                }
+                return hold;
+              });
+              setLessons(updated);
+            }}></Accordian>
+        );
+      })}
     </LayoutWrapper>
   );
 };

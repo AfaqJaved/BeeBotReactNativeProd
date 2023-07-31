@@ -20,8 +20,6 @@ export default {
     ble_is_scanning: "Scanning For Ble Devices",
     lessons_search_hint: "Enter subject or field id",
     select_month: "Select Month",
-    lessons_list_1: "Preschoolers\nGEFTopics",
-    lessons_list_2: "Preschoolers\nHolidays",
     back_to_topics: "← к списку полей",
     download_pdf: "Download Lesson  in Pdf",
     fields_2: "City Street",
@@ -90,8 +88,116 @@ export default {
     ALPHABET_FIELD: {
         description: "Description",
         description_content: `The rug is divided into squares with letters of the alphabet . Allows you to get acquainted with letters , sounds and practice in composing words . Also develops phonemic hearing, attention, memory, thinking. The field can be used for individual work, work in large and small groups, free play activities, as well as for children with special educational needs, taking into account their characteristics and capabilities. Contribute to the development of speech (enrichment of the active vocabulary) and orientation on the plane. It can be used both for individual work and for work in large and small groups.Visually, the field is divided into sectors 15x15 cm in size, which corresponds to the length of the step of the Logo Robot "Bee". The field can be used on any flat horizontal surface both indoors and outdoors. Designed for children from 3 years old`,
+    },
+    lessons_1: "Preschoolers\nGEFTopics",
+    lessons_2: "Preschoolers\nHolidays",
+    lessons_3: "Preschoolers\nHolidays",
+    LESSONS: {
+        jan: {
+            topic1: "Visiting a fairy tale",
+            topic2: "Etiquette",
+        },
+        feb: {
+            topic1: "Little Explorers",
+            topic2: "My family",
+            topic3: "Traffic ordinance",
+            topic4: "Defenders of the Motherland",
+        },
+        mar: {
+            topic1: "Women's day",
+            topic2: "Russian folkways",
+            topic3: "Healthy life",
+            topic4: "Spring",
+        },
+        apr: {
+            topic1: "Laughter Day/Circus/Theater",
+            topic2: "Birds",
+            topic3: "Space/Our planet",
+            topic4: "Plants",
+        },
+        may: {
+            topic1: "Spring and Labor Holiday",
+            topic2: "Victory Day",
+            topic3: "The world of nature",
+            topic4: "Goodbye, kindergarten/ Hello, school",
+        },
+        sep: {
+            topic1: "Goodbye, summer/ Hello, kindergarten/ Knowledge Day",
+            topic2: "My house/My city/My country/My planet",
+            topic3: "Vegetables- fruits, mushrooms-berries/Harvest",
+            topic4: "Colors of autumn",
+        },
+        oct: {
+            topic1: "The animal world. Birds/Insects",
+            topic2: "I'm a human",
+            topic3: "Folklife culture and traditions",
+            topic4: "Household activities",
+        },
+        nov: {
+            topic1: "Friendship/National Unity Day",
+            topic2: "Transport",
+            topic3: "Healthy habits",
+            topic4: "Preparing for winter",
+        },
+        dec: {
+            topic1: "Hello, winter!",
+            topic2: "Winter amusements ",
+            topic3: "Folk toy",
+            topic4: "New Year's Kaleidoscope",
+        }
+    },
+    HOLIDAYS: {
+        feb: {
+            topic1: "Russian Science Day",
+            topic2: "International Mother Tongue Day",
+            topic3: "Defender of the Homeland Day",
+            topic4: "Defenders of the Motherland",
+        },
+        mar: {
+            topic1: "International Women's Day",
+            topic2: "World Theatre Day ",
+        },
+        apr: {
+            topic1: "Cosmonautics Day",
+        },
+        may: {
+            topic1: "International Worker's Day",
+            topic2: "Victory Day",
+            topic3: "Day of Slavic Writing and Culture",
+        },
+        jun: {
+            topic1: "Children's Day",
+            topic2: "Russian Language Day",
+            topic3: "Russia Day",
+        },
+        jul: {
+            topic1: "Family, Love and Fidelity Day",
+        },
+        aug: {
+            topic1: "Physical Education Day",
+            topic2: "National Flag Day",
+            topic3: "Russian Cinema Day",
+        },
+        sep: {
+            topic1: "Knowledge Day",
+            topic2: "International Literacy Day",
+            topic3: "Day of the educator and all preschool workers"
+        },
+        oct: {
+            topic1: "International Day of Older Persons/International Music Day",
+            topic2: "Animal Protection Day",
+            topic3: "Teachers' Day ",
+            topic4: "Father's Day in Russia",
+        },
+        nov: {
+            topic1: "National Unity Day",
+            topic2: "Mother's Day",
+        },
+        dec: {
+            topic1: "International Day of Artist",
+            topic2: "Constitution Day ",
+            topic3: "New Year",
+        }
     }
-
-
 
 };

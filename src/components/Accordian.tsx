@@ -19,14 +19,22 @@ import Bear from '../assets/img/bear.png';
 import Arrow from '../assets/img/Vector36.png';
 import {MonthBlock} from '../components/MonthBlock';
 import {isLandscape, isPortrait} from '../utils/Utils';
+import {useTranslation} from 'react-i18next';
+import {Months} from '../models/LessonsModel';
 
-export interface MenuItemProps {
+export interface AccordianProps {
   onClick(): void;
+  onMonthClick(month: Months): void;
   children?: any;
   show: boolean;
+  accordianTitle: string;
+  accordianImage: any;
+  accordianBackgroundColor: string;
+  monthAndTopics: Months[];
 }
 
-export const Accordian = (props: MenuItemProps) => {
+export const Accordian = (props: AccordianProps) => {
+  const {t} = useTranslation();
   const accordianWidth = useResponsiveWidth(90);
   const accordianImageWidth = isPortrait()
     ? useResponsiveWidth(15)
@@ -42,8 +50,13 @@ export const Accordian = (props: MenuItemProps) => {
   const monthGridHeight = isPortrait()
     ? useResponsiveHeight(45)
     : useResponsiveHeight(70);
+
+  const [selectedMonth, setSelectedMonth] = React.useState<Months | undefined>(
+    undefined,
+  );
+
   return (
-    <View style={{marginBottom : useResponsiveHeight(3)}}>
+    <View style={{marginBottom: useResponsiveHeight(3)}}>
       <View
         style={{
           flexDirection: 'row',
@@ -56,11 +69,11 @@ export const Accordian = (props: MenuItemProps) => {
           paddingLeft: 15,
           paddingRight: 15,
           alignItems: 'center',
-          backgroundColor: CONSTANTS.COLORS.GREEN,
+          backgroundColor: props.accordianBackgroundColor,
         }}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image
-            source={Bear}
+            source={props.accordianImage}
             style={{
               aspectRatio: 1,
               width: accordianImageWidth,
@@ -71,7 +84,7 @@ export const Accordian = (props: MenuItemProps) => {
               fontSize: accordianTitleFontSize,
               color: CONSTANTS.COLORS.WHITE,
             }}>
-            Preschoolers{'\n'}GEFTopics
+            {t(props.accordianTitle)}
           </Text>
         </View>
         <TouchableOpacity
@@ -122,18 +135,27 @@ export const Accordian = (props: MenuItemProps) => {
               width: accordianWidth,
               height: monthGridHeight,
             }}>
-            <MonthBlock number="01" month="Jan" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="02" month="Feb" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="03" month="Mar" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="04" month="Apr" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="05" month="May" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="06" month="Jun" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="07" month="Jul" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="08" month="Aug" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="09" month="Sep" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="10" month="Oct" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="11" month="Nov" onClick={() => {}}></MonthBlock>
-            <MonthBlock number="12" month="Dec" onClick={() => {}}></MonthBlock>
+            {props.monthAndTopics.map((monthTopic, index) => {
+              index++;
+              let finalIndex = '';
+              if (index.toString().length < 2) {
+                finalIndex = '0' + index.toString();
+              } else {
+                finalIndex = index.toString();
+              }
+              return (
+                <MonthBlock
+                  number={finalIndex}
+                  backgroundColor={props.accordianBackgroundColor}
+                  month={t(monthTopic.month)}
+                  isActive={monthTopic.isTopicsVisible}
+                  isEnabled={monthTopic.isactive}
+                  onClick={() => {
+                    props.onMonthClick(monthTopic);
+                    setSelectedMonth(monthTopic);
+                  }}></MonthBlock>
+              );
+            })}
           </View>
         </View>
         {/* MONTHS GRID END */}
@@ -142,7 +164,7 @@ export const Accordian = (props: MenuItemProps) => {
             width: accordianWidth,
             marginLeft: 'auto',
             marginRight: 'auto',
-            backgroundColor: CONSTANTS.COLORS.GREEN,
+            backgroundColor: props.accordianBackgroundColor,
             height: isPortrait()
               ? useResponsiveHeight(1)
               : useResponsiveHeight(2),
@@ -151,7 +173,7 @@ export const Accordian = (props: MenuItemProps) => {
         <View
           style={{
             backgroundColor: CONSTANTS.COLORS.LIGHT_WHITE,
-            height: useResponsiveHeight(45),
+            height: useResponsiveHeight(40),
             width: accordianWidth,
             marginLeft: 'auto',
             marginRight: 'auto',
@@ -160,194 +182,50 @@ export const Accordian = (props: MenuItemProps) => {
             padding: useResponsiveWidth(3),
           }}>
           {/* ROW */}
-          <View style={{flexDirection: 'row', flexWrap: 'wrap',justifyContent : "flex-start" ,width : accordianWidth}}>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* ROW */}
           <View
             style={{
               flexDirection: 'row',
-              width : accordianWidth,
               flexWrap: 'wrap',
-              justifyContent : "flex-start",
-              marginTop: useResponsiveHeight(2),
+              justifyContent: 'flex-start',
+              width: accordianWidth,
             }}>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color : CONSTANTS.COLORS.BLACK,
-                  fontSize: useResponsiveFontSize(2.5),
-                  textDecorationLine: 'underline',
-                  fontFamily: 'Roboto-Regular',
-                }}>
-                Content1 /
-              </Text>
-            </TouchableOpacity>
+            {selectedMonth?.topics.map((topic,index) => {
+              let finalIndex = ++index;
 
-
+              return (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    width: useResponsiveWidth(80),
+                    flexWrap: 'wrap',
+                    justifyContent: 'flex-start',
+                    marginTop: useResponsiveHeight(1),
+                  }}>
+                  <TouchableOpacity style={{flexDirection : "row"}}>
+                    <Text
+                      style={{
+                        color: CONSTANTS.COLORS.BLACK,
+                        fontSize: useResponsiveFontSize(2.5),
+                        fontFamily: 'Roboto-Regular',
+                      }}>
+                      {finalIndex.toString()+". "}
+                    </Text>
+                    <Text
+                      style={{
+                        color: CONSTANTS.COLORS.BLACK,
+                        fontSize: useResponsiveFontSize(2.5),
+                        textDecorationLine: 'underline',
+                        fontFamily: 'Roboto-Regular',
+                      }}>
+                      {t(topic)}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
           </View>
+
+          {/* ROW */}
         </View>
       </View>
     </View>

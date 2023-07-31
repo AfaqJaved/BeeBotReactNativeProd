@@ -15,7 +15,7 @@ export interface CustomBleDevice {
 // Define the counter state interface
 export interface BleState {
     foundDevices: CustomBleDevice[];
-    connectedDevice?: Device;
+    connectedDevice?: CustomBleDevice;
     isScanning: boolean;
     char?: Characteristic;
 }
@@ -50,6 +50,7 @@ const bleStateReducer = (state = initialState, action: BleAction): BleState => {
             return {
                 ...state,
                 char: action.payload,
+                connectedDevice: action.device,
                 foundDevices: [action.device]
             };
         }
