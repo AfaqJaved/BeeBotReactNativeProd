@@ -14,15 +14,22 @@ import {CONSTANTS} from '../constants/Contants';
 import Home from '../assets/img/home-alt.png';
 import Logo from '../assets/img/logo.png';
 import Ble from '../assets/img/bt.png';
-import {isLandscape, isPortrait, useResponsiveFontSize, useResponsiveHeight, useResponsiveWidth} from '../utils/Utils';
+import {
+  isLandscape,
+  isPortrait,
+  isTablet,
+  useResponsiveFontSize,
+  useResponsiveHeight,
+  useResponsiveWidth,
+} from '../utils/Utils';
 
 export interface MenuItemProps {
   onClick(): void;
   image: any;
   label: string;
-  width : number;
-  heightLand : number;
-  heightPort : number;
+  width: number;
+  heightLand: number;
+  heightPort: number;
 }
 
 export const MenuItem = (props: MenuItemProps) => {
@@ -31,10 +38,10 @@ export const MenuItem = (props: MenuItemProps) => {
       <ImageBackground
         borderRadius={10}
         source={props.image}
-        resizeMode="cover"
+        resizeMode={"cover"}
         style={{
-          marginLeft : "auto",
-          marginRight : "auto",
+          marginLeft: 'auto',
+          marginRight: 'auto',
           position: 'relative',
           width: useResponsiveWidth(props.width),
           height: isPortrait()
@@ -44,11 +51,13 @@ export const MenuItem = (props: MenuItemProps) => {
         <Text
           style={{
             position: 'absolute',
-            bottom: isPortrait() ? useResponsiveHeight(2) : useResponsiveHeight(5),
-            left: isPortrait() ? useResponsiveWidth(3) : useResponsiveWidth(2),
+            bottom: 15,
+            left: 20,
             fontFamily: 'Roboto-Regular',
             color: CONSTANTS.COLORS.WHITE,
-            fontSize: isPortrait() ? useResponsiveFontSize(2.5) : useResponsiveFontSize(4),
+            fontSize: isTablet() ? useResponsiveFontSize(1.5) : isPortrait()
+              ? useResponsiveFontSize(2)
+              : useResponsiveFontSize(2),
           }}>
           {props.label}
         </Text>

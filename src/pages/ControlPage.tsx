@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import {AppBar} from '../components/AppBar';
 import {
+  isTablet,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -27,7 +28,7 @@ import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootReducer} from '../redux/Store';
 import {INCREMENT} from '../redux/Actions';
-import base64 from 'react-native-base64'
+import base64 from 'react-native-base64';
 
 const ControlPage = ({navigation}: any) => {
   const [showLoading, setShowLoading] = React.useState(true);
@@ -65,9 +66,13 @@ const ControlPage = ({navigation}: any) => {
         onLoad={() => setShowLoading(true)}
         onLoadEnd={() => setShowLoading(false)}
         style={{
-          width: isPortrait() ? mainContentWidth : useResponsiveWidth(30),
+          width: isTablet() && isPortrait()
+            ? useResponsiveWidth(70)
+            : isPortrait()
+            ? useResponsiveWidth(100)
+            : useResponsiveWidth(25),
           height: isPortrait()
-            ? useResponsiveHeight(85)
+            ? useResponsiveHeight(80)
             : useResponsiveHeight(70),
           marginLeft: 'auto',
           marginRight: 'auto',

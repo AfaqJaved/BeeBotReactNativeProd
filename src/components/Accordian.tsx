@@ -31,6 +31,7 @@ export interface AccordianProps {
   accordianImage: any;
   accordianBackgroundColor: string;
   monthAndTopics: Months[];
+  navigation : any
 }
 
 export const Accordian = (props: AccordianProps) => {
@@ -46,9 +47,9 @@ export const Accordian = (props: AccordianProps) => {
     : useResponsiveHeight(5);
   const selectMonthFontSize = useResponsiveFontSize(2.5);
 
-  const monthGridGap = isPortrait() ? useResponsiveWidth(1) : 0;
+  const monthGridGap = isPortrait() ? useResponsiveWidth(2) : useResponsiveWidth(5);
   const monthGridHeight = isPortrait()
-    ? useResponsiveHeight(45)
+    ? useResponsiveHeight(60)
     : useResponsiveHeight(70);
 
   const [selectedMonth, setSelectedMonth] = React.useState<Months | undefined>(
@@ -64,10 +65,10 @@ export const Accordian = (props: AccordianProps) => {
           marginRight: 'auto',
           width: accordianWidth,
           justifyContent: 'space-between',
-          paddingTop: 9,
-          paddingBottom: 9,
-          paddingLeft: 15,
-          paddingRight: 15,
+          paddingTop: useResponsiveHeight(2),
+          paddingBottom: useResponsiveHeight(2),
+          paddingLeft: useResponsiveWidth(4),
+          paddingRight: useResponsiveWidth(4),
           alignItems: 'center',
           backgroundColor: props.accordianBackgroundColor,
         }}>
@@ -92,7 +93,7 @@ export const Accordian = (props: AccordianProps) => {
             props.onClick();
           }}>
           <Image
-            style={{transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
+            style={{aspectRatio : 1, width : useResponsiveWidth(5) , height : useResponsiveHeight(5),transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
             source={Arrow}></Image>
         </TouchableOpacity>
       </View>
@@ -129,11 +130,13 @@ export const Accordian = (props: AccordianProps) => {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-evenly',
+              justifyContent: 'center',
+              alignItems : "center",
               flexWrap: 'wrap',
               gap: monthGridGap,
               width: accordianWidth,
-              height: monthGridHeight,
+              height: 'auto',
+              marginBottom : useResponsiveWidth(4)
             }}>
             {props.monthAndTopics.map((monthTopic, index) => {
               index++;
@@ -173,7 +176,7 @@ export const Accordian = (props: AccordianProps) => {
         <View
           style={{
             backgroundColor: CONSTANTS.COLORS.LIGHT_WHITE,
-            height: useResponsiveHeight(40),
+            height: 'auto',
             width: accordianWidth,
             marginLeft: 'auto',
             marginRight: 'auto',
@@ -201,7 +204,7 @@ export const Accordian = (props: AccordianProps) => {
                     justifyContent: 'flex-start',
                     marginTop: useResponsiveHeight(1),
                   }}>
-                  <TouchableOpacity style={{flexDirection : "row"}}>
+                  <TouchableOpacity onPress={()=> props.navigation.navigate("PdfView")} style={{flexDirection : "row"}}>
                     <Text
                       style={{
                         color: CONSTANTS.COLORS.BLACK,

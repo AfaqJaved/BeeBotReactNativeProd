@@ -12,6 +12,7 @@ import {
   Linking,
 } from 'react-native';
 import {
+  isTablet,
   useResponsiveHeight,
   useResponsiveWidth,
 } from '../utils/Utils';
@@ -25,11 +26,11 @@ import Control from '../assets/img/control.png';
 import Scratch from '../assets/img/scetch.png';
 import Add from '../assets/img/add.png';
 
-import LandLessons from '../assets/img/lessons1.png';
-import LandFields from '../assets/img/fields_mv1.png';
-import LandControl from '../assets/img/control_mv1.png';
-import LandScratch from '../assets/img/scretch_mv2.png';
-import LandAdd from '../assets/img/add_mv1.png';
+import LandLessons from '../assets/img/lessons_tablet.png';
+import LandFields from '../assets/img/fields_tablet.png';
+import LandControl from '../assets/img/control_tablet.png';
+import LandScratch from '../assets/img/scratch_tablet.png';
+import LandAdd from '../assets/img/materials_tablet.png';
 import {useTranslation} from 'react-i18next';
 import i18n from '../../translation';
 import {LangDialog} from '../dialog/LangDialog';
@@ -52,56 +53,46 @@ const HomePage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
+
+      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",rowGap : useResponsiveWidth(2),columnGap : useResponsiveWidth(2)}}>
       <MenuItem
         image={isPortrait() ? Lessons : LandLessons}
-        width={90}
-        heightLand={70}
-        heightPort={25}
+        width={!isTablet() ? 90 : 60}
+        heightLand={isTablet() ? 30 : 50}
+        heightPort={!isTablet() ? 25 : 30}
         label={t('lessons')}
         onClick={() => {
           navigation.navigate('Lessons');
         }}></MenuItem>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          marginTop: useResponsiveWidth(2),
-          justifyContent: 'center',
-        }}>
+
         <MenuItem
           image={isPortrait() ? Fields : LandFields}
-          width={44}
-          heightLand={70}
-          heightPort={33}
+          width={!isTablet() ? 44 : 30}
+          heightLand={isTablet() ? 30 : 50}
+          heightPort={!isTablet() ? 33 : 30}
           label={t('fields')}
           onClick={() => {
             navigation.navigate("Fields")
           }}></MenuItem>
 
-        <View style={{width: useResponsiveWidth(2)}}></View>
 
         <MenuItem
           image={isPortrait() ? Control : LandControl}
-          width={44}
-          heightLand={70}
-          heightPort={33}
+          width={!isTablet() ? 44 : 29.3}
+          heightLand={isTablet() ? 30 : 50}
+          heightPort={!isTablet() ? 33 : 30}
           label={t('remote')}
           onClick={() => {
             navigation.navigate('Control');
           }}></MenuItem>
-      </View>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          marginTop: useResponsiveWidth(2),
-          justifyContent: 'center',
-        }}>
+
         <MenuItem
           image={isPortrait() ? Scratch : LandScratch}
-          width={44}
-          heightLand={70}
-          heightPort={33}
+          width={!isTablet() ? 44 : 29.3}
+          heightLand={isTablet() ? 30 : 50}
+          heightPort={!isTablet() ? 33 : 30}
           label={t('scratch')}
           onClick={() => {
             Linking.openURL(CONSTANTS.SCRATCH_URL).catch(err =>
@@ -109,18 +100,18 @@ const HomePage = ({navigation}: any) => {
             );
           }}></MenuItem>
 
-        <View style={{width: useResponsiveWidth(2)}}></View>
 
         <MenuItem
           image={isPortrait() ? Add : LandAdd}
-          width={44}
-          heightLand={70}
-          heightPort={33}
+          width={!isTablet() ? 44 : 29.3}
+          heightLand={isTablet() ? 30 : 50}
+          heightPort={!isTablet() ? 33 : 30}
           label={t('materials')}
           onClick={() => {
             console.log('called');
           }}></MenuItem>
       </View>
+
 
       <View style={{height: useResponsiveHeight(1)}}></View>
     </LayoutWrapper>

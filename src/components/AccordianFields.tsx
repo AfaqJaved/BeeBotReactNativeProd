@@ -55,10 +55,10 @@ export const AccordianFields = (props: MenuItemProps) => {
           marginRight: 'auto',
           width: accordianfieldsWidth,
           justifyContent: 'space-between',
-          paddingTop: 9,
-          paddingBottom: 9,
-          paddingLeft: 15,
-          paddingRight: 15,
+          paddingTop: useResponsiveHeight(2),
+          paddingBottom: useResponsiveHeight(2),
+          paddingLeft: useResponsiveWidth(4),
+          paddingRight: useResponsiveWidth(4),
           alignItems: 'center',
           backgroundColor: props.backgroundColor,
         }}>
@@ -89,7 +89,7 @@ export const AccordianFields = (props: MenuItemProps) => {
           </View>
         </View>
 
-        <Image style={{transform: [{rotate: '-90deg'}]}} source={Arrow}></Image>
+        <Image style={{aspectRatio : 1, width : useResponsiveWidth(5) , height : useResponsiveHeight(5),transform: [{rotate: '-90deg'}]}} source={Arrow}></Image>
       </View>
     </View>
   );

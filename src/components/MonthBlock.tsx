@@ -33,8 +33,8 @@ export interface AppBarProps {
 
 export const MonthBlock = (props: AppBarProps) => {
   const monthRectWidth = isPortrait()
-    ? useResponsiveHeight(10)
-    : useResponsiveWidth(13);
+    ? useResponsiveWidth(16)
+    : useResponsiveWidth(10);
   const monthNameFontSize = useResponsiveFontSize(3);
   const numberFontSize = isPortrait()
     ? useResponsiveFontSize(5)
@@ -49,6 +49,7 @@ export const MonthBlock = (props: AppBarProps) => {
       style={{
         justifyContent: 'center',
         alignItems: 'center',
+
       }}>
       <View
         style={{
@@ -61,7 +62,7 @@ export const MonthBlock = (props: AppBarProps) => {
               ? props.backgroundColor
               : CONSTANTS.COLORS.LIGHT_GRAY
             : CONSTANTS.COLORS.LIGHT_GRAY,
-          padding: padding,
+          // padding: padding,
         }}>
         <Text
           style={{

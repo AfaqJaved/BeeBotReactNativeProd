@@ -39,6 +39,7 @@ export default {
     beach: "Beach",
     blocks: "Colors and Shapes",
     back_to_fields: "←to the list of fields",
+    back_to_lessons: "←back to lessons",
     fields_title: "Mat for Logo Robot Bee",
     click_to_large: "click on the map to enlarge it",
     jan: "Jan",

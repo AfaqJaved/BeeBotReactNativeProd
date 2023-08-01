@@ -27,7 +27,6 @@ import RadioOff from '../assets/img/radio_off.png';
 import {BleItem} from '../components/BleItem';
 import {CustomBleManger} from '../ble/BleManager';
 import Toast from 'react-native-toast-message';
-import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootReducer} from '../redux/Store';
 import {ISCONNECTING, PUSHDEVICE} from '../redux/Actions';

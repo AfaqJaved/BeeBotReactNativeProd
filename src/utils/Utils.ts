@@ -9,6 +9,11 @@ export const isPortrait = () => {
     return dim.height >= dim.width;
 };
 
+export const isTablet = () => {
+    const width = Dimensions.get('screen').width;
+    return width >= 768 ? true : false;
+}
+
 export const useResponsiveHeight = (per: number) => {
     const dim = Dimensions.get('window').height;
     return (dim * per) / 100;
@@ -24,7 +29,7 @@ export const getLocalFromList = (local: string) => {
     let hold = local.split('(')[1];
     let finalLanguage: string = hold[0] + hold[1];
     return finalLanguage.toLowerCase();
-  };
+};
 
 
 export const useResponsiveFontSize = (size: number) => {

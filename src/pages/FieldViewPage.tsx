@@ -98,13 +98,13 @@ const FieldsViewPage = ({navigation, route}: any) => {
           }}>
           <Image
             resizeMode="cover"
-            resizeMethod="resize"
             style={{
               marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
               marginRight: isPortrait() ? 'auto' : 0,
               width: isPortrait()
                 ? useResponsiveWidth(90)
                 : useResponsiveWidth(50),
+              height : isPortrait() ? useResponsiveHeight(50) : useResponsiveHeight(70),
               backgroundColor: 'red',
               borderRadius: 10,
             }}

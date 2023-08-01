@@ -60,9 +60,10 @@ const FieldsPage = ({navigation}: any) => {
       <View style={{position: 'relative', padding: 10}}>
         <Image
           source={Search}
+          resizeMode='contain'
           style={{
             position: 'absolute',
-            padding: 10,
+            width : useResponsiveWidth(5),
             left: useResponsiveWidth(5),
             top: isPortrait() ? useResponsiveHeight(2) : useResponsiveHeight(5),
           }}

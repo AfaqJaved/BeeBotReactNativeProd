@@ -16,9 +16,10 @@ import Toast from 'react-native-toast-message';
 export interface LayoutWrapperProps {
   navigation: any;
   children: any;
+  enableScroll? : boolean;
 }
 
-export const LayoutWrapper = ({navigation, children}: LayoutWrapperProps) => {
+export const LayoutWrapper = ({navigation, enableScroll, children}: LayoutWrapperProps) => {
   const mainContentWidth = useResponsiveWidth(100);
   const mainContentHeight = isPortrait()
     ? useResponsiveHeight(80)
@@ -74,7 +75,9 @@ export const LayoutWrapper = ({navigation, children}: LayoutWrapperProps) => {
 
       {/* Main Content */}
       <ScrollView
+        scrollEnabled={enableScroll}
         style={{
+
           width: mainContentWidth,
           height: mainContentHeight,
           backgroundColor: CONSTANTS.COLORS.WHITE,

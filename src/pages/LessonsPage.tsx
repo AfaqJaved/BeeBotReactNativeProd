@@ -45,7 +45,8 @@ const LessonsPage = ({navigation}: any) => {
       {lessons.map((lesson, index) => {
         return (
           <Accordian
-            key={index.toString()}
+            navigation={navigation}
+            key={lesson.accordianTitle}
             accordianBackgroundColor={lesson.accordianBackgroundColor}
             accordianImage={lesson.accordianImage}
             accordianTitle={lesson.accordianTitle}
