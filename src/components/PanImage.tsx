@@ -10,6 +10,7 @@ import {
   GestureHandlerRootView,
   PanGestureHandler,
 } from 'react-native-gesture-handler';
+import { CONSTANTS } from '../constants/Contants';
 
 export interface PanImageProps {
   image: any;
@@ -20,14 +21,20 @@ export interface PanImageProps {
 const PanImage = ({image, scale, setScale}: any) => {
   const imageRef = React.useRef<any>();
   const [position, setPosition] = React.useState({x: 0, y: 0});
-  const [ignored, forceUpdate] = React.useReducer(x => x + 1, 0);
+  // const [ignored, forceUpdate] = React.useReducer(x => x + 1, 0);
+
+  React.useEffect(()=>{
+    if(scale == 1) {
+      setPosition({x : 0 , y : 0});
+    }
+  },[scale])
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         activeOpacity={1}
         onPress={() => {
-          setScale(3);
+          setScale(CONSTANTS.FIELD_ZOOM_SCALE_MAX);
         }}>
           <PanGestureHandler
             onGestureEvent={async event => {
@@ -35,8 +42,8 @@ const PanImage = ({image, scale, setScale}: any) => {
               const x = event.nativeEvent.translationX;
               const y = event.nativeEvent.translationY;
               await setPosition({
-                x: position.x + event.nativeEvent.translationX/30,
-                y: position.y + event.nativeEvent.translationY/30,
+                x: position.x + event.nativeEvent.translationX/10,
+                y: position.y + event.nativeEvent.translationY/10,
               });
             }}>
             <Image

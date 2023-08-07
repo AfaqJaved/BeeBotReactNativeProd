@@ -101,7 +101,8 @@ const FieldsViewPage = ({navigation, route}: any) => {
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('ImageView', {
-              image: model.gridImage,
+              imageMobile: model.gridImage,
+              imageTablet : model.girdImageTablet,
               title: model.title,
             });
           }}>

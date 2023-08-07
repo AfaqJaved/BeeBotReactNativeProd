@@ -27,7 +27,7 @@ import FairyTaleImageGridTabletLarge from '../assets/img/fairytale_tabletlg.png'
 import Beach from "../assets/img/beach1.png";
 import BeachImageGridMobile from '../assets/img/sea_mobile.png';
 import BeachImageGridTablet from '../assets/img/sea_tablet.png';
-import BeachImageGridTabletLarge from '../assets/img/search_tabletlg.png';
+import BeachImageGridTabletLarge from '../assets/img/sea_tabletlg.png';
 
 import TreasureIsland from "../assets/img/sea1.png";
 import TreasureIslandGridMobile from '../assets/img/treasure_mobile.png';
@@ -46,6 +46,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'farm',
         imageSource: FarmImage,
+        girdImageTablet : FarmImageGridTabletLarge,
         gridImage : getResponsiveResource(FarmImageGridMobile,FarmImageGridTablet,FarmImageGridTablet),
         artNo: "000 84210",
         backgroundColor: CONSTANTS.COLORS.RED,
@@ -61,6 +62,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'blocks',
         imageSource: BlockImage,
+        girdImageTablet : BlockImageGridTabletLarge,
         gridImage : getResponsiveResource(BlockImageGridMobile,BlockImageGridTablet,BlockImageGridTablet),
         artNo: "0000 2-1",
         backgroundColor: CONSTANTS.COLORS.GREEN,
@@ -72,6 +74,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'street',
         imageSource: Street,
+        girdImageTablet : StreetImageGridTabletLarge,
         gridImage : getResponsiveResource(StreetImageGridMobile,StreetImageGridTablet,StreetImageGridTablet),
         artNo: "000 81769YL",
         backgroundColor: CONSTANTS.COLORS.PURPLE,
@@ -83,6 +86,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'fairy_tale',
         imageSource: FairyTale,
+        girdImageTablet : FairyTaleImageGridTabletLarge,
         gridImage : getResponsiveResource(FairyTaleImageGridMobile,FairyTaleImageGridTablet,FairyTaleImageGridTablet),
         artNo: "000 81769",
         backgroundColor: CONSTANTS.COLORS.SKY,
@@ -94,6 +98,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'beach',
         imageSource: Beach,
+        girdImageTablet : BeachImageGridTabletLarge,
         gridImage : getResponsiveResource(BeachImageGridMobile,BeachImageGridTablet,BeachImageGridTablet),
         artNo: "58600",
         backgroundColor: CONSTANTS.COLORS.GREEN,
@@ -105,6 +110,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'island',
         imageSource: TreasureIsland,
+        girdImageTablet : TreasureIslandGridTabletLarge,
         gridImage : getResponsiveResource(TreasureIslandGridMobile,TreasureIslandGridTablet,TreasureIslandGridTablet),
         artNo: "000 82791",
         backgroundColor: CONSTANTS.COLORS.YELLOW,
@@ -116,6 +122,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'alphabet',
         imageSource: Alphabet,
+        girdImageTablet : AlphabetGridTabletLarge,
         gridImage : getResponsiveResource(AlphabetGridMobile,AlphabetGridTablet,AlphabetGridTablet),
         artNo: "000 81874",
         backgroundColor: CONSTANTS.COLORS.PINK,

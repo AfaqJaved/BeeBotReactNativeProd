@@ -1,6 +1,5 @@
 import { Characteristic, Device } from "react-native-ble-plx";
 import { BleAction, ISCONNECTING, PUSHDEVICE, RESET, SAVECHAR, STARTSCANNING, STOPSCANNING } from "../Actions";
-import { act } from "react-test-renderer";
 
 
 export interface CustomBleDevice {

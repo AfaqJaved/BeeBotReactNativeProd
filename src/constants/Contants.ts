@@ -29,5 +29,8 @@ export const CONSTANTS = {
         CHAR: "beb5483e-36e1-4688-b7f5-ea07361b26a8",
         SCAN_TIME : 2000
 
-    }
+    },
+    FIELD_ZOOM_SCALE_MIN : 1,
+    FIELD_ZOOM_SCALE_MAX : 1.3,
+
 }
