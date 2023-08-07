@@ -1,4 +1,12 @@
 
+export enum DEVICE {
+    MOBILE,
+    TABLET,
+    TABLET_LARGE,
+    DESKTOP
+}
+
+
 export const CONSTANTS = {
     COLORS: {
         RED: "#F8623F",

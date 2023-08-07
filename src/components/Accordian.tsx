@@ -12,15 +12,20 @@ import {
   useResponsiveHeight,
   useResponsiveWidth,
   useResponsiveFontSize,
+  getResponsiveResource,
 } from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 
 import Bear from '../assets/img/bear.png';
-import Arrow from '../assets/img/Vector36.png';
 import {MonthBlock} from '../components/MonthBlock';
 import {isLandscape, isPortrait} from '../utils/Utils';
 import {useTranslation} from 'react-i18next';
 import {Months} from '../models/LessonsModel';
+
+import ArrowMobile from '../assets/img/arrow_mobile.png';
+import ArrowTablet from '../assets/img/arrow_tablet.png';
+import ArrowTabletLarge from '../assets/img/arrow_tablet.png';
+
 
 export interface AccordianProps {
   onClick(): void;
@@ -40,14 +45,14 @@ export const Accordian = (props: AccordianProps) => {
   const accordianImageWidth = isPortrait()
     ? useResponsiveWidth(15)
     : useResponsiveWidth(7.5);
-  const accordianTitleFontSize = useResponsiveFontSize(3);
+  const accordianTitleFontSize = useResponsiveFontSize(2);
   const accordianTitleMarginLeft = useResponsiveWidth(4);
   const selectMonthMargin = isPortrait()
     ? useResponsiveHeight(2)
     : useResponsiveHeight(5);
   const selectMonthFontSize = useResponsiveFontSize(2.5);
 
-  const monthGridGap = isPortrait() ? useResponsiveWidth(2) : useResponsiveWidth(5);
+  const monthGridGap = isPortrait() ? useResponsiveWidth(1) : useResponsiveWidth(5);
   const monthGridHeight = isPortrait()
     ? useResponsiveHeight(60)
     : useResponsiveHeight(70);
@@ -57,7 +62,7 @@ export const Accordian = (props: AccordianProps) => {
   );
 
   return (
-    <View style={{marginBottom: useResponsiveHeight(3)}}>
+    <View style={{marginBottom: useResponsiveHeight(1.5)}}>
       <View
         style={{
           flexDirection: 'row',
@@ -65,13 +70,14 @@ export const Accordian = (props: AccordianProps) => {
           marginRight: 'auto',
           width: accordianWidth,
           justifyContent: 'space-between',
-          paddingTop: useResponsiveHeight(2),
+          paddingTop: useResponsiveHeight(1),
           paddingBottom: useResponsiveHeight(2),
           paddingLeft: useResponsiveWidth(4),
           paddingRight: useResponsiveWidth(4),
           alignItems: 'center',
           backgroundColor: props.accordianBackgroundColor,
         }}>
+
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image
             source={props.accordianImage}
@@ -85,7 +91,7 @@ export const Accordian = (props: AccordianProps) => {
               fontSize: accordianTitleFontSize,
               color: CONSTANTS.COLORS.WHITE,
             }}>
-            {t(props.accordianTitle)}
+            {t(props.accordianTitle).toUpperCase()}
           </Text>
         </View>
         <TouchableOpacity
@@ -93,8 +99,8 @@ export const Accordian = (props: AccordianProps) => {
             props.onClick();
           }}>
           <Image
-            style={{aspectRatio : 1, width : useResponsiveWidth(5) , height : useResponsiveHeight(5),transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
-            source={Arrow}></Image>
+            style={{transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
+            source={getResponsiveResource(ArrowMobile,ArrowTablet,ArrowTabletLarge)}></Image>
         </TouchableOpacity>
       </View>
 
@@ -112,10 +118,11 @@ export const Accordian = (props: AccordianProps) => {
           <Text
             style={{
               fontSize: selectMonthFontSize,
-              fontFamily: 'Roboto-Regular',
+              // fontFamily: 'Roboto-Regular',
               color: CONSTANTS.COLORS.GRAY,
+              fontStyle : "italic"
             }}>
-            Select Month
+            {t("select_month")}
           </Text>
         </View>
         {/* TEXT END */}
@@ -130,7 +137,7 @@ export const Accordian = (props: AccordianProps) => {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
               alignItems : "center",
               flexWrap: 'wrap',
               gap: monthGridGap,

@@ -31,6 +31,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
   const {t} = useTranslation();
   const model: FieldModel = route.params.model;
+  const scrollRef = React.useRef<any>();
 
   useEffect(() => {
     Dimensions.addEventListener('change', () => {
@@ -38,8 +39,15 @@ const FieldsViewPage = ({navigation, route}: any) => {
     });
   }, []);
 
+  const scrollUp = () => {
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  };
+
   return (
-    <LayoutWrapper navigation={navigation}>
+    <LayoutWrapper scrollRef={scrollRef} navigation={navigation}>
       <TouchableOpacity
         onPress={() => navigation.navigate('Fields')}
         style={{
@@ -49,10 +57,11 @@ const FieldsViewPage = ({navigation, route}: any) => {
         }}>
         <Text
           style={{
-            fontSize: useResponsiveFontSize(2.5),
+            fontSize: useResponsiveFontSize(2),
             width: useResponsiveWidth(90),
             textAlign: 'right',
             color: CONSTANTS.COLORS.GRAY,
+            fontStyle: 'italic',
           }}>
           {t('back_to_fields')}
         </Text>
@@ -76,9 +85,9 @@ const FieldsViewPage = ({navigation, route}: any) => {
           }}>
           {t('fields_title')}
           {'\n'}
-          {'<<'}
+          {'«'}
           {t(model.title)}
-          {'>>'}
+          {'»'}
         </Text>
       </View>
       <View
@@ -97,15 +106,16 @@ const FieldsViewPage = ({navigation, route}: any) => {
             });
           }}>
           <Image
-            resizeMode="cover"
+            resizeMode="contain"
             style={{
               marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
               marginRight: isPortrait() ? 'auto' : 0,
-              width: isPortrait()
-                ? useResponsiveWidth(90)
-                : useResponsiveWidth(50),
-              height : isPortrait() ? useResponsiveHeight(50) : useResponsiveHeight(70),
-              backgroundColor: 'red',
+              // width: isPortrait()
+              //   ? useResponsiveWidth(90)
+              //   : useResponsiveWidth(50),
+              // height: isPortrait()
+              //   ? useResponsiveHeight(50)
+              //   : useResponsiveHeight(70),
               borderRadius: 10,
             }}
             source={model.gridImage}></Image>
@@ -146,12 +156,14 @@ const FieldsViewPage = ({navigation, route}: any) => {
               : useResponsiveWidth(30),
             marginRight: isPortrait() ? 0 : 'auto',
             marginBottom: useResponsiveWidth(10),
+            borderRadius: 3,
           }}>
           <Text
             style={{
               textAlign: 'center',
               fontSize: useResponsiveFontSize(2),
               color: CONSTANTS.COLORS.WHITE,
+              fontStyle: 'italic',
             }}>
             {t('art')} : {model.artNo}
           </Text>
@@ -161,12 +173,52 @@ const FieldsViewPage = ({navigation, route}: any) => {
           {model.content.map((content, index) => {
             return (
               <View key={index}>
-                <Heading text={t(content.heading)}></Heading>
+                <Heading text={t(content.heading).toUpperCase()}></Heading>
                 <Paragraph text={t(content.paragraph)}></Paragraph>
               </View>
             );
           })}
         </View>
+
+        <TouchableOpacity
+          onPress={() => {
+            scrollUp();
+          }}
+          style={{
+            width: useResponsiveWidth(90),
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+          <Text
+            style={{
+              fontSize: useResponsiveFontSize(2),
+              width: useResponsiveWidth(90),
+              textAlign: 'right',
+              color: CONSTANTS.COLORS.GRAY,
+              fontStyle: 'italic',
+            }}>
+            {t('up')}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Fields')}
+          style={{
+            width: useResponsiveWidth(90),
+            marginTop: useResponsiveWidth(5),
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+          <Text
+            style={{
+              fontSize: useResponsiveFontSize(2),
+              width: useResponsiveWidth(90),
+              textAlign: 'right',
+              color: CONSTANTS.COLORS.GRAY,
+              fontStyle: 'italic',
+            }}>
+            {t('back_to_fields')}
+          </Text>
+        </TouchableOpacity>
       </View>
     </LayoutWrapper>
   );

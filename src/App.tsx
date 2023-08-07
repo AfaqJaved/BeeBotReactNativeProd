@@ -23,31 +23,32 @@ import FieldsViewPage from './pages/FieldViewPage';
 import ImageViewPage from './pages/ImageViewPage';
 
 import PdfViewPage from './pages/PdfViewPage';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
+
 const App = () => {
-
-
-
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
-          initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomePage} />
-          <Stack.Screen name="Lessons" component={LessonsPage} />
-          <Stack.Screen name="Control" component={ControlPage} />
-          <Stack.Screen name="Fields" component={FieldsPage} />
-          <Stack.Screen name="FieldsView" component={FieldsViewPage} />
-          <Stack.Screen name="ImageView" component={ImageViewPage} />
-          <Stack.Screen name="PdfView" component={PdfViewPage} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <GestureHandlerRootView style={{flex : 1}}>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+            }}
+            initialRouteName="Home">
+            <Stack.Screen name="Home" component={HomePage} />
+            <Stack.Screen name="Lessons" component={LessonsPage} />
+            <Stack.Screen name="Control" component={ControlPage} />
+            <Stack.Screen name="Fields" component={FieldsPage} />
+            <Stack.Screen name="FieldsView" component={FieldsViewPage} />
+            <Stack.Screen name="ImageView" component={ImageViewPage} />
+            <Stack.Screen name="PdfView" component={PdfViewPage} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+      </GestureHandlerRootView>
   );
 };
 

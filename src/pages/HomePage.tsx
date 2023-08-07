@@ -39,10 +39,7 @@ import {LayoutWrapper} from '../components/LayoutWrapper';
 const HomePage = ({navigation}: any) => {
   const {t} = useTranslation();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const mainContentWidth = useResponsiveWidth(100);
-  const mainContentHeight = isPortrait()
-    ? useResponsiveHeight(80)
-    : useResponsiveHeight(70);
+
 
   React.useEffect(() => {
     i18n.changeLanguage('ru');
@@ -51,15 +48,16 @@ const HomePage = ({navigation}: any) => {
     });
   }, []);
 
+
   return (
     <LayoutWrapper navigation={navigation}>
 
-      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",rowGap : useResponsiveWidth(2),columnGap : useResponsiveWidth(2)}}>
+      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",rowGap : useResponsiveWidth(2),columnGap : useResponsiveWidth(1.5)}}>
       <MenuItem
         image={isPortrait() ? Lessons : LandLessons}
         width={!isTablet() ? 90 : 60}
         heightLand={isTablet() ? 30 : 50}
-        heightPort={!isTablet() ? 25 : 30}
+        heightPort={!isTablet() ? 25 : 25}
         label={t('lessons')}
         onClick={() => {
           navigation.navigate('Lessons');
@@ -70,7 +68,7 @@ const HomePage = ({navigation}: any) => {
           image={isPortrait() ? Fields : LandFields}
           width={!isTablet() ? 44 : 30}
           heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 30}
+          heightPort={!isTablet() ? 33 : 25}
           label={t('fields')}
           onClick={() => {
             navigation.navigate("Fields")
@@ -79,9 +77,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Control : LandControl}
-          width={!isTablet() ? 44 : 29.3}
+          width={!isTablet() ? 44 : 29.5}
           heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 30}
+          heightPort={!isTablet() ? 33 : 25}
           label={t('remote')}
           onClick={() => {
             navigation.navigate('Control');
@@ -90,9 +88,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Scratch : LandScratch}
-          width={!isTablet() ? 44 : 29.3}
+          width={!isTablet() ? 44 : 29.5}
           heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 30}
+          heightPort={!isTablet() ? 33 : 25}
           label={t('scratch')}
           onClick={() => {
             Linking.openURL(CONSTANTS.SCRATCH_URL).catch(err =>
@@ -103,9 +101,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Add : LandAdd}
-          width={!isTablet() ? 44 : 29.3}
+          width={!isTablet() ? 44 : 29.5}
           heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 30}
+          heightPort={!isTablet() ? 33 : 25}
           label={t('materials')}
           onClick={() => {
             console.log('called');

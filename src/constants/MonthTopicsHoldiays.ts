@@ -18,9 +18,7 @@ export const MONTH_TOPICS_HOLIDAYS: Months[] = [
         topics: [
             "HOLIDAYS.feb.topic1",
             "HOLIDAYS.feb.topic2",
-            "HOLIDAYS.feb.topic3",
-            "HOLIDAYS.feb.topic4",
-        ]
+            "HOLIDAYS.feb.topic3"        ]
     },
     {
         month: "mar",

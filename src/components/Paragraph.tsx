@@ -11,7 +11,7 @@ export const Paragraph = (props: ParagraphProps) => {
   return (
     <Text
       style={{
-        marginBottom: useResponsiveWidth(3),
+        marginBottom: useResponsiveWidth(7),
         fontSize: useResponsiveFontSize(2),
         color: CONSTANTS.COLORS.BLACK,
       }}>

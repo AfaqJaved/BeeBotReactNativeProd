@@ -11,10 +11,10 @@ export const Heading = (props : HeadingProps) => {
   return (
     <Text
       style={{
-        marginBottom: useResponsiveWidth(3),
+        marginBottom: useResponsiveWidth(2),
         fontSize: useResponsiveFontSize(3),
-        fontWeight: '700',
-        color : CONSTANTS.COLORS.BLACK
+        color : CONSTANTS.COLORS.BLACK,
+        fontWeight : '600'
       }}>
       {props.text}
     </Text>

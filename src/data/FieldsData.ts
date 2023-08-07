@@ -4,33 +4,49 @@ import { CONSTANTS } from "../constants/Contants";
 
 
 import FarmImage from "../assets/img/farm1.png";
-import FarmImageGrid from '../assets/img/fieldfarm.png';
+import FarmImageGridMobile from '../assets/img/farm_mobile.png';
+import FarmImageGridTablet from '../assets/img/farm_tablet.png';
+import FarmImageGridTabletLarge from '../assets/img/farm_tabletlg.png';
 
 import BlockImage from "../assets/img/blocks.png";
-import BlockImageGrid from '../assets/img/fieldblock1.png';
+import BlockImageGridMobile from '../assets/img/block_mobile.png';
+import BlockImageGridTablet from '../assets/img/block_tablet.png';
+import BlockImageGridTabletLarge from '../assets/img/block_tabletlg.png';
 
 
 import Street from "../assets/img/street.png";
-import StreetImageGrid from '../assets/img/streetfield.png';
+import StreetImageGridMobile from '../assets/img/street_mobile.png';
+import StreetImageGridTablet from '../assets/img/street_tablet.png';
+import StreetImageGridTabletLarge from '../assets/img/street_tabletlg.png';
 
 import FairyTale from "../assets/img/fairytale1.png";
-import FairyTaleImageGrid from '../assets/img/fairytaleField.png';
+import FairyTaleImageGridMobile from '../assets/img/fairytale_mobile.png';
+import FairyTaleImageGridTablet from '../assets/img/fairytale_tablet.png';
+import FairyTaleImageGridTabletLarge from '../assets/img/fairytale_tabletlg.png';
 
 import Beach from "../assets/img/beach1.png";
-import BeachImageGrid from '../assets/img/seafield.png';
+import BeachImageGridMobile from '../assets/img/sea_mobile.png';
+import BeachImageGridTablet from '../assets/img/sea_tablet.png';
+import BeachImageGridTabletLarge from '../assets/img/search_tabletlg.png';
 
 import TreasureIsland from "../assets/img/sea1.png";
-import TreasureIslandGrid from '../assets/img/treasureislandfield.png';
+import TreasureIslandGridMobile from '../assets/img/treasure_mobile.png';
+import TreasureIslandGridTablet from '../assets/img/treasure_tablet.png';
+import TreasureIslandGridTabletLarge from '../assets/img/trasure_tabletlg.png';
 
 import Alphabet from "../assets/img/alphabet.png";
-import AlphabetGrid from '../assets/img/alphabetfield.png';
+import AlphabetGridMobile from '../assets/img/alphabet_mobile.png';
+import AlphabetGridTablet from '../assets/img/alphabet_tablet.png';
+import AlphabetGridTabletLarge from '../assets/img/alphabet_tabletlg.png';
+
+import { getResponsiveResource } from "../utils/Utils";
 
 
 export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'farm',
         imageSource: FarmImage,
-        gridImage : FarmImageGrid,
+        gridImage : getResponsiveResource(FarmImageGridMobile,FarmImageGridTablet,FarmImageGridTablet),
         artNo: "000 84210",
         backgroundColor: CONSTANTS.COLORS.RED,
         content: [
@@ -45,7 +61,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'blocks',
         imageSource: BlockImage,
-        gridImage : BlockImageGrid,
+        gridImage : getResponsiveResource(BlockImageGridMobile,BlockImageGridTablet,BlockImageGridTablet),
         artNo: "0000 2-1",
         backgroundColor: CONSTANTS.COLORS.GREEN,
         content: [
@@ -56,7 +72,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'street',
         imageSource: Street,
-        gridImage : StreetImageGrid,
+        gridImage : getResponsiveResource(StreetImageGridMobile,StreetImageGridTablet,StreetImageGridTablet),
         artNo: "000 81769YL",
         backgroundColor: CONSTANTS.COLORS.PURPLE,
         content: [
@@ -67,7 +83,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'fairy_tale',
         imageSource: FairyTale,
-        gridImage : FairyTaleImageGrid,
+        gridImage : getResponsiveResource(FairyTaleImageGridMobile,FairyTaleImageGridTablet,FairyTaleImageGridTablet),
         artNo: "000 81769",
         backgroundColor: CONSTANTS.COLORS.SKY,
         content: [
@@ -78,7 +94,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'beach',
         imageSource: Beach,
-        gridImage : BeachImageGrid,
+        gridImage : getResponsiveResource(BeachImageGridMobile,BeachImageGridTablet,BeachImageGridTablet),
         artNo: "58600",
         backgroundColor: CONSTANTS.COLORS.GREEN,
         content: [
@@ -89,7 +105,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'island',
         imageSource: TreasureIsland,
-        gridImage : TreasureIslandGrid,
+        gridImage : getResponsiveResource(TreasureIslandGridMobile,TreasureIslandGridTablet,TreasureIslandGridTablet),
         artNo: "000 82791",
         backgroundColor: CONSTANTS.COLORS.YELLOW,
         content: [
@@ -100,7 +116,7 @@ export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'alphabet',
         imageSource: Alphabet,
-        gridImage : AlphabetGrid,
+        gridImage : getResponsiveResource(AlphabetGridMobile,AlphabetGridTablet,AlphabetGridTablet),
         artNo: "000 81874",
         backgroundColor: CONSTANTS.COLORS.PINK,
         content: [

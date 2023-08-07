@@ -9,17 +9,27 @@ import {
   ImageBackground,
   Alert,
   Dimensions,
+  TextInput,
 } from 'react-native';
 import {AppBar} from '../components/AppBar';
 import {BottomBar} from '../components/BottomBar';
-import {isPortrait, useResponsiveFontSize} from '../utils/Utils';
+import {
+  getResponsiveResource,
+  isPortrait,
+  isTablet,
+  useResponsiveFontSize,
+} from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 import {MenuItem} from '../components/Menu';
+import SearchMobile from '../assets/img/search_mobile.png';
+import SearchTablet from '../assets/img/search_tablet.png';
+import SearchTabletLarge from '../assets/img/search_tabletlg.png';
 
 import {useResponsiveHeight, useResponsiveWidth} from '../utils/Utils';
 import {Accordian} from '../components/Accordian';
 import {LayoutWrapper} from '../components/LayoutWrapper';
 import {LESSONS_MODELS} from '../data/LessonsData';
+import { useTranslation } from 'react-i18next';
 
 const LessonsPage = ({navigation}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -32,8 +42,7 @@ const LessonsPage = ({navigation}: any) => {
   const roudedBorderMarginTop = useResponsiveHeight(-3);
 
   const [lessons, setLessons] = React.useState(LESSONS_MODELS);
-
-
+  const {t} = useTranslation();
   useEffect(() => {
     Dimensions.addEventListener('change', () => {
       forceUpdate();
@@ -42,6 +51,42 @@ const LessonsPage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
+      <View style={{position: 'relative', }}>
+        <View style={{position : "relative"}}>
+          <TextInput
+            placeholder={t("lessons_search_hint")}
+            textAlign="center"
+            textAlignVertical="center"
+            placeholderTextColor={CONSTANTS.COLORS.GRAY}
+            style={{
+              width: useResponsiveWidth(90),
+              height: isPortrait()
+                ? useResponsiveHeight(8)
+                : useResponsiveHeight(10),
+              marginLeft: 'auto',
+              textAlign: 'center',
+              marginRight: 'auto',
+              marginBottom: useResponsiveHeight(2),
+              fontSize: useResponsiveFontSize(2),
+              borderBottomColor: '#8C8989',
+              borderBottomWidth: 2,
+              color: 'black',
+            }}></TextInput>
+        </View>
+        <Image
+          source={getResponsiveResource(
+            SearchMobile,
+            SearchTablet,
+            SearchTabletLarge,
+          )}
+          resizeMode="contain"
+          style={{
+            position : "absolute",
+            left : useResponsiveWidth(5),
+            top : !isTablet() ? useResponsiveHeight(3) : !isPortrait() ? useResponsiveHeight(3) : 0
+          }}
+        />
+      </View>
       {lessons.map((lesson, index) => {
         return (
           <Accordian

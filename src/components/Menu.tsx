@@ -52,14 +52,17 @@ export const MenuItem = (props: MenuItemProps) => {
           style={{
             position: 'absolute',
             bottom: 15,
-            left: 20,
+            left: 15,
             fontFamily: 'Roboto-Regular',
+            fontWeight : "500",
+            fontStyle : "normal",
+            lineHeight : isPortrait() ? useResponsiveHeight(2.5) : useResponsiveHeight(3),
             color: CONSTANTS.COLORS.WHITE,
-            fontSize: isTablet() ? useResponsiveFontSize(1.5) : isPortrait()
-              ? useResponsiveFontSize(2)
-              : useResponsiveFontSize(2),
+            fontSize: isTablet() ? useResponsiveFontSize(1.3) : isPortrait()
+              ? useResponsiveFontSize(1.7)
+              : useResponsiveFontSize(1.7),
           }}>
-          {props.label}
+          {props.label.toUpperCase()}
         </Text>
       </ImageBackground>
     </TouchableOpacity>

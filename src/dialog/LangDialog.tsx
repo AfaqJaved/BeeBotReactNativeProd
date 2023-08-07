@@ -17,7 +17,6 @@ import {CONSTANTS} from '../constants/Contants';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {t} from 'i18next';
 import i18n from '../../translation';
-import {Image} from 'react-native-svg';
 import React from 'react';
 
 export interface LangProps {
@@ -82,6 +81,7 @@ export const LangDialog = ({visible, onClose}: LangProps) => {
               onPress={() => {
                 i18n.changeLanguage(getLocalFromList(item.title));
                 forceUpdate();
+                onClose();
               }}>
               <View style={styles.item}>
                 <Text style={styles.title}>{item.title}</Text>

@@ -31,7 +31,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootReducer} from '../redux/Store';
 import {ISCONNECTING, PUSHDEVICE} from '../redux/Actions';
 import {Characteristic} from 'react-native-ble-plx';
-import {err} from 'react-native-svg/lib/typescript/xml';
 import {RoundedButton} from '../components/RoundedButton';
 
 export interface LangProps {

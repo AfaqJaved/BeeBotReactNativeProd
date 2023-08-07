@@ -10,6 +10,7 @@ import {
   Alert,
   Dimensions,
   Button,
+  Platform,
 } from 'react-native';
 import {AppBar} from '../components/AppBar';
 import {
@@ -22,7 +23,7 @@ import {BottomBar} from '../components/BottomBar';
 import {isPortrait} from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 import WebView from 'react-native-webview';
-import {BEEBOT_HTML} from '../constants/BeeBot';
+import {BEEBOT_HTML, JAVASCRIPT_BEEBOT} from '../constants/BeeBot';
 import {LayoutWrapper} from '../components/LayoutWrapper';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
@@ -48,11 +49,13 @@ const ControlPage = ({navigation}: any) => {
 
   const handleWebViewMessage = async (event: any) => {
     const message = event.nativeEvent.data;
+    console.log(message);
+
     if (char != null) await char.writeWithoutResponse(base64.encode(message));
   };
 
   return (
-    <LayoutWrapper navigation={navigation}>
+    <LayoutWrapper enableScroll={false} navigation={navigation}>
       {showLoading ? (
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{fontSize: useResponsiveFontSize(5), color: 'black'}}>
@@ -63,16 +66,24 @@ const ControlPage = ({navigation}: any) => {
         ''
       )}
       <WebView
+        injectedJavaScript={JAVASCRIPT_BEEBOT}
         onLoad={() => setShowLoading(true)}
         onLoadEnd={() => setShowLoading(false)}
         style={{
-          width: isTablet() && isPortrait()
-            ? useResponsiveWidth(70)
-            : isPortrait()
-            ? useResponsiveWidth(100)
-            : useResponsiveWidth(25),
+          marginTop:
+            Platform.OS === 'android' && isPortrait()
+              ? useResponsiveHeight(5)
+              : 0,
+          width:
+            isTablet() && isPortrait()
+              ? useResponsiveWidth(70)
+              : isPortrait()
+              ? useResponsiveWidth(90)
+              : Platform.OS === 'android'
+              ? useResponsiveWidth(20)
+              : useResponsiveWidth(25),
           height: isPortrait()
-            ? useResponsiveHeight(80)
+            ? useResponsiveHeight(90)
             : useResponsiveHeight(70),
           marginLeft: 'auto',
           marginRight: 'auto',

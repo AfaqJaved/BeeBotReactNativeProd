@@ -21,6 +21,7 @@ export default {
     lessons_search_hint: "Enter subject or field id",
     select_month: "Select Month",
     back_to_topics: "← к списку полей",
+    up : "↑up",
     download_pdf: "Download Lesson  in Pdf",
     fields_2: "City Street",
     fields_3: "Fairy Tale",
@@ -152,7 +153,6 @@ export default {
             topic1: "Russian Science Day",
             topic2: "International Mother Tongue Day",
             topic3: "Defender of the Homeland Day",
-            topic4: "Defenders of the Motherland",
         },
         mar: {
             topic1: "International Women's Day",

@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {AppBar} from '../components/AppBar';
 import {BottomBar} from '../components/BottomBar';
-import {isPortrait, useResponsiveFontSize} from '../utils/Utils';
+import {getResponsiveResource, isPortrait, isTablet, useResponsiveFontSize} from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 import {MenuItem} from '../components/Menu';
 
@@ -29,7 +29,9 @@ import Alphabets from '../assets/img/Maskgroup.png';
 import Sea from '../assets/img/sea1.png';
 import Beach from '../assets/img/beach1.png';
 import Farm from '../assets/img/farm1.png';
-import Search from '../assets/img/search.png';
+import SearchMobile from '../assets/img/search_mobile.png';
+import SearchTablet from '../assets/img/search_tablet.png';
+import SearchTabletLarge from '../assets/img/search_tabletlg.png';
 
 import {useTranslation} from 'react-i18next';
 import {FIELD_MODELS} from '../data/FieldsData';
@@ -57,34 +59,41 @@ const FieldsPage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
-      <View style={{position: 'relative', padding: 10}}>
+      <View style={{position: 'relative', }}>
+        <View style={{position : "relative"}}>
+          <TextInput
+            placeholder={t("lessons_search_hint")}
+            textAlign="center"
+            textAlignVertical="center"
+            placeholderTextColor={CONSTANTS.COLORS.GRAY}
+            style={{
+              width: useResponsiveWidth(90),
+              height: isPortrait()
+                ? useResponsiveHeight(8)
+                : useResponsiveHeight(10),
+              marginLeft: 'auto',
+              textAlign: 'center',
+              marginRight: 'auto',
+              marginBottom: useResponsiveHeight(2),
+              fontSize: useResponsiveFontSize(2),
+              borderBottomColor: '#8C8989',
+              borderBottomWidth: 2,
+              color: 'black',
+            }}></TextInput>
+        </View>
         <Image
-          source={Search}
-          resizeMode='contain'
+          source={getResponsiveResource(
+            SearchMobile,
+            SearchTablet,
+            SearchTabletLarge,
+          )}
+          resizeMode="contain"
           style={{
-            position: 'absolute',
-            width : useResponsiveWidth(5),
-            left: useResponsiveWidth(5),
-            top: isPortrait() ? useResponsiveHeight(2) : useResponsiveHeight(5),
+            position : "absolute",
+            left : useResponsiveWidth(5),
+            top : !isTablet() ? useResponsiveHeight(3) : !isPortrait() ? useResponsiveHeight(3) : 0
           }}
         />
-        <TextInput
-          placeholder="Search"
-          textAlign="center"
-          textAlignVertical="top"
-          style={{
-            width: useResponsiveWidth(90),
-            height: isPortrait()
-              ? useResponsiveHeight(5)
-              : useResponsiveHeight(10),
-            marginLeft: 'auto',
-            textAlign: 'center',
-            marginRight: 'auto',
-            marginBottom: useResponsiveHeight(2),
-            fontSize: useResponsiveFontSize(3),
-            borderBottomColor: '#8C8989',
-            borderBottomWidth: 2,
-          }}></TextInput>
       </View>
 
       {FIELD_MODELS.map((model,index) => {

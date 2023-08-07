@@ -2,6 +2,63 @@
 
 import { useState } from 'react';
 import { Dimensions } from 'react-native';
+import { DEVICE } from '../constants/Contants';
+
+export const deviceType = (): DEVICE => {
+    const width = Dimensions.get('screen').width;
+    if (isPortrait()) {
+        if (width < 480) {
+            return DEVICE.MOBILE
+        }
+        else if (width < 768) {
+            return DEVICE.TABLET
+        }
+        else if (width < 1279) {
+            return DEVICE.TABLET_LARGE
+        }
+    }
+    else {
+        if (width < 900) {
+            return DEVICE.MOBILE;
+        }
+        else if (width < 1279) {
+            return DEVICE.TABLET;
+        }
+    }
+
+    return DEVICE.DESKTOP;
+
+
+};
+
+
+export const androidBottomNavigationHeight = () => {
+    let deviceH = Dimensions.get('screen').height;
+    let windowH = Dimensions.get('window').height;
+    let bottomNavBarH = deviceH - windowH;
+    return bottomNavBarH;
+}
+
+
+export const getResponsiveResource = (mobile: any, tablet: any, tabletlg: any) => {
+    const device = deviceType();
+
+    switch (device) {
+        case DEVICE.MOBILE: {
+            return mobile;
+        }
+        case DEVICE.TABLET: {
+            return tablet;
+        }
+        case DEVICE.TABLET_LARGE: {
+            return tabletlg;
+        }
+        default: {
+            return null;
+        }
+    }
+}
+
 
 
 export const isPortrait = () => {

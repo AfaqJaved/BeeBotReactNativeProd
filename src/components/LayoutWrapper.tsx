@@ -13,35 +13,49 @@ import {LangDialog} from '../dialog/LangDialog';
 import {BleDialog} from '../dialog/BleDialog';
 import Toast from 'react-native-toast-message';
 
+import SystemNavigationBar from 'react-native-system-navigation-bar';
+
+SystemNavigationBar.stickyImmersive();
+
 export interface LayoutWrapperProps {
   navigation: any;
   children: any;
-  enableScroll? : boolean;
+  enableScroll?: boolean;
+  scrollRef?: any;
 }
 
-export const LayoutWrapper = ({navigation, enableScroll, children}: LayoutWrapperProps) => {
+export const LayoutWrapper = ({
+  navigation,
+  enableScroll,
+  children,
+  scrollRef,
+}: LayoutWrapperProps) => {
   const mainContentWidth = useResponsiveWidth(100);
-  const mainContentHeight = isPortrait()
-    ? useResponsiveHeight(80)
-    : useResponsiveHeight(70);
   const [isLangDialogVisible, setIsLangDialogVisible] = React.useState(false);
   const [isBleDialogVisible, setIsBleDialogVisible] = React.useState(false);
+  // const scrollRef = React.useRef<any>();
 
   if (Platform.OS === 'android') {
     PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
       PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-        ]).then(result => {
+    ]).then(result => {
       console.log(result);
     });
   }
+
+  React.useEffect(() => {
+    SystemNavigationBar.stickyImmersive();
+  }, [navigation]);
+
   return (
     <View
       style={{
         position: 'relative',
         width: useResponsiveWidth(100),
-        height: useResponsiveHeight(100),
+        height: '100%',
+        backgroundColor : "white",
       }}>
       <Toast />
       <LangDialog
@@ -64,29 +78,29 @@ export const LayoutWrapper = ({navigation, enableScroll, children}: LayoutWrappe
         }}
       />
 
-      <View
+      {/* <View
         style={{
           marginTop: useResponsiveHeight(-3),
           borderRadius: 20,
           width: useResponsiveWidth(100),
           height: useResponsiveHeight(6),
           backgroundColor: CONSTANTS.COLORS.WHITE,
-        }}></View>
+        }}></View> */}
 
       {/* Main Content */}
       <ScrollView
+        ref={scrollRef}
         scrollEnabled={enableScroll}
         style={{
-
           width: mainContentWidth,
-          height: mainContentHeight,
+          height: 'auto',
           backgroundColor: CONSTANTS.COLORS.WHITE,
           borderRadius: 25,
           borderColor: CONSTANTS.COLORS.YELLOW,
           borderStyle: 'solid',
         }}>
         {children}
-        <View style={{height: useResponsiveHeight(1)}}></View>
+        <View style={{height: useResponsiveHeight(20)}}></View>
       </ScrollView>
       <BottomBar />
     </View>

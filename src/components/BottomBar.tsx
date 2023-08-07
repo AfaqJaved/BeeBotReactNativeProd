@@ -6,12 +6,13 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  Platform,
 } from 'react-native';
 
 import {CONSTANTS} from '../constants/Contants';
 
 import LogoBottom from '../assets/img/Logo_DO.png';
-import {isLandscape, isPortrait, useResponsiveFontSize, useResponsiveHeight, useResponsiveWidth} from '../utils/Utils';
+import {androidBottomNavigationHeight, isLandscape, isPortrait, useResponsiveFontSize, useResponsiveHeight, useResponsiveWidth} from '../utils/Utils';
 import { useTranslation } from 'react-i18next';
 
 
@@ -20,20 +21,26 @@ export const BottomBar = () => {
   const appBarWidth = useResponsiveWidth(100);
   const appBarHeight = isPortrait()
     ? useResponsiveHeight(10)
-    : useResponsiveHeight(20);
-  const textSize = useResponsiveFontSize(3);
+    : useResponsiveHeight(15);
+  const textSize = useResponsiveFontSize(2);
 
   return (
     <View
       style={{
         borderTopColor : CONSTANTS.COLORS.GRAY,
-        borderTopWidth : 3,
+        borderTopWidth : 1,
+        position : "absolute",
+        // bottom : Platform.OS === 'android'  ? androidBottomNavigationHeight(): 0,
+        bottom : 0,
+        left : 0,
+        right : 0,
         width: appBarWidth,
         backgroundColor: CONSTANTS.COLORS.WHITE,
         height: appBarHeight,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 16,
+        paddingLeft: useResponsiveWidth(3),
+        paddingRight: useResponsiveWidth(3),
         alignItems: 'center',
       }}>
       <Text

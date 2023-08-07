@@ -12,11 +12,15 @@ import {
   useResponsiveHeight,
   useResponsiveWidth,
   useResponsiveFontSize,
+  getResponsiveResource,
 } from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 
 import Bear from '../assets/img/bear.png';
-import Arrow from '../assets/img/Vector36.png';
+
+import ArrowMobile from '../assets/img/arrow_mobile.png';
+import ArrowTablet from '../assets/img/arrow_tablet.png';
+import ArrowTabletLarge from '../assets/img/arrow_tablet.png';
 import {MonthBlock} from '../components/MonthBlock';
 import {isLandscape, isPortrait} from '../utils/Utils';
 import { useTranslation } from 'react-i18next';
@@ -84,12 +88,12 @@ export const AccordianFields = (props: MenuItemProps) => {
                 fontSize: useResponsiveFontSize(2),
                 color: CONSTANTS.COLORS.WHITE,
               }}>
-              {t("art")} : {props.artNo}
+              {t("art")}: {props.artNo}
             </Text>
           </View>
         </View>
 
-        <Image style={{aspectRatio : 1, width : useResponsiveWidth(5) , height : useResponsiveHeight(5),transform: [{rotate: '-90deg'}]}} source={Arrow}></Image>
+        <Image style={{transform: [{rotate: '-90deg'}]}} source={getResponsiveResource(ArrowMobile,ArrowTablet,ArrowTabletLarge)}></Image>
       </View>
     </View>
   );
