@@ -211,7 +211,7 @@ export const Accordian = (props: AccordianProps) => {
                     justifyContent: 'flex-start',
                     marginTop: useResponsiveHeight(1),
                   }}>
-                  <TouchableOpacity onPress={()=> props.navigation.navigate("PdfView")} style={{flexDirection : "row"}}>
+                  <TouchableOpacity onPress={()=> props.navigation.navigate("LessonView")} style={{flexDirection : "row"}}>
                     <Text
                       style={{
                         color: CONSTANTS.COLORS.BLACK,

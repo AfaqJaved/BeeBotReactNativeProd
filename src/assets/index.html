@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body style="">
-    <?xml version="1.0" encoding="UTF-8"?><svg
-      id="_Слой_2"
-      xmlns="http://www.w3.org/2000/svg"
+
+
+  <body>
+      <svg
+      style="
+      position: fixed;
+      top : 50%;
+      left : 50%;
+      width : 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);"
+      id="svg"
       viewBox="0 0 303.08 396.07">
       <defs>
         <style>
@@ -344,6 +352,8 @@
       </g>
     </svg>
 
+
+
     <script>
       function forward() {
         document.getElementById("forward").style.fill = "#ffffff";
@@ -374,5 +384,7 @@
         window.ReactNativeWebView.postMessage('r');
       }
     </script>
+
+
   </body>
 </html>

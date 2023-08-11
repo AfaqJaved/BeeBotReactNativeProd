@@ -24,6 +24,11 @@ import ImageViewPage from './pages/ImageViewPage';
 
 import PdfViewPage from './pages/PdfViewPage';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import LessonView from './pages/LessonView';
+
+
+import LessonPdf from "../assets/pdf/lesson.pdf";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +50,7 @@ const App = () => {
             <Stack.Screen name="FieldsView" component={FieldsViewPage} />
             <Stack.Screen name="ImageView" component={ImageViewPage} />
             <Stack.Screen name="PdfView" component={PdfViewPage} />
+            <Stack.Screen name="LessonView" component={LessonView} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

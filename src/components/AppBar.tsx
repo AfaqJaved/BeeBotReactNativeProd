@@ -46,6 +46,8 @@ import {BleSvgMobile} from '../svg/BleSvgMobile';
 import {BleSvgTablet} from '../svg/BleSvgTablet';
 import {BatterySvgMobile} from '../svg/BatterySvgMobile';
 import {BatterySvgTablet} from '../svg/BatterySvgTablet';
+import { useSelector } from 'react-redux';
+import { RootReducer } from '../redux/Store';
 
 export interface AppBarProps {
   onHomeClick(): void;
@@ -60,9 +62,10 @@ export const AppBar = (props: AppBarProps) => {
     : useResponsiveHeight(24);
   const textSize = useResponsiveFontSize(2.5);
   const [dialogVisible, setDialogVisible] = React.useState<boolean>(false);
+  const battery = useSelector((state : RootReducer)=> state.bleReducer.battery);
 
   return (
-    <View>
+    <View style={{zIndex : 0}}>
       <ImageBackground
         resizeMode="stretch"
         source={getResponsiveResource(
@@ -85,7 +88,7 @@ export const AppBar = (props: AppBarProps) => {
             paddingRight: useResponsiveWidth(3.5),
             flexDirection: 'row',
             justifyContent: 'flex-start',
-            alignItems: deviceType() === DEVICE.MOBILE ? "flex-start" : "center",
+            alignItems: deviceType() === DEVICE.MOBILE && battery != 0 ? "flex-start" : "center",
             width: appBarWidth,
           }}>
           <TouchableOpacity onPress={props.onHomeClick}>
@@ -106,7 +109,7 @@ export const AppBar = (props: AppBarProps) => {
             ) : (
               <AppBarLogoTablet />
             )}
-            {deviceType() == DEVICE.MOBILE ? (
+            {deviceType() == DEVICE.MOBILE && battery != 0 ? (
               <View
                 style={{
                   flexDirection: 'row',
@@ -120,7 +123,7 @@ export const AppBar = (props: AppBarProps) => {
                     fontSize: useResponsiveFontSize(2),
                     color : 'black'
                   }}>
-                  100%
+                  {battery}%
                 </Text>
               </View>
             ) : (
@@ -129,7 +132,7 @@ export const AppBar = (props: AppBarProps) => {
           </View>
 
           <View style={{flexDirection: 'row' , alignItems : "center"}}>
-            {deviceType() !== DEVICE.MOBILE ? (
+            {deviceType() !== DEVICE.MOBILE && battery != 0 ? (
               <View style={{flexDirection: 'row',right : useResponsiveWidth(4),alignItems : "center"}}>
                 <BatterySvgTablet></BatterySvgTablet>
                 <Text
@@ -138,7 +141,7 @@ export const AppBar = (props: AppBarProps) => {
                     fontSize: useResponsiveFontSize(1.2),
                     color : 'black'
                   }}>
-                  100%
+                  {battery}%
                 </Text>
               </View>
             ) : (

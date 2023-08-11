@@ -1,7 +1,6 @@
 
 
 export const BEEBOT_HTML = `
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,10 +8,18 @@ export const BEEBOT_HTML = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body style="overflow : hidden;">
-    <?xml version="1.0" encoding="UTF-8"?><svg
-      id="_Слой_2"
-      xmlns="http://www.w3.org/2000/svg"
+
+
+  <body>
+      <svg
+      style="
+      position: fixed;
+      top : 50%;
+      left : 50%;
+      width : 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);"
+      id="svg"
       viewBox="0 0 303.08 396.07">
       <defs>
         <style>
@@ -347,6 +354,7 @@ export const BEEBOT_HTML = `
           d="m267.18,205.94c-2.76,8.92-7.01,15.52-9.5,14.76s-.42-7.97,2.34-16.88,5.19-16.18,7.67-15.41,2.25,8.62-.51,17.54Z" />
       </g>
     </svg>
+
 
 
     <script>

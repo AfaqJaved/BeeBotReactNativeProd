@@ -17,13 +17,15 @@ export interface BleState {
     connectedDevice?: CustomBleDevice;
     isScanning: boolean;
     char?: Characteristic;
+    battery? : number;
 }
 
 const initialState: BleState = {
     foundDevices: [],
     isScanning: false,
     connectedDevice: undefined,
-    char: undefined
+    char: undefined,
+    battery : 0
 };
 
 

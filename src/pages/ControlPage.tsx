@@ -70,10 +70,6 @@ const ControlPage = ({navigation}: any) => {
         onLoad={() => setShowLoading(true)}
         onLoadEnd={() => setShowLoading(false)}
         style={{
-          marginTop:
-            Platform.OS === 'android' && isPortrait()
-              ? useResponsiveHeight(5)
-              : 0,
           width:
             isTablet() && isPortrait()
               ? useResponsiveWidth(70)
@@ -83,8 +79,8 @@ const ControlPage = ({navigation}: any) => {
               ? useResponsiveWidth(20)
               : useResponsiveWidth(25),
           height: isPortrait()
-            ? useResponsiveHeight(90)
-            : useResponsiveHeight(70),
+            ? useResponsiveHeight(75)
+            : useResponsiveHeight(60),
           marginLeft: 'auto',
           marginRight: 'auto',
         }}

@@ -6,6 +6,7 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
 import android.os.Bundle;
 
+
 public class MainActivity extends ReactActivity {
 
 
@@ -17,6 +18,7 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "BeeBotApp";
   }
+
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link
