@@ -10,6 +10,7 @@ export const STOPSCANNING ='STOPSCANNING'
 export const SAVECHAR ='SAVECHAR'
 export const ISCONNECTING ='ISCONNECTING'
 export const RESET ='RESET'
+export const ORIENTATION ='ORIENTATION'
 
 // Define action interfaces for type safety
 export interface IncrementAction {
@@ -53,8 +54,13 @@ export interface SaveChar {
   device : CustomBleDevice
 }
 
+export interface Orientation {
+  type : typeof ORIENTATION
+  payload : boolean
+}
+
 
 
 
 export type CounterAction = IncrementAction | DecrementAction;
-export type BleAction = PushDevice | StartScanning | StopScanning | SaveChar | IsConnecting | Reset;
+export type BleAction = PushDevice | StartScanning | StopScanning | SaveChar | IsConnecting | Reset | Orientation;

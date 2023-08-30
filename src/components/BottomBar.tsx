@@ -27,6 +27,7 @@ export const BottomBar = () => {
   return (
     <View
       style={{
+        zIndex : 1,
         borderTopColor : CONSTANTS.COLORS.GRAY,
         borderTopWidth : 1,
         position : "absolute",

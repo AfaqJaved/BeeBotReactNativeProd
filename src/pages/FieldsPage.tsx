@@ -74,7 +74,6 @@ const FieldsPage = ({navigation}: any) => {
               marginLeft: 'auto',
               textAlign: 'center',
               marginRight: 'auto',
-              marginBottom: useResponsiveHeight(2),
               fontSize: useResponsiveFontSize(2),
               borderBottomColor: '#8C8989',
               borderBottomWidth: 2,

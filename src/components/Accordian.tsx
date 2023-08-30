@@ -61,16 +61,22 @@ export const Accordian = (props: AccordianProps) => {
     undefined,
   );
 
+  // React.useEffect(()=>{
+  //   console.log(useResponsiveHeight(3));
+
+  // },[])
+
   return (
-    <View style={{marginBottom: useResponsiveHeight(1.5)}}>
+    <View style={{marginTop : useResponsiveHeight(3)}}>
       <View
         style={{
           flexDirection: 'row',
           marginLeft: 'auto',
+          borderRadius : 5,
           marginRight: 'auto',
           width: accordianWidth,
           justifyContent: 'space-between',
-          paddingTop: useResponsiveHeight(1),
+          paddingTop: useResponsiveHeight(2),
           paddingBottom: useResponsiveHeight(2),
           paddingLeft: useResponsiveWidth(4),
           paddingRight: useResponsiveWidth(4),
@@ -190,6 +196,7 @@ export const Accordian = (props: AccordianProps) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             padding: useResponsiveWidth(3),
+            marginBottom : useResponsiveHeight(2),
           }}>
           {/* ROW */}
           <View

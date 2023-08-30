@@ -1,4 +1,4 @@
-import {PermissionsAndroid, Platform, ScrollView, View} from 'react-native';
+import {Dimensions, PermissionsAndroid, Platform, ScrollView, StatusBar, View} from 'react-native';
 import {AppBar} from './AppBar';
 import {CONSTANTS} from '../constants/Contants';
 import {
@@ -14,8 +14,10 @@ import {BleDialog} from '../dialog/BleDialog';
 import Toast from 'react-native-toast-message';
 
 import SystemNavigationBar from 'react-native-system-navigation-bar';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootReducer } from '../redux/Store';
+import { ORIENTATION } from '../redux/Actions';
 
-SystemNavigationBar.stickyImmersive();
 
 export interface LayoutWrapperProps {
   navigation: any;
@@ -23,6 +25,10 @@ export interface LayoutWrapperProps {
   enableScroll?: boolean;
   scrollRef?: any;
 }
+
+const SCREEN_HEIGHT = Dimensions.get('screen').height; // device height
+const STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24;
+const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 export const LayoutWrapper = ({
   navigation,
@@ -33,7 +39,10 @@ export const LayoutWrapper = ({
   const mainContentWidth = useResponsiveWidth(100);
   const [isLangDialogVisible, setIsLangDialogVisible] = React.useState(false);
   const [isBleDialogVisible, setIsBleDialogVisible] = React.useState(false);
-  // const scrollRef = React.useRef<any>();
+  const [ignored, forceUpdate] = React.useReducer(x => x + 1, 0);
+  const orient = useSelector((state : RootReducer)=> state.bleReducer.isPortrait);
+  const dispatch = useDispatch();
+
 
   if (Platform.OS === 'android') {
     PermissionsAndroid.requestMultiple([
@@ -43,23 +52,49 @@ export const LayoutWrapper = ({
       PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
       PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
     ]).then(result => {
-      console.log(result);
+      // console.log(result);
     });
   }
 
+
+
   React.useEffect(() => {
-    SystemNavigationBar.stickyImmersive();
+      if(isPortrait()){
+        SystemNavigationBar.immersive();
+      }
+      else{
+        SystemNavigationBar.navigationShow();
+      }
   }, [navigation]);
+
+  React.useEffect(() => {
+
+    if(isPortrait()) {
+      SystemNavigationBar.immersive();
+    }
+    else {
+      SystemNavigationBar.navigationShow();
+    }
+    Dimensions.addEventListener('change', () => {
+      if(isPortrait()) {
+        SystemNavigationBar.immersive();
+      }
+      else{
+        SystemNavigationBar.navigationShow();
+      }
+      forceUpdate();
+    });
+  }, []);
 
   return (
     <View
       style={{
         position: 'relative',
-        width: useResponsiveWidth(100),
+        width: '100%',
         height: '100%',
-        backgroundColor : "white",
+        backgroundColor: 'red',
       }}>
-      <Toast />
+      {/* <Toast /> */}
       <LangDialog
         onClose={() => setIsLangDialogVisible(!isLangDialogVisible)}
         visible={isLangDialogVisible}></LangDialog>
@@ -77,8 +112,24 @@ export const LayoutWrapper = ({
         onBleClick={() => {
           console.log('Ble Clicked');
           setIsBleDialogVisible(!isBleDialogVisible);
-        }}
-      />
+        }}></AppBar>
+
+      <ScrollView
+        ref={scrollRef}
+        scrollEnabled={enableScroll}
+        style={{
+          zIndex: 1,
+          top: isPortrait() ? -33 : -25,
+          width: mainContentWidth,
+          height: 'auto',
+          backgroundColor: CONSTANTS.COLORS.WHITE,
+          borderRadius: 25,
+          borderColor: CONSTANTS.COLORS.YELLOW,
+          borderStyle: 'solid',
+        }}>
+        {children}
+        <View style={{height: useResponsiveHeight(20)}}></View>
+      </ScrollView>
 
       {/* <View
         style={{
@@ -90,20 +141,7 @@ export const LayoutWrapper = ({
         }}></View> */}
 
       {/* Main Content */}
-      <ScrollView
-        ref={scrollRef}
-        scrollEnabled={enableScroll}
-        style={{
-          width: mainContentWidth,
-          height: 'auto',
-          backgroundColor: CONSTANTS.COLORS.WHITE,
-          borderRadius: 25,
-          borderColor: CONSTANTS.COLORS.YELLOW,
-          borderStyle: 'solid',
-        }}>
-        {children}
-        <View style={{height: useResponsiveHeight(20)}}></View>
-      </ScrollView>
+
       <BottomBar />
     </View>
   );

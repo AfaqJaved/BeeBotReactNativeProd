@@ -27,7 +27,6 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import LessonView from './pages/LessonView';
 
 
-import LessonPdf from "../assets/pdf/lesson.pdf";
 
 
 const Stack = createNativeStackNavigator();

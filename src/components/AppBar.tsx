@@ -53,6 +53,7 @@ export interface AppBarProps {
   onHomeClick(): void;
   onBleClick(): void;
   onLanguageCliclk(): void;
+  children ?: any
 }
 
 export const AppBar = (props: AppBarProps) => {
@@ -65,7 +66,7 @@ export const AppBar = (props: AppBarProps) => {
   const battery = useSelector((state : RootReducer)=> state.bleReducer.battery);
 
   return (
-    <View style={{zIndex : 0}}>
+    <View style={{zIndex : 0,position : "relative" , backgroundColor : "blue"}}>
       <ImageBackground
         resizeMode="stretch"
         source={getResponsiveResource(
@@ -76,10 +77,8 @@ export const AppBar = (props: AppBarProps) => {
         style={{
           width: appBarWidth,
           height: appBarHeight,
-          backgroundColor: 'white',
           flexDirection: 'row',
           justifyContent: 'flex-start',
-
           alignItems: 'center',
         }}>
         <View
@@ -174,6 +173,7 @@ export const AppBar = (props: AppBarProps) => {
           </View>
         </View>
       </ImageBackground>
+      {props.children}
     </View>
   );
 };

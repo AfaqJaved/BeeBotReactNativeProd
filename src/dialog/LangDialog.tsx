@@ -68,9 +68,9 @@ export const LangDialog = ({visible, onClose}: LangProps) => {
           ? useResponsiveHeight(70)
           : useResponsiveHeight(90),
       }}>
-      <Text style={{fontSize: useResponsiveFontSize(3), color: 'black'}}>
+      {/* <Text style={{fontSize: useResponsiveFontSize(3), color: 'black'}}>
         {t('select_language')}
-      </Text>
+      </Text> */}
       <FlatList
         style={{marginTop: useResponsiveHeight(5)}}
         data={data}
@@ -91,7 +91,7 @@ export const LangDialog = ({visible, onClose}: LangProps) => {
         }}
         keyExtractor={item => item.id}
       />
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={onClose}
         style={{
           justifyContent: 'center',
@@ -110,7 +110,7 @@ export const LangDialog = ({visible, onClose}: LangProps) => {
           }}>
           {t('close')}
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   ) : (
     <View style={{display: 'none'}}></View>

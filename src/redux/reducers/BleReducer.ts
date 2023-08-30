@@ -1,5 +1,7 @@
 import { Characteristic, Device } from "react-native-ble-plx";
-import { BleAction, ISCONNECTING, PUSHDEVICE, RESET, SAVECHAR, STARTSCANNING, STOPSCANNING } from "../Actions";
+import { BleAction, ISCONNECTING, ORIENTATION, PUSHDEVICE, RESET, SAVECHAR, STARTSCANNING, STOPSCANNING } from "../Actions";
+import { isPortrait } from "../../utils/Utils";
+import { act } from "react-test-renderer";
 
 
 export interface CustomBleDevice {
@@ -18,6 +20,7 @@ export interface BleState {
     isScanning: boolean;
     char?: Characteristic;
     battery? : number;
+    isPortrait ?: boolean;
 }
 
 const initialState: BleState = {
@@ -25,7 +28,8 @@ const initialState: BleState = {
     isScanning: false,
     connectedDevice: undefined,
     char: undefined,
-    battery : 0
+    battery : 0,
+    isPortrait : isPortrait()
 };
 
 
@@ -54,6 +58,12 @@ const bleStateReducer = (state = initialState, action: BleAction): BleState => {
                 connectedDevice: action.device,
                 foundDevices: [action.device]
             };
+        }
+        case ORIENTATION : {
+            return {
+                ...state,
+                isPortrait : action.payload
+            }
         }
         case ISCONNECTING: {
             return {

@@ -91,8 +91,11 @@ const LessonView = ({navigation}: any) => {
 
   return (
     <LayoutWrapper enableScroll={false} navigation={navigation}>
+      <View style={{marginTop : 30}}>
       <TouchableOpacity
-        onPress={async () => {}}
+        onPress={async () => {
+          navigation.navigate('Lessons')
+        }}
         style={{
           position: 'relative',
           bottom: isPortrait() ? 10 : 0,
@@ -122,6 +125,7 @@ const LessonView = ({navigation}: any) => {
       )}
       <WebView
         ref={webView}
+        textZoom={300}
         onLoad={() => setShowLoading(true)}
         showsVerticalScrollIndicator={false}
         onLoadEnd={() => setShowLoading(false)}
@@ -219,6 +223,8 @@ const LessonView = ({navigation}: any) => {
           </Text>
         </TouchableOpacity>
       </View>
+      </View>
+
     </LayoutWrapper>
   );
 };

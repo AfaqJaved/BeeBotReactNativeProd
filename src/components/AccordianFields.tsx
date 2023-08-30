@@ -51,10 +51,11 @@ export const AccordianFields = (props: MenuItemProps) => {
     ? useResponsiveHeight(45)
     : useResponsiveHeight(70);
   return (
-    <View style={{marginBottom: useResponsiveHeight(3)}}>
+    <View style={{marginTop: useResponsiveHeight(3)}}>
       <View
         style={{
           flexDirection: 'row',
+          borderRadius : 5,
           marginLeft: 'auto',
           marginRight: 'auto',
           width: accordianfieldsWidth,

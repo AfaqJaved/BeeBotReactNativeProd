@@ -83,10 +83,10 @@ const FieldsViewPage = ({navigation, route}: any) => {
             fontWeight: '700',
             color: CONSTANTS.COLORS.BLACK,
           }}>
-          {t('fields_title')}
+          {t('fields_title').toUpperCase()}
           {'\n'}
           {'«'}
-          {t(model.title)}
+          {t(model.title).toUpperCase()}
           {'»'}
         </Text>
       </View>
