@@ -86,13 +86,18 @@ export const LayoutWrapper = ({
     });
   }, []);
 
+
+  const scrollToPosition = (y : number) => {
+    scrollRef.scrollTo({y},{},true);
+  }
+
   return (
     <View
       style={{
         position: 'relative',
         width: '100%',
         height: '100%',
-        backgroundColor: 'red',
+        backgroundColor: 'white',
       }}>
       {/* <Toast /> */}
       <LangDialog
@@ -117,6 +122,10 @@ export const LayoutWrapper = ({
       <ScrollView
         ref={scrollRef}
         scrollEnabled={enableScroll}
+        // onScroll={function(event: Object) {
+        //   //@ts-ignore
+        //   console.log(event.nativeEvent.contentOffset.y);
+        //  }}
         style={{
           zIndex: 1,
           top: isPortrait() ? -33 : -25,

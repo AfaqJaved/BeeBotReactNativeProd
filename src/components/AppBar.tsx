@@ -66,7 +66,7 @@ export const AppBar = (props: AppBarProps) => {
   const battery = useSelector((state : RootReducer)=> state.bleReducer.battery);
 
   return (
-    <View style={{zIndex : 0,position : "relative" , backgroundColor : "blue"}}>
+    <View style={{zIndex : 0,position : "relative" , backgroundColor : "white"}}>
       <ImageBackground
         resizeMode="stretch"
         source={getResponsiveResource(

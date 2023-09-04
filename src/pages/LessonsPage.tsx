@@ -49,6 +49,12 @@ const LessonsPage = ({navigation}: any) => {
     });
   }, []);
 
+
+  React.useEffect(()=>{
+    console.log("called lesson page" + lessons);
+
+  },[lessons])
+
   return (
     <LayoutWrapper navigation={navigation}>
       <View style={{position: 'relative', }}>

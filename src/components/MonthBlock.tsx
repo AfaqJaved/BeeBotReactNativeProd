@@ -20,6 +20,7 @@ import {
   useResponsiveHeight,
   useResponsiveWidth,
 } from '../utils/Utils';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 export interface AppBarProps {
   onClick(): void;
@@ -42,51 +43,50 @@ export const MonthBlock = (props: AppBarProps) => {
   const padding = useResponsiveWidth(2);
 
   return (
-    <TouchableOpacity
-      onPress={() => {
-        props.onClick();
-      }}
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-
-      }}>
-      <View
+      <TouchableOpacity
+        onPress={() => {
+          props.onClick();
+        }}
         style={{
           justifyContent: 'center',
           alignItems: 'center',
-          width: monthRectWidth,
-          aspectRatio: 1,
-          backgroundColor: props.isEnabled
-            ? props.isActive
-              ? props.backgroundColor
-              : CONSTANTS.COLORS.LIGHT_GRAY
-            : CONSTANTS.COLORS.LIGHT_GRAY,
-          // padding: padding,
         }}>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: monthRectWidth,
+            aspectRatio: 1,
+            backgroundColor: props.isEnabled
+              ? props.isActive
+                ? props.backgroundColor
+                : CONSTANTS.COLORS.LIGHT_GRAY
+              : CONSTANTS.COLORS.LIGHT_GRAY,
+            // padding: padding,
+          }}>
+          <Text
+            style={{
+              fontSize: numberFontSize,
+              fontWeight: 'bold',
+              color: props.isEnabled
+                ? props.isActive
+                  ? 'white'
+                  : props.backgroundColor
+                : CONSTANTS.COLORS.GRAY,
+            }}>
+            {props.number}
+          </Text>
+        </View>
         <Text
           style={{
-            fontSize: numberFontSize,
-            fontWeight: 'bold',
+            fontSize: monthNameFontSize,
             color: props.isEnabled
-              ? props.isActive
-                ? 'white'
-                : props.backgroundColor
+              ? props.backgroundColor
               : CONSTANTS.COLORS.GRAY,
+            fontFamily: 'Robot-Regular',
           }}>
-          {props.number}
+          {props.month}
         </Text>
-      </View>
-      <Text
-        style={{
-          fontSize: monthNameFontSize,
-          color: props.isEnabled
-            ? props.backgroundColor
-            : CONSTANTS.COLORS.GRAY,
-          fontFamily: 'Robot-Regular',
-        }}>
-        {props.month}
-      </Text>
-    </TouchableOpacity>
+      </TouchableOpacity>
   );
 };

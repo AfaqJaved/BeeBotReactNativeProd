@@ -19,7 +19,8 @@ export const CONSTANTS = {
         BLACK: "#000000",
         WHITE: "#ffffff",
         GRAY: "#949494",
-        LIGHT_WHITE: "#EFEEEE"
+        LIGHT_WHITE: "#EFEEEE",
+        LIGHT_TEXT : "#F5F5F5"
     },
     SUPPORTED_LANGUAGES: ["English (EN), Russian (RU)"],
     SCRATCH_URL: "https://scratch.technoedu.ru",

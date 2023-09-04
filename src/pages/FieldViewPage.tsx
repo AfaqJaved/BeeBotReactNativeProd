@@ -54,6 +54,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
           width: useResponsiveWidth(90),
           marginLeft: 'auto',
           marginRight: 'auto',
+          marginTop : useResponsiveHeight(3)
         }}>
         <Text
           style={{
@@ -76,7 +77,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
         }}>
         <Text
           style={{
-            fontSize: useResponsiveFontSize(4),
+            fontSize: useResponsiveFontSize(3.5),
             width: useResponsiveWidth(90),
             textAlign: 'left',
             fontFamily: 'Roboto-Bold',
@@ -174,6 +175,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
           {model.content.map((content, index) => {
             return (
               <View key={index}>
+                <View style={{marginTop : useResponsiveHeight(4)}}></View>
                 <Heading text={t(content.heading).toUpperCase()}></Heading>
                 <Paragraph text={t(content.paragraph)}></Paragraph>
               </View>
@@ -189,6 +191,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
             width: useResponsiveWidth(90),
             marginLeft: 'auto',
             marginRight: 'auto',
+            marginTop: useResponsiveHeight(4),
           }}>
           <Text
             style={{

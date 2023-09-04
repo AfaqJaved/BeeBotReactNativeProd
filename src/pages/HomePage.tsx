@@ -51,7 +51,7 @@ const HomePage = ({navigation}: any) => {
   return (
     <LayoutWrapper navigation={navigation}>
 
-      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",rowGap : useResponsiveWidth(2),columnGap : useResponsiveWidth(1.5),marginTop : useResponsiveHeight(3)}}>
+      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",rowGap : useResponsiveWidth(1),columnGap : useResponsiveWidth(1.5),marginTop : useResponsiveHeight(3)}}>
       <MenuItem
         image={isPortrait() ? Lessons : LandLessons}
         width={!isTablet() ? 90 : 60}

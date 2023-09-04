@@ -84,6 +84,7 @@ export const Accordian = (props: AccordianProps) => {
           backgroundColor: props.accordianBackgroundColor,
         }}>
 
+        <TouchableOpacity activeOpacity={1} onPress={()=>{props.onClick()}} style={{flexDirection :"row" ,alignItems : "center",width : useResponsiveWidth(90),marginLeft : "auto",marginRight : "auto",paddingLeft : useResponsiveWidth(4),paddingRight : useResponsiveWidth(4)}}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image
             source={props.accordianImage}
@@ -100,14 +101,11 @@ export const Accordian = (props: AccordianProps) => {
             {t(props.accordianTitle).toUpperCase()}
           </Text>
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            props.onClick();
-          }}>
           <Image
-            style={{transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
+            style={{marginLeft : "auto",transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
             source={getResponsiveResource(ArrowMobile,ArrowTablet,ArrowTabletLarge)}></Image>
         </TouchableOpacity>
+
       </View>
 
       {/* Main ACCORDIAN BODY */}
