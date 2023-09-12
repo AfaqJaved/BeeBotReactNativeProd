@@ -85,7 +85,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
             color: CONSTANTS.COLORS.BLACK,
           }}>
           {t('fields_title').toUpperCase()}
-          {'\n'}
+          {isPortrait() ? '\n' : " "}
           {'«'}
           {t(model.title).toUpperCase()}
           {'»'}
@@ -175,7 +175,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
           {model.content.map((content, index) => {
             return (
               <View key={index}>
-                <View style={{marginTop : useResponsiveHeight(4)}}></View>
+                <View style={{marginTop : isPortrait() ? useResponsiveHeight(4): useResponsiveHeight(8)}}></View>
                 <Heading text={t(content.heading).toUpperCase()}></Heading>
                 <Paragraph text={t(content.paragraph)}></Paragraph>
               </View>
@@ -208,7 +208,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
           onPress={() => navigation.navigate('Fields')}
           style={{
             width: useResponsiveWidth(90),
-            marginTop: useResponsiveWidth(5),
+            marginTop: isPortrait() ? useResponsiveWidth(10) : useResponsiveWidth(5),
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>

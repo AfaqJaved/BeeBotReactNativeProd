@@ -35,7 +35,7 @@ export interface AppBarProps {
 export const MonthBlock = (props: AppBarProps) => {
   const monthRectWidth = isPortrait()
     ? useResponsiveWidth(14)
-    : useResponsiveWidth(10);
+    : useResponsiveWidth(7);
   const monthNameFontSize = useResponsiveFontSize(2);
   const numberFontSize = isPortrait()
     ? useResponsiveFontSize(4)

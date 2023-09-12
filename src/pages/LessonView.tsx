@@ -114,10 +114,9 @@ const LessonView = ({navigation}: any) => {
               marginLeft : "auto",
               marginRight : "auto",
               position: 'relative',
-              marginTop: useResponsiveHeight(3),
-              width: isPortrait()
-                ? useResponsiveWidth(90)
-                : useResponsiveWidth(50),
+              marginTop: isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(5),
+              width:
+                 useResponsiveWidth(90)
                 // marginBottom : useResponsiveHeight(2)
             }}>
             <Text
@@ -198,7 +197,7 @@ const LessonView = ({navigation}: any) => {
               backgroundColor: 'red',
               width: useResponsiveWidth(90),
               borderRadius: 10,
-              marginBottom: useResponsiveHeight(4),
+              marginBottom: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8),
             }}
             source={getResponsiveResource(
               FarmImageGridMobile,
@@ -232,7 +231,7 @@ const LessonView = ({navigation}: any) => {
             );
           })}
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'цели'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -244,7 +243,7 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'задачи'.toUpperCase()}></Heading>
             <SubHeading text={'Обучающие:'}></SubHeading>
             <FlatList
@@ -326,7 +325,7 @@ const LessonView = ({navigation}: any) => {
             />
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'тематические поля'.toUpperCase()}></Heading>
             <Paragraph
               underline={true}
@@ -335,7 +334,7 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'Программное содержание'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -349,13 +348,13 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'словарная работа'.toUpperCase()}></Heading>
             <Paragraph
               text={'рычаг с ручкой, зубчатое колесо, ось, балка.'}></Paragraph>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'Предварительная работа'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -367,7 +366,7 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading text={'Методы и приемы'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -382,7 +381,7 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop:isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <Heading
               text={'Этапы работы и содержание этапов'.toUpperCase()}></Heading>
             <SubHeading fontWeight='700' text={'1. Организационный момент '}></SubHeading>
@@ -559,7 +558,7 @@ const LessonView = ({navigation}: any) => {
             </View>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <SubHeading
               fontStyle="italic"
               text={'Ожидаемые результаты'}></SubHeading>
@@ -606,7 +605,7 @@ const LessonView = ({navigation}: any) => {
             />
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(3)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(7)}}>
             <SubHeading fontWeight='700' text={'2. Основная часть '}></SubHeading>
             <FlatList
             scrollEnabled={false}
@@ -740,7 +739,7 @@ const LessonView = ({navigation}: any) => {
             </View>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <SubHeading
               fontStyle="italic"
               text={'Ожидаемые результаты'}></SubHeading>
@@ -782,7 +781,7 @@ const LessonView = ({navigation}: any) => {
             />
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(2)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(2) : useResponsiveHeight(4)}}>
             <SubHeading fontWeight='700' text={'3. Заключительная часть '}></SubHeading>
             <FlatList
             scrollEnabled={false}
@@ -921,7 +920,7 @@ const LessonView = ({navigation}: any) => {
             </View>
           </View>
 
-          <View style={{marginTop: useResponsiveHeight(4)}}>
+          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
             <SubHeading
               fontStyle="italic"
               text={'Ожидаемые результаты'}></SubHeading>
@@ -1018,7 +1017,7 @@ const LessonView = ({navigation}: any) => {
               width: isPortrait()
                 ? useResponsiveWidth(50)
                 : useResponsiveWidth(50),
-              marginTop: isPortrait() ? useResponsiveWidth(3) : 0,
+              marginTop: isPortrait() ? useResponsiveWidth(3) : useResponsiveWidth(3),
             }}>
             <Text
               style={{

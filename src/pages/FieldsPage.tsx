@@ -59,7 +59,7 @@ const FieldsPage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
-      <View style={{position: 'relative', }}>
+      <View style={{position: 'relative',marginTop : isPortrait() ? 0 :  useResponsiveHeight(5) }}>
         <View style={{position : "relative"}}>
           <TextInput
             placeholder={t("lessons_search_hint")}

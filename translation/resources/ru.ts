@@ -7,7 +7,7 @@ export default {
     scratch: "Scratch",
     materials: "Дополнительные\nматериалы",
     select_language: "выберите язык",
-    version: "Версия 1.4",
+    version: "Версия 1.5",
     about: "О продукте",
     ble_dialog_title: "Доступные устройства",
     ble_success: "Ура! Пчёлка готова к работе",

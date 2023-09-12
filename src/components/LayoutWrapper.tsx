@@ -120,6 +120,8 @@ export const LayoutWrapper = ({
         }}></AppBar>
 
       <ScrollView
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
         ref={scrollRef}
         scrollEnabled={enableScroll}
         // onScroll={function(event: Object) {

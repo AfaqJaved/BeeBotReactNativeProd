@@ -83,12 +83,15 @@ export const AppBar = (props: AppBarProps) => {
         }}>
         <View
           style={{
-            paddingLeft: useResponsiveWidth(3.5),
-            paddingRight: useResponsiveWidth(3.5),
+            // paddingLeft: useResponsiveWidth(3.5),
+            // paddingRight: useResponsiveWidth(3.5),
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignItems: deviceType() === DEVICE.MOBILE && battery != 0 ? "flex-start" : "center",
-            width: appBarWidth,
+            width: useResponsiveWidth(90),
+            marginLeft : "auto",
+            marginTop : isPortrait() ? 0 : useResponsiveHeight(-5),
+            marginRight : "auto"
           }}>
           <TouchableOpacity onPress={props.onHomeClick}>
             {deviceType() == DEVICE.MOBILE ? (

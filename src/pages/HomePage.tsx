@@ -51,12 +51,15 @@ const HomePage = ({navigation}: any) => {
   return (
     <LayoutWrapper navigation={navigation}>
 
-      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",rowGap : useResponsiveWidth(1),columnGap : useResponsiveWidth(1.5),marginTop : useResponsiveHeight(3)}}>
+      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",
+      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(1.5),marginTop : isPortrait() ?useResponsiveHeight(3) : useResponsiveHeight(6)}}>
+
+
       <MenuItem
         image={isPortrait() ? Lessons : LandLessons}
-        width={!isTablet() ? 90 : 60}
-        heightLand={isTablet() ? 30 : 50}
-        heightPort={!isTablet() ? 25 : 25}
+        width={90}
+        heightLand={50}
+        heightPort={25}
         label={t('lessons')}
         onClick={() => {
           navigation.navigate('Lessons');
@@ -65,9 +68,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Fields : LandFields}
-          width={!isTablet() ? 44 : 30}
-          heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 25}
+          width={44}
+          heightLand={45}
+          heightPort={33}
           label={t('fields')}
           onClick={() => {
             navigation.navigate("Fields")
@@ -76,9 +79,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Control : LandControl}
-          width={!isTablet() ? 44 : 29.5}
-          heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 25}
+          width={44}
+          heightLand={45}
+          heightPort={33}
           label={t('remote')}
           onClick={() => {
             navigation.navigate('Control');
@@ -87,9 +90,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Scratch : LandScratch}
-          width={!isTablet() ? 44 : 29.5}
-          heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 25}
+          width={44}
+          heightLand={45}
+          heightPort={33}
           label={t('scratch')}
           onClick={() => {
             Linking.openURL(CONSTANTS.SCRATCH_URL).catch(err =>
@@ -100,9 +103,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Add : LandAdd}
-          width={!isTablet() ? 44 : 29.5}
-          heightLand={isTablet() ? 30 : 50}
-          heightPort={!isTablet() ? 33 : 25}
+          width={44}
+          heightLand={45}
+          heightPort={33}
           label={t('materials')}
           onClick={() => {
             console.log('called');

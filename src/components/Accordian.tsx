@@ -52,7 +52,7 @@ export const Accordian = (props: AccordianProps) => {
     : useResponsiveHeight(5);
   const selectMonthFontSize = useResponsiveFontSize(2.5);
 
-  const monthGridGap = isPortrait() ? useResponsiveWidth(1) : useResponsiveWidth(5);
+  const monthGridGap = isPortrait() ? useResponsiveWidth(1) : useResponsiveWidth(0);
   const monthGridHeight = isPortrait()
     ? useResponsiveHeight(60)
     : useResponsiveHeight(70);
@@ -141,13 +141,13 @@ export const Accordian = (props: AccordianProps) => {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'flex-start',
+              justifyContent: isPortrait() ? 'flex-start' : "space-between",
               alignItems : "center",
               flexWrap: 'wrap',
               gap: monthGridGap,
               width: accordianWidth,
               height: 'auto',
-              marginBottom : useResponsiveWidth(4)
+              marginBottom : useResponsiveWidth(4),
             }}>
             {props.monthAndTopics.map((monthTopic, index) => {
               index++;

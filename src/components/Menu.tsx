@@ -56,9 +56,9 @@ export const MenuItem = (props: MenuItemProps) => {
             fontFamily: 'Roboto-Regular',
             fontWeight : "500",
             fontStyle : "normal",
-            lineHeight : isPortrait() ? useResponsiveHeight(2.5) : useResponsiveHeight(3),
+            lineHeight : isPortrait() ? useResponsiveHeight(2.5) : useResponsiveHeight(5),
             color: CONSTANTS.COLORS.WHITE,
-            fontSize: isTablet() ? useResponsiveFontSize(1.3) : isPortrait()
+            fontSize: isTablet() ? useResponsiveFontSize(2) : isPortrait()
               ? useResponsiveFontSize(1.7)
               : useResponsiveFontSize(1.7),
           }}>
