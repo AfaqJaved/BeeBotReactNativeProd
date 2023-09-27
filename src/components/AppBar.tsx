@@ -30,6 +30,8 @@ import {
   isLandscape,
   isPortrait,
   isTablet,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -38,7 +40,7 @@ import {LangDialog} from '../dialog/LangDialog';
 import i18n from '../../translation';
 import AppBarBackMobile from '../assets/img/appbar_mobile.png';
 import AppBarBackTablet from '../assets/img/appbar_tablet.png';
-import AppBarBackRTabletLg from '../assets/img/appbar_tabletlg.png';
+import AppBarBackRTabletLg from '../assets/img/appbar_desktop.png';
 import HomeSvgMobile from '../svg/HomeSvgMobile';
 import {HomeSvgTablet} from '../svg/HomeSvgTablet';
 import {AppBarLogoMobile} from '../svg/AppBarLogoMobile';
@@ -47,36 +49,52 @@ import {BleSvgMobile} from '../svg/BleSvgMobile';
 import {BleSvgTablet} from '../svg/BleSvgTablet';
 import {BatterySvgMobile} from '../svg/BatterySvgMobile';
 import {BatterySvgTablet} from '../svg/BatterySvgTablet';
-import { useSelector } from 'react-redux';
-import { RootReducer } from '../redux/Store';
+import {useSelector} from 'react-redux';
+import {RootReducer} from '../redux/Store';
 
 export interface AppBarProps {
   onHomeClick(): void;
   onBleClick(): void;
   onLanguageCliclk(): void;
-  children ?: any
+  children?: any;
 }
 
 export const AppBar = (props: AppBarProps) => {
   const appBarWidth = useResponsiveWidth(101);
-  const appBarHeight = isPortrait()
-    ? isTablet() ? useResponsiveHeight(12) :  useResponsiveHeight(17)
-    : useResponsiveHeight(24);
-  const textSize = isTablet()? useResponsiveFontSize(2) :useResponsiveFontSize(2.5);
+  // const appBarHeight = isPortrait()
+  //   ? isTablet() ? useResponsiveHeight(12) :  useResponsiveHeight(17)
+  //   : useResponsiveHeight(24);
+  const appBarHeight = isTabletAndPortrait()
+    ? useResponsiveHeight(12)
+    : isTabletAndLandScape()
+    ? useResponsiveHeight(15)
+    : isPortrait()
+    ? useResponsiveHeight(17)
+    : useResponsiveHeight(25);
+  const textSize = isTablet()
+    ? useResponsiveFontSize(2)
+    : useResponsiveFontSize(2.5);
   const [dialogVisible, setDialogVisible] = React.useState<boolean>(false);
-  const battery = useSelector((state : RootReducer)=> state.bleReducer.battery);
+  const battery = useSelector((state: RootReducer) => state.bleReducer.battery);
 
   return (
-    <View style={{zIndex : 0,position : "relative" , backgroundColor : "white"}}>
+    <View style={{zIndex: 0, position: 'relative', backgroundColor: 'white'}}>
       <ImageBackground
-        resizeMode="stretch"
+        resizeMode={
+          isTabletAndPortrait()
+            ? 'contain'
+            : isTabletAndLandScape()
+            ? 'contain'
+            : 'contain'
+        }
         source={getResponsiveResource(
-          AppBarBackTablet,
-          AppBarBackTablet,
+          AppBarBackRTabletLg,
+          AppBarBackRTabletLg,
           AppBarBackRTabletLg,
         )}
         style={{
           width: appBarWidth,
+          backgroundColor : CONSTANTS.COLORS.YELLOW,
           height: appBarHeight,
           flexDirection: 'row',
           justifyContent: 'flex-start',
@@ -88,11 +106,14 @@ export const AppBar = (props: AppBarProps) => {
             // paddingRight: useResponsiveWidth(3.5),
             flexDirection: 'row',
             justifyContent: 'flex-start',
-            alignItems: deviceType() === DEVICE.MOBILE && battery != 0 ? "flex-start" : "center",
+            alignItems:
+              deviceType() === DEVICE.MOBILE && battery != 0
+                ? 'flex-start'
+                : 'center',
             width: useResponsiveWidth(90),
-            marginLeft : "auto",
-            marginTop : isPortrait() ? 0 : useResponsiveHeight(-5),
-            marginRight : "auto"
+            marginLeft: 'auto',
+            marginTop: 0,
+            marginRight: 'auto',
           }}>
           <TouchableOpacity onPress={props.onHomeClick}>
             {deviceType() == DEVICE.MOBILE ? (
@@ -124,7 +145,7 @@ export const AppBar = (props: AppBarProps) => {
                   style={{
                     marginLeft: useResponsiveWidth(1),
                     fontSize: useResponsiveFontSize(2),
-                    color : 'black'
+                    color: 'black',
                   }}>
                   {battery}%
                 </Text>
@@ -134,15 +155,20 @@ export const AppBar = (props: AppBarProps) => {
             )}
           </View>
 
-          <View style={{flexDirection: 'row' , alignItems : "center"}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
             {deviceType() !== DEVICE.MOBILE && battery != 0 ? (
-              <View style={{flexDirection: 'row',right : useResponsiveWidth(4),alignItems : "center"}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  right: useResponsiveWidth(4),
+                  alignItems: 'center',
+                }}>
                 <BatterySvgTablet></BatterySvgTablet>
                 <Text
                   style={{
                     marginLeft: useResponsiveWidth(1),
                     fontSize: useResponsiveFontSize(1.2),
-                    color : 'black'
+                    color: 'black',
                   }}>
                   {battery}%
                 </Text>
@@ -152,7 +178,7 @@ export const AppBar = (props: AppBarProps) => {
             )}
 
             <TouchableOpacity
-              style={{position: 'relative',right : useResponsiveWidth(2)}}
+              style={{position: 'relative', right: useResponsiveWidth(2)}}
               onPress={props.onBleClick}>
               {deviceType() == DEVICE.MOBILE ? (
                 <BleSvgMobile />
