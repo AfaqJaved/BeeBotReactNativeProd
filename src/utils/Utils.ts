@@ -71,6 +71,18 @@ export const isTablet = () => {
     return width >= 768 ? true : false;
 }
 
+export const isTabletAndPortrait = () => {
+    const width = Dimensions.get('screen').width;
+    return (width >= 768 && isPortrait()) ? true : false;
+}
+
+
+
+export const isTabletAndLandScape = () => {
+    const height = Dimensions.get('screen').height;
+    return (height >= 768 && !isPortrait()) ? true : false;
+}
+
 export const useResponsiveHeight = (per: number) => {
     const dim = Dimensions.get('window').height;
     return (dim * per) / 100;

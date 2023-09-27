@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import { useResponsiveFontSize, useResponsiveWidth } from "../utils/Utils";
+import { isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize, useResponsiveWidth } from "../utils/Utils";
 import { CONSTANTS } from "../constants/Contants";
 
 export interface HeadingProps{
@@ -12,7 +12,7 @@ export const Heading = (props : HeadingProps) => {
     <Text
       style={{
         marginBottom: useResponsiveWidth(2),
-        fontSize: useResponsiveFontSize(3),
+        fontSize: isTabletAndPortrait() ? useResponsiveFontSize(2) : isTabletAndLandScape() ? useResponsiveFontSize(2) : useResponsiveFontSize(3),
         color : CONSTANTS.COLORS.BLACK,
         fontWeight : '600'
       }}>

@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {AppBar} from '../components/AppBar';
 import {BottomBar} from '../components/BottomBar';
-import {isPortrait, useResponsiveFontSize} from '../utils/Utils';
+import {isPortrait, isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize} from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 import {MenuItem} from '../components/Menu';
 
@@ -58,7 +58,11 @@ const FieldsViewPage = ({navigation, route}: any) => {
         }}>
         <Text
           style={{
-            fontSize: useResponsiveFontSize(2),
+            fontSize: isTabletAndPortrait()
+            ? useResponsiveFontSize(1.5)
+            : isTabletAndLandScape()
+            ? useResponsiveFontSize(1.5)
+            : useResponsiveFontSize(2),
             width: useResponsiveWidth(90),
             textAlign: 'right',
             color: CONSTANTS.COLORS.GRAY,
@@ -77,7 +81,11 @@ const FieldsViewPage = ({navigation, route}: any) => {
         }}>
         <Text
           style={{
-            fontSize: useResponsiveFontSize(3.5),
+            fontSize: isTabletAndPortrait()
+            ? useResponsiveFontSize(2)
+            : isTabletAndLandScape()
+            ? useResponsiveFontSize(2)
+            : useResponsiveFontSize(3.5),
             width: useResponsiveWidth(90),
             textAlign: 'left',
             fontFamily: 'Roboto-Bold',
@@ -94,8 +102,8 @@ const FieldsViewPage = ({navigation, route}: any) => {
       <View
         style={{
           width: useResponsiveWidth(90),
-          marginLeft: isPortrait() ? 'auto' : 0,
-          marginRight: isPortrait() ? 'auto' : 0,
+          marginLeft : "auto",
+          marginRight : "auto",
           marginBottom: useResponsiveWidth(3),
           marginTop: useResponsiveWidth(4),
         }}>
@@ -110,14 +118,14 @@ const FieldsViewPage = ({navigation, route}: any) => {
           <Image
             resizeMode="contain"
             style={{
-              marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
-              marginRight: isPortrait() ? 'auto' : 0,
-              // width: isPortrait()
-              //   ? useResponsiveWidth(90)
-              //   : useResponsiveWidth(50),
-              // height: isPortrait()
-              //   ? useResponsiveHeight(50)
-              //   : useResponsiveHeight(70),
+              aspectRatio : 1,
+              // marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
+              // marginRight: isPortrait() ? 'auto' : 0,
+              width: isTabletAndPortrait()
+              ? useResponsiveWidth(60)
+              : isTabletAndLandScape()
+              ? useResponsiveWidth(60)
+              : useResponsiveWidth(90),
               borderRadius: 10,
             }}
             source={model.gridImage}></Image>
@@ -132,7 +140,11 @@ const FieldsViewPage = ({navigation, route}: any) => {
         }}>
         <Text
           style={{
-            fontSize: useResponsiveFontSize(2),
+            fontSize:  isTabletAndPortrait()
+            ? useResponsiveFontSize(1.5)
+            : isTabletAndLandScape()
+            ? useResponsiveFontSize(1.5)
+            : useResponsiveFontSize(2),
             color: CONSTANTS.COLORS.GRAY,
             width: useResponsiveWidth(90),
             marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
@@ -157,13 +169,16 @@ const FieldsViewPage = ({navigation, route}: any) => {
               ? useResponsiveWidth(45)
               : useResponsiveWidth(30),
             marginRight: isPortrait() ? 0 : 'auto',
-            marginBottom: useResponsiveWidth(10),
             borderRadius: 3,
           }}>
           <Text
             style={{
               textAlign: 'center',
-              fontSize: useResponsiveFontSize(2),
+              fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2),
               color: CONSTANTS.COLORS.WHITE,
               fontStyle: 'italic',
             }}>
@@ -191,11 +206,15 @@ const FieldsViewPage = ({navigation, route}: any) => {
             width: useResponsiveWidth(90),
             marginLeft: 'auto',
             marginRight: 'auto',
-            marginTop: useResponsiveHeight(4),
+            marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8),
           }}>
           <Text
             style={{
-              fontSize: useResponsiveFontSize(2),
+              fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2),
               width: useResponsiveWidth(90),
               textAlign: 'right',
               color: CONSTANTS.COLORS.GRAY,
@@ -208,13 +227,17 @@ const FieldsViewPage = ({navigation, route}: any) => {
           onPress={() => navigation.navigate('Fields')}
           style={{
             width: useResponsiveWidth(90),
-            marginTop: isPortrait() ? useResponsiveWidth(10) : useResponsiveWidth(5),
+            marginTop: isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(6),
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>
           <Text
             style={{
-              fontSize: useResponsiveFontSize(2),
+              fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2),
               width: useResponsiveWidth(90),
               textAlign: 'right',
               color: CONSTANTS.COLORS.GRAY,

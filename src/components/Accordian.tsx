@@ -13,6 +13,9 @@ import {
   useResponsiveWidth,
   useResponsiveFontSize,
   getResponsiveResource,
+  isTablet,
+  isTabletAndPortrait,
+  isTabletAndLandScape,
 } from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 
@@ -26,7 +29,6 @@ import ArrowMobile from '../assets/img/arrow_mobile.png';
 import ArrowTablet from '../assets/img/arrow_tablet.png';
 import ArrowTabletLarge from '../assets/img/arrow_tablet.png';
 
-
 export interface AccordianProps {
   onClick(): void;
   onMonthClick(month: Months): void;
@@ -36,7 +38,7 @@ export interface AccordianProps {
   accordianImage: any;
   accordianBackgroundColor: string;
   monthAndTopics: Months[];
-  navigation : any
+  navigation: any;
 }
 
 export const Accordian = (props: AccordianProps) => {
@@ -52,7 +54,9 @@ export const Accordian = (props: AccordianProps) => {
     : useResponsiveHeight(5);
   const selectMonthFontSize = useResponsiveFontSize(2.5);
 
-  const monthGridGap = isPortrait() ? useResponsiveWidth(1) : useResponsiveWidth(0);
+  const monthGridGap = isPortrait()
+    ? useResponsiveWidth(1)
+    : useResponsiveWidth(0);
   const monthGridHeight = isPortrait()
     ? useResponsiveHeight(60)
     : useResponsiveHeight(70);
@@ -67,45 +71,92 @@ export const Accordian = (props: AccordianProps) => {
   // },[])
 
   return (
-    <View style={{marginTop : useResponsiveHeight(3)}}>
+    <View
+      style={{
+        marginTop: isTabletAndPortrait()
+          ? useResponsiveHeight(2)
+          : useResponsiveHeight(2),
+      }}>
       <View
         style={{
           flexDirection: 'row',
           marginLeft: 'auto',
-          borderRadius : 5,
+          borderRadius: 5,
           marginRight: 'auto',
           width: accordianWidth,
           justifyContent: 'space-between',
-          paddingTop: useResponsiveHeight(2),
-          paddingBottom: useResponsiveHeight(2),
-          paddingLeft: useResponsiveWidth(4),
-          paddingRight: useResponsiveWidth(4),
+          paddingTop: isTabletAndPortrait()
+            ? useResponsiveHeight(1)
+            : isTabletAndLandScape()
+            ? useResponsiveHeight(1.5)
+            : useResponsiveHeight(2),
+          paddingBottom: isTabletAndPortrait()
+            ? useResponsiveHeight(1)
+            : isTabletAndLandScape()
+            ? useResponsiveHeight(1.5)
+            : useResponsiveHeight(2),
+          paddingLeft: isTabletAndPortrait()
+            ? useResponsiveHeight(0.5)
+            : isTabletAndLandScape()
+            ? useResponsiveHeight(1.5)
+            : useResponsiveHeight(4),
+          paddingRight: isTabletAndPortrait()
+            ? useResponsiveHeight(1)
+            : isTabletAndLandScape()
+            ? useResponsiveHeight(1.5)
+            : useResponsiveHeight(4),
           alignItems: 'center',
           backgroundColor: props.accordianBackgroundColor,
         }}>
-
-        <TouchableOpacity activeOpacity={1} onPress={()=>{props.onClick()}} style={{flexDirection :"row" ,alignItems : "center",width : useResponsiveWidth(90),marginLeft : "auto",marginRight : "auto",paddingLeft : useResponsiveWidth(4),paddingRight : useResponsiveWidth(4)}}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity
+          activeOpacity={1}
+          onPress={() => {
+            props.onClick();
+          }}
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: useResponsiveWidth(90),
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            paddingLeft: isTabletAndPortrait()
+              ? useResponsiveWidth(2.5)
+              : isTabletAndLandScape()
+              ? useResponsiveWidth(1.5)
+              : useResponsiveWidth(4),
+            paddingRight: isTabletAndPortrait()
+            ? useResponsiveWidth(2.5)
+            : isTabletAndLandScape()
+            ? useResponsiveWidth(1.5)
+            : useResponsiveWidth(4),
+          }}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Image
+              source={props.accordianImage}
+              style={{
+                aspectRatio: 1,
+                width: accordianImageWidth,
+              }}></Image>
+            <Text
+              style={{
+                marginLeft: accordianTitleMarginLeft,
+                fontSize: isTabletAndPortrait() ?  useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.2) : useResponsiveFontSize(2),
+                color: CONSTANTS.COLORS.WHITE,
+              }}>
+              {t(props.accordianTitle).toUpperCase()}
+            </Text>
+          </View>
           <Image
-            source={props.accordianImage}
             style={{
-              aspectRatio: 1,
-              width: accordianImageWidth,
-            }}></Image>
-          <Text
-            style={{
-              marginLeft: accordianTitleMarginLeft,
-              fontSize: accordianTitleFontSize,
-              color: CONSTANTS.COLORS.WHITE,
-            }}>
-            {t(props.accordianTitle).toUpperCase()}
-          </Text>
-        </View>
-          <Image
-            style={{marginLeft : "auto",transform: [{rotate: props.show ? '180deg' : '0deg'}]}}
-            source={getResponsiveResource(ArrowMobile,ArrowTablet,ArrowTabletLarge)}></Image>
+              marginLeft: 'auto',
+              transform: [{rotate: props.show ? '180deg' : '0deg'}],
+            }}
+            source={getResponsiveResource(
+              ArrowMobile,
+              ArrowTablet,
+              ArrowTabletLarge,
+            )}></Image>
         </TouchableOpacity>
-
       </View>
 
       {/* Main ACCORDIAN BODY */}
@@ -121,12 +172,12 @@ export const Accordian = (props: AccordianProps) => {
           }}>
           <Text
             style={{
-              fontSize: selectMonthFontSize,
+              fontSize: isTabletAndPortrait() ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ?  useResponsiveFontSize(1.5): useResponsiveFontSize(2.5),
               // fontFamily: 'Roboto-Regular',
               color: CONSTANTS.COLORS.GRAY,
-              fontStyle : "italic"
+              fontStyle: 'italic',
             }}>
-            {t("select_month")}
+            {t('select_month')}
           </Text>
         </View>
         {/* TEXT END */}
@@ -141,13 +192,13 @@ export const Accordian = (props: AccordianProps) => {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: isPortrait() ? 'flex-start' : "space-between",
-              alignItems : "center",
+              justifyContent: isPortrait() ? 'flex-start' : 'space-between',
+              alignItems: 'center',
               flexWrap: 'wrap',
               gap: monthGridGap,
               width: accordianWidth,
               height: 'auto',
-              marginBottom : useResponsiveWidth(4),
+              marginBottom: useResponsiveWidth(4),
             }}>
             {props.monthAndTopics.map((monthTopic, index) => {
               index++;
@@ -194,7 +245,7 @@ export const Accordian = (props: AccordianProps) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             padding: useResponsiveWidth(3),
-            marginBottom : useResponsiveHeight(2),
+            marginBottom: useResponsiveHeight(2),
           }}>
           {/* ROW */}
           <View
@@ -204,7 +255,7 @@ export const Accordian = (props: AccordianProps) => {
               justifyContent: 'flex-start',
               width: accordianWidth,
             }}>
-            {selectedMonth?.topics.map((topic,index) => {
+            {selectedMonth?.topics.map((topic, index) => {
               let finalIndex = ++index;
 
               return (
@@ -216,19 +267,21 @@ export const Accordian = (props: AccordianProps) => {
                     justifyContent: 'flex-start',
                     marginTop: useResponsiveHeight(1),
                   }}>
-                  <TouchableOpacity onPress={()=> props.navigation.navigate("LessonView")} style={{flexDirection : "row"}}>
+                  <TouchableOpacity
+                    onPress={() => props.navigation.navigate('LessonView')}
+                    style={{flexDirection: 'row'}}>
                     <Text
                       style={{
                         color: CONSTANTS.COLORS.BLACK,
-                        fontSize: useResponsiveFontSize(2.5),
+                        fontSize: isTabletAndPortrait() ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.5) : useResponsiveFontSize(2.5),
                         fontFamily: 'Roboto-Regular',
                       }}>
-                      {finalIndex.toString()+". "}
+                      {finalIndex.toString() + '. '}
                     </Text>
                     <Text
                       style={{
                         color: CONSTANTS.COLORS.BLACK,
-                        fontSize: useResponsiveFontSize(2.5),
+                        fontSize: isTabletAndPortrait() ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.5) : useResponsiveFontSize(2.5),
                         textDecorationLine: 'underline',
                         fontFamily: 'Roboto-Regular',
                       }}>

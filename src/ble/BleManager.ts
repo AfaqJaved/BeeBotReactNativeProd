@@ -80,7 +80,7 @@ export class CustomBleManger {
                 return
             }
             if (device != null) {
-                if (device.name === CONSTANTS.BLE.NAME) {
+                if (device.name?.includes(CONSTANTS.BLE.NAME)) {
                     let found = false;
                     store.getState().bleReducer.foundDevices.forEach((current) => {
                         if (device.id === current.device.id) {

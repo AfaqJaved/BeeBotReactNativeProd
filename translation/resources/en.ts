@@ -7,7 +7,7 @@ export default {
     scratch: "Scratch",
     materials: "Materials",
     select_language: "Select Language",
-    version: "Version 1.5",
+    version: "Version 1.6",
     about: "About App",
     ble_dialog_title: "Available Devices",
     ble_success: "Hooray! The Bee is ready to go",

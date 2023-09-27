@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import { useResponsiveFontSize, useResponsiveWidth } from "../utils/Utils";
+import { isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize, useResponsiveWidth } from "../utils/Utils";
 import { CONSTANTS } from "../constants/Contants";
 
 export interface SubHeadingProps{
@@ -15,7 +15,7 @@ export const SubHeading = (props : SubHeadingProps) => {
     <Text
       style={{
         marginBottom: useResponsiveWidth(2),
-        fontSize: useResponsiveFontSize(2),
+        fontSize: isTabletAndPortrait() ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.5) : useResponsiveFontSize(2),
         color : CONSTANTS.COLORS.BLACK,
         fontWeight : props.fontWeight || '600',
         flex : props.flex || 0,

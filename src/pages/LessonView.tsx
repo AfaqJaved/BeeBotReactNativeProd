@@ -19,6 +19,8 @@ import {AppBar} from '../components/AppBar';
 import {
   getResponsiveResource,
   isTablet,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -70,13 +72,6 @@ const LessonView = ({navigation}: any) => {
     });
   }, []);
 
-  const handleWebViewMessage = async (event: any) => {
-    const message = event.nativeEvent.data;
-    console.log(message);
-    if (message == 'b') {
-    }
-  };
-
   const savePdf = () => {
     let path = RNFS.DocumentDirectoryPath + '/lesson.pdf';
     RNFS.writeFile(path, BASE_64_LESSON_PDF, 'base64')
@@ -106,33 +101,37 @@ const LessonView = ({navigation}: any) => {
       scrollRef={scroll}
       enableScroll={true}
       navigation={navigation}>
-        <TouchableOpacity
-            onPress={async () => {
-              navigation.navigate('Lessons');
-            }}
-            style={{
-              marginLeft : "auto",
-              marginRight : "auto",
-              position: 'relative',
-              marginTop: isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(5),
-              width:
-                 useResponsiveWidth(90)
-                // marginBottom : useResponsiveHeight(2)
-            }}>
-            <Text
-              style={{
-                fontSize: useResponsiveFontSize(2),
-                width: useResponsiveWidth(90),
-                textAlign: 'right',
-                color: CONSTANTS.COLORS.GRAY,
-                fontStyle: 'italic',
-              }}>
-              {t('back_to_topics')}
-            </Text>
-          </TouchableOpacity>
+      <TouchableOpacity
+        onPress={async () => {
+          navigation.navigate('Lessons');
+        }}
+        style={{
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          position: 'relative',
+          marginTop: isPortrait()
+            ? useResponsiveHeight(3)
+            : useResponsiveHeight(5),
+          width: useResponsiveWidth(90),
+          // marginBottom : useResponsiveHeight(2)
+        }}>
+        <Text
+          style={{
+            fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2),
+            width: useResponsiveWidth(90),
+            textAlign: 'right',
+            color: CONSTANTS.COLORS.GRAY,
+            fontStyle: 'italic',
+          }}>
+          {t('back_to_topics')}
+        </Text>
+      </TouchableOpacity>
       <View style={{}}>
         {/* TODO MAIN CONTENT */}
-
 
         <View
           style={{
@@ -142,7 +141,6 @@ const LessonView = ({navigation}: any) => {
             marginRight: 'auto',
             marginTop: useResponsiveHeight(4),
           }}>
-
           {/* TAG START */}
           <View
             style={{
@@ -158,7 +156,11 @@ const LessonView = ({navigation}: any) => {
             <Text
               style={{
                 textAlign: 'center',
-                fontSize: useResponsiveFontSize(2),
+                fontSize: isTabletAndPortrait()
+                  ? useResponsiveFontSize(1.5)
+                  : isTabletAndLandScape()
+                  ? useResponsiveFontSize(1.5)
+                  : useResponsiveFontSize(2),
                 color: CONSTANTS.COLORS.WHITE,
                 // fontStyle: 'italic',
               }}>
@@ -177,14 +179,18 @@ const LessonView = ({navigation}: any) => {
             }}>
             <Text
               style={{
-                fontSize: useResponsiveFontSize(3.5),
+                fontSize: isTabletAndPortrait()
+                  ? useResponsiveFontSize(2)
+                  : isTabletAndLandScape()
+                  ? useResponsiveFontSize(2)
+                  : useResponsiveFontSize(3.5),
                 width: useResponsiveWidth(90),
                 textAlign: 'left',
                 fontFamily: 'Roboto-Bold',
                 fontWeight: '700',
                 color: CONSTANTS.COLORS.BLACK,
               }}>
-              {'Профессиональные помощники'.toUpperCase()}
+              {'Профессиональные\nпомощники'.toUpperCase()}
             </Text>
           </View>
 
@@ -194,10 +200,17 @@ const LessonView = ({navigation}: any) => {
           <Image
             resizeMode={'cover'}
             style={{
+              aspectRatio: 1,
               backgroundColor: 'red',
-              width: useResponsiveWidth(90),
+              width: isTabletAndPortrait()
+                ? useResponsiveWidth(60)
+                : isTabletAndLandScape()
+                ? useResponsiveWidth(60)
+                : useResponsiveWidth(90),
               borderRadius: 10,
-              marginBottom: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8),
+              marginBottom: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
             }}
             source={getResponsiveResource(
               FarmImageGridMobile,
@@ -216,7 +229,7 @@ const LessonView = ({navigation}: any) => {
             {title: 'Методы и приемы', postion: 2088},
             {title: 'Техническое оснащение', postion: 1670},
             {title: 'Этапы работы и содержание этапов', postion: 2288},
-          ].map((content,index) => {
+          ].map((content, index) => {
             return (
               <LessonContentLinks
                 key={index}
@@ -231,7 +244,12 @@ const LessonView = ({navigation}: any) => {
             );
           })}
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'цели'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -243,11 +261,16 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'задачи'.toUpperCase()}></Heading>
             <SubHeading text={'Обучающие:'}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {
                   key: 'Систематизировать знания детей о бытовых приборах, (их особенностях и функциях), помогающих людям выполнять работу по дому;',
@@ -302,7 +325,7 @@ const LessonView = ({navigation}: any) => {
             />
             <SubHeading text={'Воспитательные:'}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {key: 'Воспитывать интерес к техническим видам творчества.'},
                 {
@@ -325,7 +348,12 @@ const LessonView = ({navigation}: any) => {
             />
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'тематические поля'.toUpperCase()}></Heading>
             <Paragraph
               underline={true}
@@ -334,7 +362,12 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'Программное содержание'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -348,13 +381,23 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'словарная работа'.toUpperCase()}></Heading>
             <Paragraph
               text={'рычаг с ручкой, зубчатое колесо, ось, балка.'}></Paragraph>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'Предварительная работа'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -366,7 +409,12 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading text={'Методы и приемы'.toUpperCase()}></Heading>
             <Paragraph
               text={
@@ -381,12 +429,19 @@ const LessonView = ({navigation}: any) => {
               }></Paragraph>
           </View>
 
-          <View style={{marginTop:isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <Heading
               text={'Этапы работы и содержание этапов'.toUpperCase()}></Heading>
-            <SubHeading fontWeight='700' text={'1. Организационный момент '}></SubHeading>
+            <SubHeading
+              fontWeight="700"
+              text={'1. Организационный момент '}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {key: 'создание игровой мотивации;'},
                 {
@@ -413,7 +468,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between"
+              justifyContent: 'space-between',
             }}>
             <View
               style={{
@@ -421,7 +476,7 @@ const LessonView = ({navigation}: any) => {
                 width: useResponsiveWidth(44),
                 paddingLeft: 15,
               }}>
-              <SubHeading flex={1} text={'деятельность педагога'}></SubHeading>
+              <SubHeading flex={1} text={'деятельность\nпедагога'}></SubHeading>
             </View>
             <View
               style={{
@@ -431,7 +486,7 @@ const LessonView = ({navigation}: any) => {
               }}>
               <SubHeading
                 flex={1}
-                text={'деятельность воспитанника'}></SubHeading>
+                text={'деятельность\nвоспитанника'}></SubHeading>
             </View>
           </View>
 
@@ -439,7 +494,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -479,7 +534,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -520,7 +575,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -558,12 +613,17 @@ const LessonView = ({navigation}: any) => {
             </View>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <SubHeading
               fontStyle="italic"
               text={'Ожидаемые результаты'}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {
                   start: ['*'],
@@ -585,10 +645,10 @@ const LessonView = ({navigation}: any) => {
                       marginBottom: 10,
                       flexDirection: 'row',
                     }}>
-                    {item.start.map((star,index) => {
+                    {item.start.map((star, index) => {
                       return (
                         <Paragraph
-                        key={index}
+                          key={index}
                           flex={2}
                           fontColor="red"
                           fontStyle="italic"
@@ -605,10 +665,17 @@ const LessonView = ({navigation}: any) => {
             />
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(7)}}>
-            <SubHeading fontWeight='700' text={'2. Основная часть '}></SubHeading>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(3)
+                : useResponsiveHeight(7),
+            }}>
+            <SubHeading
+              fontWeight="700"
+              text={'2. Основная часть '}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {
                   key: 'конструирование;',
@@ -636,7 +703,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -645,7 +712,7 @@ const LessonView = ({navigation}: any) => {
                 width: useResponsiveWidth(44),
                 paddingLeft: 15,
               }}>
-              <SubHeading flex={1} text={'деятельность педагога'}></SubHeading>
+              <SubHeading flex={1} text={'деятельность\nпедагога'}></SubHeading>
             </View>
             <View
               style={{
@@ -655,7 +722,7 @@ const LessonView = ({navigation}: any) => {
               }}>
               <SubHeading
                 flex={1}
-                text={'деятельность воспитанника'}></SubHeading>
+                text={'деятельность\nвоспитанника'}></SubHeading>
             </View>
           </View>
 
@@ -663,7 +730,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -700,7 +767,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -739,12 +806,17 @@ const LessonView = ({navigation}: any) => {
             </View>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <SubHeading
               fontStyle="italic"
               text={'Ожидаемые результаты'}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {
                   start: ['*'],
@@ -762,7 +834,7 @@ const LessonView = ({navigation}: any) => {
                       marginBottom: 10,
                       flexDirection: 'row',
                     }}>
-                    {item.start.map((star,index) => {
+                    {item.start.map((star, index) => {
                       return (
                         <Paragraph
                           key={index}
@@ -781,10 +853,17 @@ const LessonView = ({navigation}: any) => {
             />
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(2) : useResponsiveHeight(4)}}>
-            <SubHeading fontWeight='700' text={'3. Заключительная часть '}></SubHeading>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(2)
+                : useResponsiveHeight(4),
+            }}>
+            <SubHeading
+              fontWeight="700"
+              text={'3. Заключительная часть '}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {
                   key: 'свободная игра-экспериментирование с моделью.',
@@ -815,7 +894,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -824,7 +903,7 @@ const LessonView = ({navigation}: any) => {
                 width: useResponsiveWidth(44),
                 paddingLeft: 15,
               }}>
-              <SubHeading flex={1} text={'деятельность педагога'}></SubHeading>
+              <SubHeading flex={1} text={'деятельность\nпедагога'}></SubHeading>
             </View>
             <View
               style={{
@@ -834,7 +913,7 @@ const LessonView = ({navigation}: any) => {
               }}>
               <SubHeading
                 flex={1}
-                text={'деятельность воспитанника'}></SubHeading>
+                text={'деятельность\nвоспитанника'}></SubHeading>
             </View>
           </View>
 
@@ -842,7 +921,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -883,7 +962,7 @@ const LessonView = ({navigation}: any) => {
             style={{
               flexDirection: 'row',
               width: useResponsiveWidth(90),
-              justifyContent : "space-between",
+              justifyContent: 'space-between',
               marginTop: useResponsiveWidth(1),
             }}>
             <View
@@ -920,12 +999,17 @@ const LessonView = ({navigation}: any) => {
             </View>
           </View>
 
-          <View style={{marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8)}}>
+          <View
+            style={{
+              marginTop: isPortrait()
+                ? useResponsiveHeight(4)
+                : useResponsiveHeight(8),
+            }}>
             <SubHeading
               fontStyle="italic"
               text={'Ожидаемые результаты'}></SubHeading>
             <FlatList
-            scrollEnabled={false}
+              scrollEnabled={false}
               data={[
                 {
                   start: ['*'],
@@ -943,10 +1027,10 @@ const LessonView = ({navigation}: any) => {
                       marginBottom: 10,
                       flexDirection: 'row',
                     }}>
-                    {item.start.map((star,index) => {
+                    {item.start.map((star, index) => {
                       return (
                         <Paragraph
-                        key={index}
+                          key={index}
                           flex={2}
                           fontColor="red"
                           text={star}></Paragraph>
@@ -969,18 +1053,32 @@ const LessonView = ({navigation}: any) => {
           }}
           style={{
             backgroundColor: CONSTANTS.COLORS.GREEN,
-            borderRadius: 20,
+            borderRadius: 100,
             width: isPortrait()
               ? useResponsiveWidth(60)
               : useResponsiveWidth(40),
             marginLeft: 'auto',
             marginRight: 'auto',
-            padding: 10,
+            padding: isTabletAndPortrait()
+              ? useResponsiveWidth(3)
+              : isTabletAndLandScape()
+              ? useResponsiveWidth(3)
+              : useResponsiveWidth(2),
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: useResponsiveHeight(5),
           }}>
-          <Text style={{color: 'white'}}>{t('download_pdf')}</Text>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: isTabletAndPortrait()
+                ? useResponsiveFontSize(1.5)
+                : isTabletAndLandScape()
+                ? useResponsiveFontSize(1.5)
+                : useResponsiveFontSize(2),
+            }}>
+            {t('download_pdf')}
+          </Text>
         </TouchableOpacity>
 
         <View
@@ -988,7 +1086,9 @@ const LessonView = ({navigation}: any) => {
             width: useResponsiveWidth(90),
             marginLeft: 'auto',
             marginRight: 'auto',
-            marginTop: useResponsiveHeight(4),
+            marginTop: isPortrait()
+              ? useResponsiveHeight(4)
+              : useResponsiveHeight(8),
             // backgroundColor : "red"
           }}>
           <TouchableOpacity
@@ -1001,7 +1101,11 @@ const LessonView = ({navigation}: any) => {
             }}>
             <Text
               style={{
-                fontSize: useResponsiveFontSize(2),
+                fontSize: isTabletAndPortrait()
+                  ? useResponsiveFontSize(1.5)
+                  : isTabletAndLandScape()
+                  ? useResponsiveFontSize(1.5)
+                  : useResponsiveFontSize(2),
                 textAlign: 'right',
                 color: CONSTANTS.COLORS.GRAY,
                 fontStyle: 'italic',
@@ -1017,11 +1121,17 @@ const LessonView = ({navigation}: any) => {
               width: isPortrait()
                 ? useResponsiveWidth(50)
                 : useResponsiveWidth(50),
-              marginTop: isPortrait() ? useResponsiveWidth(3) : useResponsiveWidth(3),
+              marginTop: isPortrait()
+                ? useResponsiveHeight(3)
+                : useResponsiveHeight(6),
             }}>
             <Text
               style={{
-                fontSize: useResponsiveFontSize(2),
+                fontSize: isTabletAndPortrait()
+                  ? useResponsiveFontSize(1.5)
+                  : isTabletAndLandScape()
+                  ? useResponsiveFontSize(1.5)
+                  : useResponsiveFontSize(2),
                 textAlign: 'right',
                 color: CONSTANTS.COLORS.GRAY,
                 fontStyle: 'italic',

@@ -12,23 +12,24 @@ import {
 } from 'react-native';
 import {CONSTANTS, DEVICE} from '../constants/Contants';
 
-import HomeMobile from '../assets/img/home_mobile.png';
-import HomeTablet from '../assets/img/home_tablet.png';
-import HomeTabletLarge from '../assets/img/home_tabletlg.png';
+// import HomeMobile from '../assets/img/home_mobile.png';
+// import HomeTablet from '../assets/img/home_tablet.png';
+// import HomeTabletLarge from '../assets/img/home_tabletlg.png';
 
-import LogoMobile from '../assets/img/logo_mobile.png';
-import LogoTablet from '../assets/img/logo_tablet.png';
-import LogoTabletLarge from '../assets/img/logo_tabletlg.png';
+// import LogoMobile from '../assets/img/logo_mobile.png';
+// import LogoTablet from '../assets/img/logo_tablet.png';
+// import LogoTabletLarge from '../assets/img/logo_tabletlg.png';
 
-import BleMobile from '../assets/img/bt_mobile.png';
-import BleTablet from '../assets/img/bt_tablet.png';
-import BleTabletLarge from '../assets/img/bt_tabletlg.png';
+// import BleMobile from '../assets/img/bt_mobile.png';
+// import BleTablet from '../assets/img/bt_tablet.png';
+// import BleTabletLarge from '../assets/img/bt_tabletlg.png';
 
 import {
   deviceType,
   getResponsiveResource,
   isLandscape,
   isPortrait,
+  isTablet,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -59,9 +60,9 @@ export interface AppBarProps {
 export const AppBar = (props: AppBarProps) => {
   const appBarWidth = useResponsiveWidth(101);
   const appBarHeight = isPortrait()
-    ? useResponsiveHeight(18)
+    ? isTablet() ? useResponsiveHeight(12) :  useResponsiveHeight(17)
     : useResponsiveHeight(24);
-  const textSize = useResponsiveFontSize(2.5);
+  const textSize = isTablet()? useResponsiveFontSize(2) :useResponsiveFontSize(2.5);
   const [dialogVisible, setDialogVisible] = React.useState<boolean>(false);
   const battery = useSelector((state : RootReducer)=> state.bleReducer.battery);
 
@@ -70,7 +71,7 @@ export const AppBar = (props: AppBarProps) => {
       <ImageBackground
         resizeMode="stretch"
         source={getResponsiveResource(
-          AppBarBackMobile,
+          AppBarBackTablet,
           AppBarBackTablet,
           AppBarBackRTabletLg,
         )}

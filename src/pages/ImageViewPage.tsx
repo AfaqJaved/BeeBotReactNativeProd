@@ -30,7 +30,8 @@ import {LayoutWrapper} from '../components/LayoutWrapper';
 import ImageViewer from 'react-native-image-zoom-viewer';
 
 import FarmImageGrid from '../assets/img/fieldfarm.png';
-import Cross from '../assets/img/cancel.png';
+import CrossMobile from '../assets/img/cancel_mobile.png';
+import CrossTablet from '../assets/img/cancel_tablet.png';
 import ZoomMobile from '../assets/img/zoom_mobile.png';
 import ZoomTablet from '../assets/img/zoom_tablet.png';
 import ZoomTabletLarge from '../assets/img/zoom_tabletlg.png';
@@ -65,7 +66,7 @@ const ImageViewPage = ({navigation, route}: any) => {
       <View
         style={{
           width: useResponsiveWidth(100),
-          height: useResponsiveHeight(90),
+          height: useResponsiveHeight(100),
         }}>
         <View
           style={{
@@ -90,7 +91,7 @@ const ImageViewPage = ({navigation, route}: any) => {
               source={getResponsiveResource(
                 ZoomMobile,
                 ZoomTablet,
-                ZoomTabletLarge,
+                ZoomTablet,
               )}></Image>
           </TouchableOpacity>
           <TouchableOpacity
@@ -99,7 +100,7 @@ const ImageViewPage = ({navigation, route}: any) => {
                 model: getField(),
               });
             }}>
-            <Image source={Cross}></Image>
+            <Image source={getResponsiveResource(CrossMobile,CrossTablet,CrossTablet)}></Image>
           </TouchableOpacity>
         </View>
 

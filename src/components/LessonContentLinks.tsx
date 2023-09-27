@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import { CONSTANTS } from "../constants/Contants";
-import { useResponsiveWidth, useResponsiveFontSize } from "../utils/Utils";
+import { useResponsiveWidth, useResponsiveFontSize, isTabletAndLandScape, isTabletAndPortrait } from "../utils/Utils";
 
 export interface LessonContentLinksProps {
     onClick : () => void;
@@ -16,7 +16,7 @@ export const LessonContentLinks = (props : LessonContentLinksProps) => {
       <Text
         style={{
           marginBottom: useResponsiveWidth(2.5),
-          fontSize: useResponsiveFontSize(2),
+          fontSize: isTabletAndPortrait() ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.5) : useResponsiveFontSize(2),
           color: CONSTANTS.COLORS.BLACK,
           textDecorationLine: 'underline',
         }}>

@@ -18,6 +18,8 @@ import {
   isLandscape,
   isPortrait,
   isTablet,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -38,7 +40,7 @@ export const MenuItem = (props: MenuItemProps) => {
       <ImageBackground
         borderRadius={10}
         source={props.image}
-        resizeMode={"cover"}
+        resizeMode={'cover'}
         style={{
           marginLeft: 'auto',
           marginRight: 'auto',
@@ -54,12 +56,16 @@ export const MenuItem = (props: MenuItemProps) => {
             bottom: 15,
             left: 15,
             fontFamily: 'Roboto-Regular',
-            fontWeight : "500",
-            fontStyle : "normal",
-            lineHeight : isPortrait() ? useResponsiveHeight(2.5) : useResponsiveHeight(5),
+            fontWeight: '500',
+            fontStyle: 'normal',
+            lineHeight: isPortrait()
+              ? useResponsiveHeight(2.5)
+              : isTabletAndLandScape() ? useResponsiveHeight(4) : useResponsiveFontSize(2.5),
             color: CONSTANTS.COLORS.WHITE,
-            fontSize: isTablet() ? useResponsiveFontSize(2) : isPortrait()
-              ? useResponsiveFontSize(1.7)
+            fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.2)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.2)
               : useResponsiveFontSize(1.7),
           }}>
           {props.label.toUpperCase()}

@@ -13,6 +13,8 @@ import {
   useResponsiveWidth,
   useResponsiveFontSize,
   getResponsiveResource,
+  isTabletAndPortrait,
+  isTabletAndLandScape,
 } from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 
@@ -51,7 +53,9 @@ export const AccordianFields = (props: MenuItemProps) => {
     ? useResponsiveHeight(45)
     : useResponsiveHeight(70);
   return (
-    <View style={{marginTop: useResponsiveHeight(3)}}>
+    <View style={{marginTop: isTabletAndPortrait()
+      ? useResponsiveHeight(2)
+      : useResponsiveHeight(2)}}>
       <View
         style={{
           flexDirection: 'row',
@@ -60,10 +64,26 @@ export const AccordianFields = (props: MenuItemProps) => {
           marginRight: 'auto',
           width: accordianfieldsWidth,
           justifyContent: 'space-between',
-          paddingTop: useResponsiveHeight(2),
-          paddingBottom: useResponsiveHeight(2),
-          paddingLeft: useResponsiveWidth(4),
-          paddingRight: useResponsiveWidth(4),
+          paddingTop: isTabletAndPortrait()
+          ? useResponsiveHeight(1)
+          : isTabletAndLandScape()
+          ? useResponsiveHeight(1.5)
+          : useResponsiveHeight(2),
+          paddingBottom: isTabletAndPortrait()
+          ? useResponsiveHeight(1)
+          : isTabletAndLandScape()
+          ? useResponsiveHeight(1.5)
+          : useResponsiveHeight(2),
+          paddingLeft: isTabletAndPortrait()
+          ? useResponsiveHeight(2.5)
+          : isTabletAndLandScape()
+          ? useResponsiveHeight(1.5)
+          : useResponsiveHeight(2),
+          paddingRight: isTabletAndPortrait()
+          ? useResponsiveHeight(2.5)
+          : isTabletAndLandScape()
+          ? useResponsiveHeight(1.5)
+          : useResponsiveHeight(2),
           alignItems: 'center',
           backgroundColor: props.backgroundColor,
         }}>
@@ -78,7 +98,7 @@ export const AccordianFields = (props: MenuItemProps) => {
             <Text
               style={{
                 marginLeft: accordianfieldsTitleMarginLeft,
-                fontSize: accordianfieldsTitleFontSize,
+                fontSize: isTabletAndPortrait() ?  useResponsiveFontSize(2) : isTabletAndLandScape() ? useResponsiveFontSize(2) : useResponsiveFontSize(3),
                 color: CONSTANTS.COLORS.WHITE,
               }}>
               {props.title}
@@ -86,7 +106,7 @@ export const AccordianFields = (props: MenuItemProps) => {
             <Text
               style={{
                 marginLeft: accordianfieldsTitleMarginLeft,
-                fontSize: useResponsiveFontSize(2),
+                fontSize: isTabletAndPortrait() ?  useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.2) : useResponsiveFontSize(2),
                 color: CONSTANTS.COLORS.WHITE,
               }}>
               {t("art")}: {props.artNo}

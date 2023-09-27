@@ -1,6 +1,8 @@
 import {CONSTANTS} from '../constants/Contants';
 import {
   isPortrait,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -46,16 +48,20 @@ export const BleItem = (props: BleItemProps) => {
       ) : (
         <Image source={RadioOff}></Image>
       )}
-      <Text style={{color: 'black', fontSize: useResponsiveFontSize(2)}}>
+      <Text style={{color: 'black', fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2)}}>
         {props.deviceName}
       </Text>
-      <Text
+      {/* <Text
         style={{
           color: CONSTANTS.COLORS.GRAY,
           fontSize: useResponsiveFontSize(1.5),
         }}>
         {props.connected ? t('connected') : t('disconnected')}
-      </Text>
+      </Text> */}
       {props.isConnecting ? (
         <ActivityIndicator size="small" color="#0000ff" />
       ) : props.connected ? (

@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 import {
   isTablet,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveHeight,
   useResponsiveWidth,
 } from '../utils/Utils';
@@ -52,13 +54,14 @@ const HomePage = ({navigation}: any) => {
     <LayoutWrapper navigation={navigation}>
 
       <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",
-      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(1.5),marginTop : isPortrait() ?useResponsiveHeight(3) : useResponsiveHeight(6)}}>
+      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(2),marginTop : isPortrait() ?useResponsiveHeight(3) : useResponsiveHeight(6)}}>
 
 
       <MenuItem
         image={isPortrait() ? Lessons : LandLessons}
-        width={90}
-        heightLand={50}
+        width={isTabletAndPortrait() ? 60 : isTabletAndLandScape() ? 60 : 90}
+        // heightLand={50}
+        heightLand={isTabletAndPortrait() ? 50 : isTabletAndLandScape() ? 30 : 50}
         heightPort={25}
         label={t('lessons')}
         onClick={() => {
@@ -68,9 +71,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Fields : LandFields}
-          width={44}
-          heightLand={45}
-          heightPort={33}
+          width={isTabletAndPortrait() ? 28 : isTabletAndLandScape() ? 28 : 44}
+          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
+          heightPort={isTabletAndPortrait() ? 25 : 33 }
           label={t('fields')}
           onClick={() => {
             navigation.navigate("Fields")
@@ -79,9 +82,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Control : LandControl}
-          width={44}
-          heightLand={45}
-          heightPort={33}
+          width={isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44}
+          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
+          heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('remote')}
           onClick={() => {
             navigation.navigate('Control');
@@ -90,9 +93,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Scratch : LandScratch}
-          width={44}
-          heightLand={45}
-          heightPort={33}
+          width={isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44}
+          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
+          heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('scratch')}
           onClick={() => {
             Linking.openURL(CONSTANTS.SCRATCH_URL).catch(err =>
@@ -103,9 +106,9 @@ const HomePage = ({navigation}: any) => {
 
         <MenuItem
           image={isPortrait() ? Add : LandAdd}
-          width={44}
-          heightLand={45}
-          heightPort={33}
+          width={isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44}
+          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
+          heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('materials')}
           onClick={() => {
             console.log('called');

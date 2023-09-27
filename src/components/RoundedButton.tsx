@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 import {CONSTANTS} from '../constants/Contants';
-import {useResponsiveFontSize} from '../utils/Utils';
+import {isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize} from '../utils/Utils';
 
 import {useTranslation} from 'react-i18next';
 
@@ -34,7 +34,11 @@ export const RoundedButton = (props : RoundedButtonProps) => {
       }}>
       <Text
         style={{
-          fontSize: useResponsiveFontSize(2),
+          fontSize: isTabletAndPortrait()
+          ? useResponsiveFontSize(1.5)
+          : isTabletAndLandScape()
+          ? useResponsiveFontSize(1.5)
+          : useResponsiveFontSize(2),
           color: CONSTANTS.COLORS.WHITE,
         }}>
         {t(props.label)}

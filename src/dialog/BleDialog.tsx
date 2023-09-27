@@ -10,7 +10,10 @@ import {
 } from 'react-native';
 import {
   getLocalFromList,
+  getResponsiveResource,
   isPortrait,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveFontSize,
   useResponsiveHeight,
   useResponsiveWidth,
@@ -21,8 +24,10 @@ import i18n from '../../translation';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-import Cross from '../assets/img/cancel.png';
-import Refresh from '../assets/img/update.png';
+import CrossTablet from '../assets/img/cancel_tablet.png';
+import CrossMobile from '../assets/img/cancel_mobile.png';
+import RefreshMobile from '../assets/img/update_mobile.png';
+import RefreshTablet from '../assets/img/update_tablet.png';
 import RadioOff from '../assets/img/radio_off.png';
 import {BleItem} from '../components/BleItem';
 import {CustomBleManger} from '../ble/BleManager';
@@ -106,15 +111,19 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
           onPress={async () => {
             CustomBleManger.getInstance().startScanning();
           }}>
-          {!isScanning ? <Image resizeMode="cover" source={Refresh} /> : ''}
+          {!isScanning ? <Image resizeMode="cover" source={getResponsiveResource(RefreshMobile,RefreshTablet,RefreshTablet)} /> : ''}
         </TouchableOpacity>
         <TouchableOpacity onPress={onClose}>
-          <Image resizeMode="cover" source={Cross} />
+          <Image resizeMode="cover" source={getResponsiveResource(CrossMobile,CrossTablet,CrossTablet)} />
         </TouchableOpacity>
       </View>
       <Text
         style={{
-          fontSize: useResponsiveFontSize(3),
+          fontSize: isTabletAndPortrait()
+          ? useResponsiveFontSize(1.5)
+          : isTabletAndLandScape()
+          ? useResponsiveFontSize(1.5)
+          : useResponsiveFontSize(2),
           color: 'black',
           textAlign: 'center',
           fontWeight: 'bold',

@@ -17,6 +17,8 @@ import {
   getResponsiveResource,
   isPortrait,
   isTablet,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
   useResponsiveFontSize,
 } from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
@@ -72,7 +74,7 @@ const LessonsPage = ({navigation}: any) => {
               marginLeft: 'auto',
               textAlign: 'center',
               marginRight: 'auto',
-              fontSize: useResponsiveFontSize(2),
+              fontSize: isTabletAndPortrait()  ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.5): useResponsiveFontSize(2),
               borderBottomColor: '#8C8989',
               borderBottomWidth: 2,
               color: 'black',
@@ -82,13 +84,13 @@ const LessonsPage = ({navigation}: any) => {
           source={getResponsiveResource(
             SearchMobile,
             SearchTablet,
-            SearchTabletLarge,
+            SearchTablet,
           )}
           resizeMode="contain"
           style={{
             position : "absolute",
             left : useResponsiveWidth(5),
-            top : !isTablet() ? useResponsiveHeight(3) : !isPortrait() ? useResponsiveHeight(3) : 0
+            top : isTabletAndPortrait() ? useResponsiveHeight(3) : isTabletAndLandScape() ? useResponsiveHeight(3) : useResponsiveHeight(3)
           }}
         />
       </View>
