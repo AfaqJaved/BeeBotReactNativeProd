@@ -3,7 +3,8 @@ import { FieldModel } from "../models/FieldsModel";
 import { CONSTANTS } from "../constants/Contants";
 
 
-import FarmImage from "../assets/img/farm1.png";
+import FarmImageMobile from "../assets/img/farm1_mobile.png";
+import FarmImageTablet from "../assets/img/farm1_tablet_lg.png";
 import FarmImageGridMobile from '../assets/img/farm_mobile.png';
 import FarmImageGridTablet from '../assets/img/farm_tablet.png';
 import FarmImageGridTabletLarge from '../assets/img/farm_tabletlg.png';
@@ -45,7 +46,7 @@ import { getResponsiveResource } from "../utils/Utils";
 export const FIELD_MODELS: FieldModel[] = [
     {
         title: 'farm',
-        imageSource: FarmImage,
+        imageSource: getResponsiveResource(FarmImageMobile,FarmImageTablet,FarmImageTablet),
         girdImageTablet : FarmImageGridTabletLarge,
         gridImage : getResponsiveResource(FarmImageGridMobile,FarmImageGridTablet,FarmImageGridTablet),
         artNo: "000 84210",

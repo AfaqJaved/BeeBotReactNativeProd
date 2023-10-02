@@ -53,24 +53,33 @@ import {LessonContentLinks} from '../components/LessonContentLinks';
 import {Paragraph} from '../components/Paragraph';
 import {SubHeading} from '../components/SubHeading';
 
+// const finalPositions: number[] = [];
+
 const LessonView = ({navigation}: any) => {
-  const [showLoading, setShowLoading] = React.useState(true);
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const mainContentWidth = useResponsiveWidth(100);
-  const mainContentHeight = isPortrait()
-    ? useResponsiveHeight(85)
-    : useResponsiveHeight(70);
+  const [finalPositions , setFinalPositions] = React.useState([]as number[]);
   const {t} = useTranslation();
-  const webView = React.useRef<any>();
-  const char = useSelector((state: RootReducer) => state.bleReducer.char);
-  const sourcePath = RNFS.MainBundlePath + '/assets/pdf/lesson.pdf';
-  const destinationPath = RNFS.ExternalStorageDirectoryPath + '/test.pdf';
   const scroll = React.useRef<any>();
+  const headingOne = React.useRef<any>();
+  const headingTwo = React.useRef<any>();
   React.useEffect(() => {
     Dimensions.addEventListener('change', () => {
       forceUpdate();
     });
   }, []);
+
+  React.useEffect(()=>{
+    console.log(finalPositions);
+  },[finalPositions])
+
+  // React.useEffect(() => {
+  //   if (headingTwo)
+  //     headingTwo.current.measure(
+  //       (fx: any, fy: any, width: any, height: any, px: any, py: any) => {
+  //         console.log(fx, fy, px, py);
+  //       },
+  //     );
+  // }, [headingTwo]);
 
   const savePdf = () => {
     let path = RNFS.DocumentDirectoryPath + '/lesson.pdf';
@@ -221,14 +230,14 @@ const LessonView = ({navigation}: any) => {
 
           <Heading text={'Содержание'.toUpperCase()}></Heading>
           {[
-            {title: 'Цели', postion: 850},
-            {title: 'Задачи', postion: 1050},
-            {title: 'Программное содержание', postion: 1719},
-            {title: 'Словарная работа', postion: 1972},
-            {title: 'Предварительная работа', postion: 2100},
-            {title: 'Методы и приемы', postion: 2088},
-            {title: 'Техническое оснащение', postion: 1670},
-            {title: 'Этапы работы и содержание этапов', postion: 2288},
+            {title: 'Цели', postion: finalPositions[1] + 50},
+            {title: 'Задачи',postion: finalPositions[2] + 50},
+            {title: 'Техническое оснащение', postion: finalPositions[3] + 50},
+            {title: 'Программное содержание', postion: finalPositions[4] + 50},
+            {title: 'Словарная работа', postion: finalPositions[5] + 50},
+            {title: 'Предварительная работа', postion: finalPositions[6] + 50},
+            {title: 'Методы и приемы', postion: finalPositions[7] + 50},
+            {title: 'Этапы работы и содержание этапов', postion: finalPositions[8] + 50},
           ].map((content, index) => {
             return (
               <LessonContentLinks
@@ -245,6 +254,13 @@ const LessonView = ({navigation}: any) => {
           })}
 
           <View
+            onLayout={event => {
+              const layout = event.nativeEvent.layout;
+              finalPositions[1] = layout.y;
+
+              setFinalPositions([...finalPositions,layout.y])
+              // console.log(layout.y);
+            }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -262,12 +278,20 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+            onLayout={event => {
+              const layout = event.nativeEvent.layout;
+              finalPositions[2] = layout.y;
+              setFinalPositions([...finalPositions,layout.y])
+              // console.log(layout.y);
+            }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
                 : useResponsiveHeight(8),
             }}>
-            <Heading text={'задачи'.toUpperCase()}></Heading>
+            <View ref={headingTwo}>
+              <Heading text={'задачи'.toUpperCase()}></Heading>
+            </View>
             <SubHeading text={'Обучающие:'}></SubHeading>
             <FlatList
               scrollEnabled={false}
@@ -349,6 +373,12 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+          onLayout={(event)=>{
+            const layout = event.nativeEvent.layout;
+            finalPositions[3] = layout.y;
+            setFinalPositions([...finalPositions,layout.y])
+            // console.log(layout.y);
+          }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -363,6 +393,12 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+          onLayout={(event)=>{
+            const layout = event.nativeEvent.layout;
+            finalPositions[4] = layout.y;
+            setFinalPositions([...finalPositions,layout.y])
+            // console.log(layout.y);
+          }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -382,6 +418,12 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+          onLayout={(event)=>{
+            const layout = event.nativeEvent.layout;
+            finalPositions[5] = layout.y;
+            setFinalPositions([...finalPositions,layout.y])
+            // console.log(layout.y);
+          }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -393,6 +435,12 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+          onLayout={(event)=>{
+            const layout = event.nativeEvent.layout;
+            finalPositions[6] = layout.y;
+            setFinalPositions([...finalPositions,layout.y])
+            // console.log(layout.y);
+          }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -410,6 +458,12 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+          onLayout={(event)=>{
+            const layout = event.nativeEvent.layout;
+            finalPositions[7] = layout.y;
+            setFinalPositions([...finalPositions,layout.y])
+            // console.log(layout.y);
+          }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -430,6 +484,12 @@ const LessonView = ({navigation}: any) => {
           </View>
 
           <View
+          onLayout={(event)=>{
+            const layout = event.nativeEvent.layout;
+            finalPositions[8] = layout.y;
+            setFinalPositions([...finalPositions,layout.y])
+            // console.log(layout.y);
+          }}
             style={{
               marginTop: isPortrait()
                 ? useResponsiveHeight(4)
@@ -1062,7 +1122,7 @@ const LessonView = ({navigation}: any) => {
             padding: isTabletAndPortrait()
               ? useResponsiveWidth(3)
               : isTabletAndLandScape()
-              ? useResponsiveWidth(3)
+              ? useResponsiveWidth(2)
               : useResponsiveWidth(2),
             justifyContent: 'center',
             alignItems: 'center',

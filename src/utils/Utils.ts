@@ -16,6 +16,9 @@ export const deviceType = (): DEVICE => {
         else if (width < 1279) {
             return DEVICE.TABLET_LARGE
         }
+        else {
+            return DEVICE.TABLET_LARGE;
+        }
     }
     else {
         if (width < 900) {
@@ -23,6 +26,9 @@ export const deviceType = (): DEVICE => {
         }
         else if (width < 1279) {
             return DEVICE.TABLET;
+        }
+        else {
+            return DEVICE.TABLET_LARGE;
         }
     }
 

@@ -10,7 +10,7 @@ export default {
     version: "Версия 1.6",
     about: "О продукте",
     ble_dialog_title: "Доступные устройства",
-    ble_success: "Ура! Пчёлка готова к работе",
+    ble_success: "Ура! Пчёлка\nготова к работе",
     start: "Старт!",
     connect: "подключить",
     disconnect: "отключить",

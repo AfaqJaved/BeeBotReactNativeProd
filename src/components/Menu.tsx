@@ -58,14 +58,19 @@ export const MenuItem = (props: MenuItemProps) => {
             fontFamily: 'Roboto-Regular',
             fontWeight: '500',
             fontStyle: 'normal',
-            lineHeight: isPortrait()
-              ? useResponsiveHeight(2.5)
-              : isTabletAndLandScape() ? useResponsiveHeight(4) : useResponsiveFontSize(2.5),
+            // lineHeight: isPortrait()
+            //   ? useResponsiveHeight(2)
+            //   : isTabletAndLandScape() ? useResponsiveHeight(2.7) : useResponsiveFontSize(2),
             color: CONSTANTS.COLORS.WHITE,
+            lineHeight: isTabletAndPortrait()
+            ? useResponsiveHeight(1.7)
+            : isTabletAndLandScape()
+            ? useResponsiveHeight(2.7)
+            : useResponsiveHeight(2.5),
             fontSize: isTabletAndPortrait()
-              ? useResponsiveFontSize(1.2)
+              ? useResponsiveFontSize(1)
               : isTabletAndLandScape()
-              ? useResponsiveFontSize(1.2)
+              ? useResponsiveFontSize(1)
               : useResponsiveFontSize(1.7),
           }}>
           {props.label.toUpperCase()}

@@ -116,7 +116,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
             });
           }}>
           <Image
-            resizeMode="contain"
+            resizeMode="cover"
             style={{
               aspectRatio : 1,
               // marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),

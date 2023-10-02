@@ -1,5 +1,6 @@
 import {CONSTANTS} from '../constants/Contants';
 import {
+  getResponsiveResource,
   isPortrait,
   isTabletAndLandScape,
   isTabletAndPortrait,
@@ -18,8 +19,10 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-import RadioOff from '../assets/img/radio_off.png';
-import RadioOn from '../assets/img/raido_on.png';
+import RadioOffMobile from '../assets/img/radio_off_mobile.png';
+import RadioOffTablet from '../assets/img/radio_off_tablet.png';
+import RadioOnMobile from '../assets/img/radio_on_mobile.png';
+import RadioOnTablet from '../assets/img/radio_on_tablet.png';
 import {RoundedButton} from './RoundedButton';
 
 export interface BleItemProps {
@@ -44,15 +47,15 @@ export const BleItem = (props: BleItemProps) => {
         alignItems: 'center',
       }}>
       {props.connected ? (
-        <Image source={RadioOn}></Image>
+        <Image source={getResponsiveResource(RadioOnMobile,RadioOnTablet,RadioOnTablet)}></Image>
       ) : (
-        <Image source={RadioOff}></Image>
+        <Image source={getResponsiveResource(RadioOffMobile,RadioOffTablet,RadioOffTablet)}></Image>
       )}
       <Text style={{color: 'black', fontSize: isTabletAndPortrait()
               ? useResponsiveFontSize(1.5)
               : isTabletAndLandScape()
               ? useResponsiveFontSize(1.5)
-              : useResponsiveFontSize(2)}}>
+              : useResponsiveFontSize(2.5)}}>
         {props.deviceName}
       </Text>
       {/* <Text

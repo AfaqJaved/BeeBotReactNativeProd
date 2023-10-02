@@ -72,6 +72,7 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
   const connectedDevice = useSelector(
     (state: RootReducer) => state.bleReducer.connectedDevice,
   );
+  // const connectedDevice = true;
   const dispatch = useDispatch();
   React.useEffect(() => {
     console.log(isScanning);
@@ -111,19 +112,37 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
           onPress={async () => {
             CustomBleManger.getInstance().startScanning();
           }}>
-          {!isScanning ? <Image resizeMode="cover" source={getResponsiveResource(RefreshMobile,RefreshTablet,RefreshTablet)} /> : ''}
+          {!isScanning ? (
+            <Image
+              resizeMode="cover"
+              source={getResponsiveResource(
+                RefreshMobile,
+                RefreshTablet,
+                RefreshTablet,
+              )}
+            />
+          ) : (
+            ''
+          )}
         </TouchableOpacity>
         <TouchableOpacity onPress={onClose}>
-          <Image resizeMode="cover" source={getResponsiveResource(CrossMobile,CrossTablet,CrossTablet)} />
+          <Image
+            resizeMode="cover"
+            source={getResponsiveResource(
+              CrossMobile,
+              CrossTablet,
+              CrossTablet,
+            )}
+          />
         </TouchableOpacity>
       </View>
       <Text
         style={{
           fontSize: isTabletAndPortrait()
-          ? useResponsiveFontSize(1.5)
-          : isTabletAndLandScape()
-          ? useResponsiveFontSize(1.5)
-          : useResponsiveFontSize(2),
+            ? useResponsiveFontSize(1.5)
+            : isTabletAndLandScape()
+            ? useResponsiveFontSize(1.5)
+            : useResponsiveFontSize(2),
           color: 'black',
           textAlign: 'center',
           fontWeight: 'bold',
@@ -144,6 +163,12 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
             : useResponsiveHeight(20),
           marginBottom: isPortrait() ? useResponsiveHeight(5) : 0,
         }}>
+        {/* <BleItem
+          onConnectClick={() => {}}
+          onDisconnectClick={() => {}}
+          connected={false}
+          deviceName={'Logobot123123123'}
+          isConnecting={false}></BleItem> */}
         <FlatList
           data={foundDevices}
           keyExtractor={(item, index) => String(index)}
@@ -172,25 +197,32 @@ export const BleDialog = ({visible, onClose}: LangProps) => {
       {connectedDevice != undefined ? (
         <View
           style={{
-            width: isPortrait()
-              ? useResponsiveWidth(60)
-              : useResponsiveWidth(40),
+            // width: isPortrait()
+            //   ? useResponsiveWidth(60)
+            //   : useResponsiveWidth(40),
+            width: useResponsiveWidth(100),
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>
           <Text
             style={{
-              fontSize: useResponsiveFontSize(3),
+              fontSize: isTabletAndPortrait()
+                ? useResponsiveFontSize(2)
+                : isTabletAndLandScape()
+                ? useResponsiveFontSize(2)
+                : useResponsiveFontSize(2.5),
               color: 'black',
               textAlign: 'center',
               marginBottom: isPortrait() ? useResponsiveWidth(5) : 0,
             }}>
             {t('ble_success')}
           </Text>
-          <RoundedButton
-            onClick={onClose}
-            backgroundColor={CONSTANTS.COLORS.GREEN}
-            label={t('start')}></RoundedButton>
+          <View style={{marginLeft : "auto",marginRight : "auto",marginTop : useResponsiveHeight(3)}}>
+            <RoundedButton
+              onClick={onClose}
+              backgroundColor={CONSTANTS.COLORS.GREEN}
+              label={t('start')}></RoundedButton>
+          </View>
         </View>
       ) : (
         ''
