@@ -66,7 +66,7 @@ export const MenuItem = (props: MenuItemProps) => {
             ? useResponsiveHeight(1.7)
             : isTabletAndLandScape()
             ? useResponsiveHeight(2.7)
-            : useResponsiveHeight(2.5),
+            : isPortrait() ? useResponsiveHeight(2.5) : useResponsiveHeight(5),
             fontSize: isTabletAndPortrait()
               ? useResponsiveFontSize(1)
               : isTabletAndLandScape()

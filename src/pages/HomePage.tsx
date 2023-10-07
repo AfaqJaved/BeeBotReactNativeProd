@@ -54,7 +54,7 @@ const HomePage = ({navigation}: any) => {
     <LayoutWrapper navigation={navigation}>
 
       <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",
-      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(2),marginTop : isPortrait() ?useResponsiveHeight(3) : useResponsiveHeight(6)}}>
+      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(2),marginTop : isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(6)}}>
 
 
       <MenuItem

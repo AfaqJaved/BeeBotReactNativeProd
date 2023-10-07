@@ -98,7 +98,7 @@ const LessonsPage = ({navigation}: any) => {
         return (
           <Accordian
             navigation={navigation}
-            key={lesson.accordianTitle}
+            key={index}
             accordianBackgroundColor={lesson.accordianBackgroundColor}
             accordianImage={lesson.accordianImage}
             accordianTitle={lesson.accordianTitle}
