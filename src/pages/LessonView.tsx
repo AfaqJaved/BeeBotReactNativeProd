@@ -52,6 +52,7 @@ import {Heading} from '../components/Heading';
 import {LessonContentLinks} from '../components/LessonContentLinks';
 import {Paragraph} from '../components/Paragraph';
 import {SubHeading} from '../components/SubHeading';
+import { pageMarginTop } from '../utils/StyleUtils';
 
 // const finalPositions: number[] = [];
 
@@ -118,9 +119,7 @@ const LessonView = ({navigation}: any) => {
           marginLeft: 'auto',
           marginRight: 'auto',
           position: 'relative',
-          marginTop: isPortrait()
-            ? useResponsiveHeight(3)
-            : useResponsiveHeight(5),
+          marginTop: pageMarginTop(),
           width: useResponsiveWidth(90),
           // marginBottom : useResponsiveHeight(2)
         }}>

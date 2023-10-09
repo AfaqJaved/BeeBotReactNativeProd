@@ -26,6 +26,7 @@ import {useTranslation} from 'react-i18next';
 import {Heading} from '../components/Heading';
 import {Paragraph} from '../components/Paragraph';
 import {FieldModel} from '../models/FieldsModel';
+import { pageMarginTop } from '../utils/StyleUtils';
 
 const FieldsViewPage = ({navigation, route}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -54,7 +55,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
           width: useResponsiveWidth(90),
           marginLeft: 'auto',
           marginRight: 'auto',
-          marginTop : useResponsiveHeight(3)
+          marginTop : pageMarginTop()
         }}>
         <Text
           style={{

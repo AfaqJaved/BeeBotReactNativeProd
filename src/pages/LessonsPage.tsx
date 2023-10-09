@@ -32,6 +32,7 @@ import {Accordian} from '../components/Accordian';
 import {LayoutWrapper} from '../components/LayoutWrapper';
 import {LESSONS_MODELS} from '../data/LessonsData';
 import { useTranslation } from 'react-i18next';
+import { pageMarginTop } from '../utils/StyleUtils';
 
 const LessonsPage = ({navigation}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -59,7 +60,7 @@ const LessonsPage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
-      <View style={{position: 'relative', marginTop : isPortrait() ? 0 :  useResponsiveHeight(5) }}>
+      <View style={{position: 'relative', marginTop : pageMarginTop() }}>
         <View style={{position : "relative"}}>
           <TextInput
             placeholder={t("lessons_search_hint")}

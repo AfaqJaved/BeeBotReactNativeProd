@@ -8,6 +8,7 @@ export interface SubHeadingProps{
     flex ?: number;
     fontStyle ?: string;
     fontWeight ?: string;
+    color ?: string;
 }
 
 export const SubHeading = (props : SubHeadingProps) => {
@@ -16,7 +17,7 @@ export const SubHeading = (props : SubHeadingProps) => {
       style={{
         marginBottom: useResponsiveWidth(2),
         fontSize: isTabletAndPortrait() ? useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.5) : useResponsiveFontSize(2),
-        color : CONSTANTS.COLORS.BLACK,
+        color : props.color || CONSTANTS.COLORS.BLACK,
         fontWeight : props.fontWeight || '600',
         flex : props.flex || 0,
         fontStyle : props.fontStyle || "normal"

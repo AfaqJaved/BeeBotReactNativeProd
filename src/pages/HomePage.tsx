@@ -37,6 +37,7 @@ import {useTranslation} from 'react-i18next';
 import i18n from '../../translation';
 import {LangDialog} from '../dialog/LangDialog';
 import {LayoutWrapper} from '../components/LayoutWrapper';
+import { pageMarginTop } from '../utils/StyleUtils';
 
 const HomePage = ({navigation}: any) => {
   const {t} = useTranslation();
@@ -54,7 +55,7 @@ const HomePage = ({navigation}: any) => {
     <LayoutWrapper navigation={navigation}>
 
       <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",
-      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(2),marginTop : isPortrait() ?useResponsiveHeight(3) : useResponsiveHeight(6)}}>
+      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(2),marginTop : pageMarginTop()}}>
 
 
       <MenuItem
