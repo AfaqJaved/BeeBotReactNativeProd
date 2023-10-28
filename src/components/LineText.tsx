@@ -46,6 +46,7 @@ export default function LineText(props: Props) {
             : useResponsiveWidth(1),
         }}>
         <SubHeading
+          fontWeight="700"
           color={props.color}
           text={props.heading}></SubHeading>
       </View>

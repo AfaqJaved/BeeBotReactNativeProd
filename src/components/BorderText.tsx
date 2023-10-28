@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import {isPortrait, useResponsiveWidth} from '../utils/Utils';
 import {Paragraph} from './Paragraph';
 import {SubHeading} from './SubHeading';
@@ -22,7 +22,8 @@ export const BorderText = (props: Props) => {
         padding: 10,
         borderRadius: 7,
       }}>
-      <SubHeading text={props.title}></SubHeading>
+        {/* <Text style={{fontWeight : ""}}>test</Text> */}
+      <SubHeading  fontWeight={"bold"}  text={props.title}></SubHeading>
       <Paragraph text={props.text}></Paragraph>
 
       {props.children}

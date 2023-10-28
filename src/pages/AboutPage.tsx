@@ -75,33 +75,10 @@ const AboutPage = ({navigation, route}: any) => {
     });
   };
 
-  console.log(useResponsiveWidth(3));
+  console.log(useResponsiveWidth(8));
 
   return (
     <LayoutWrapper scrollRef={scrollRef} navigation={navigation}>
-      {/* <TouchableOpacity
-        onPress={() => navigation.navigate('Fields')}
-        style={{
-          width: useResponsiveWidth(90),
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginTop : pageMarginTop()
-        }}>
-        <Text
-          style={{
-            fontSize: isTabletAndPortrait()
-            ? useResponsiveFontSize(1.5)
-            : isTabletAndLandScape()
-            ? useResponsiveFontSize(1.5)
-            : useResponsiveFontSize(2),
-            width: useResponsiveWidth(90),
-            textAlign: 'right',
-            color: CONSTANTS.COLORS.GRAY,
-            fontStyle: 'italic',
-          }}>
-          {t('back_to_fields')}
-        </Text>
-      </TouchableOpacity> */}
       <View
         style={{
           width: useResponsiveWidth(90),
@@ -219,14 +196,21 @@ const AboutPage = ({navigation, route}: any) => {
                         flexWrap: 'wrap',
                       }}>
                       <Image
-                        style={{flex: 2, aspectRatio: 1}}
+                        style={{
+                          aspectRatio: 1,
+                          width: isPortrait()
+                            ? useResponsiveWidth(12)
+                            : useResponsiveWidth(6),
+                        }}
                         source={getResponsiveResource(
                           ControlAboutMobile,
                           ControlAboutTablet,
                           ControlAboutTablet,
                         )}></Image>
                       <View style={{flex: 10}}>
-                        <SubHeading text="Кнопки на спинке робота"></SubHeading>
+                        <SubHeading
+                          fontWeight={'bold'}
+                          text="Кнопки на спинке робота"></SubHeading>
                         <Paragraph text="При помощи кнопок на спинке робота задается необходимый алгоритм движения; траектория движения выстраивается на специальных тематических полях-ковриках."></Paragraph>
                       </View>
                     </View>
@@ -247,14 +231,21 @@ const AboutPage = ({navigation, route}: any) => {
                         flexWrap: 'wrap',
                       }}>
                       <Image
-                        style={{flex: 2, aspectRatio: 1}}
+                        style={{
+                          aspectRatio: 1,
+                          width: isPortrait()
+                            ? useResponsiveWidth(12)
+                            : useResponsiveWidth(6),
+                        }}
                         source={getResponsiveResource(
                           IconMobile,
                           IconTablet,
                           IconTablet,
                         )}></Image>
                       <View style={{flex: 10}}>
-                        <SubHeading text="Мобильное приложение"></SubHeading>
+                        <SubHeading
+                          fontWeight={'bold'}
+                          text="Мобильное приложение"></SubHeading>
                         <Paragraph text="Передача отдельных команд при помощи кнопок на точной копии «Пчёлки» в мобильном приложении. "></Paragraph>
                       </View>
                     </View>
@@ -275,14 +266,21 @@ const AboutPage = ({navigation, route}: any) => {
                         flexWrap: 'wrap',
                       }}>
                       <Image
-                        style={{flex: 2, aspectRatio: 1}}
+                        style={{
+                          aspectRatio: 1,
+                          width: isPortrait()
+                            ? useResponsiveWidth(12)
+                            : useResponsiveWidth(6),
+                        }}
                         source={getResponsiveResource(
-                          ScratchMobile,
+                          ScratchTablet,
                           ScratchTablet,
                           ScratchTablet,
                         )}></Image>
                       <View style={{flex: 10}}>
-                        <SubHeading text="Визуальная среда программирования Scratch"></SubHeading>
+                        <SubHeading
+                          fontWeight={'bold'}
+                          text="Визуальная среда программирования Scratch"></SubHeading>
                         <Paragraph text="Программа строится из цветных блоков-команд"></Paragraph>
                       </View>
                     </View>
@@ -297,8 +295,8 @@ const AboutPage = ({navigation, route}: any) => {
                     marginLeft: 'auto',
                     marginRight: 'auto',
                     marginTop: isPortrait()
-                      ? useResponsiveHeight(4)
-                      : useResponsiveHeight(8),
+                      ? useResponsiveHeight(3)
+                      : useResponsiveHeight(1.5),
                   }}>
                   <Text
                     style={{
@@ -324,8 +322,8 @@ const AboutPage = ({navigation, route}: any) => {
           <View
             style={{
               marginTop: isPortrait()
-                ? useResponsiveWidth(10)
-                : useResponsiveWidth(5),
+                ? useResponsiveWidth(8)
+                : useResponsiveWidth(4),
             }}>
             <TouchableOpacity
               onPress={() => {
@@ -334,123 +332,127 @@ const AboutPage = ({navigation, route}: any) => {
               <Heading
                 underline={true}
                 text={'Цели и задачи продукта'.toUpperCase()}></Heading>
+            </TouchableOpacity>
 
-              {showThird ? (
-                <View>
-                  <SubHeading text="Целевое назначение:"></SubHeading>
-                  <Paragraph text="формирование и поддержка познавательных активностей детей в различных видах деятельности."></Paragraph>
+            {showThird ? (
+              <View>
+                <SubHeading
+                  fontWeight={'bold'}
+                  text="Целевое назначение:"></SubHeading>
+                <Paragraph text="формирование и поддержка познавательных активностей детей в различных видах деятельности."></Paragraph>
+                <View
+                  style={{
+                    marginTop: isPortrait()
+                      ? useResponsiveWidth(2)
+                      : useResponsiveWidth(1),
+                    marginBottom: isPortrait()
+                      ? useResponsiveWidth(2)
+                      : useResponsiveWidth(1),
+                  }}>
+                  <SubHeading fontWeight={'bold'} text="Задачи"></SubHeading>
+                  {[
+                    'Развитие логического мышления.',
+                    'Развитие мелкой моторики.',
+                    'Развитие умения работать в команде. Развитие коммуникативных навыков.',
+                    'Развитие умения составлять алгоритмы (основы программирования). Развитие умения ставить цель и выбирать маршрут движения.',
+                    'Развитие пространственной ориентации. Развитие словарного запаса.',
+                    'Развитие умения считать.',
+                  ].map((point, index) => {
+                    return (
+                      <View
+                        key={index}
+                        style={{
+                          marginBottom: 10,
+                          flexDirection: 'row',
+                          gap: useResponsiveWidth(2),
+                        }}>
+                        <Paragraph
+                          flex={isPortrait() ? 5 : 2}
+                          text={(index + 1).toString() + '.'}></Paragraph>
+                        <Paragraph flex={90} text={point}></Paragraph>
+                      </View>
+                    );
+                  })}
+
                   <View
                     style={{
                       marginTop: isPortrait()
-                        ? useResponsiveWidth(2)
-                        : useResponsiveWidth(1),
-                      marginBottom: isPortrait()
-                        ? useResponsiveWidth(2)
-                        : useResponsiveWidth(1),
+                        ? useResponsiveWidth(8)
+                        : useResponsiveWidth(4),
                     }}>
-                    <SubHeading text="Задачи"></SubHeading>
-                    {[
-                      'Развитие логического мышления.',
-                      'Развитие мелкой моторики.',
-                      'Развитие умения работать в команде. Развитие коммуникативных навыков.',
-                      'Развитие умения составлять алгоритмы (основы программирования). Развитие умения ставить цель и выбирать маршрут движения.',
-                      'Развитие пространственной ориентации. Развитие словарного запаса.',
-                      'Развитие умения считать.',
-                    ].map((point, index) => {
-                      return (
-                        <View
-                          key={index}
-                          style={{
-                            marginBottom: 10,
-                            flexDirection: 'row',
-                            gap: useResponsiveWidth(2),
-                          }}>
-                          <Paragraph
-                            flex={isPortrait() ? 5 : 2}
-                            text={(index + 1).toString() + '.'}></Paragraph>
-                          <Paragraph flex={90} text={point}></Paragraph>
-                        </View>
-                      );
-                    })}
-
-                    <View
-                      style={{
-                        marginTop: isPortrait()
-                          ? useResponsiveWidth(8)
-                          : useResponsiveWidth(4),
-                      }}>
-                      <SubHeading text="Использование «Пчёлки» в образовательной деятельности помогает решать следующие задачи по ФГОС:"></SubHeading>
-                    </View>
-
-                    <LineText
-                      color="#F8623F"
-                      heading="Социально-коммуникативное развитие"
-                      text="«Пчелок» можно без проблем использовать при работе в группе! Дети вместе ищут пути решения поставленных задач, в процессе совершенствуя свои навыки общения. Они учатся выявлять лидера, приходить к общим выводам и брать на себя ответственность."
-                      number="1"></LineText>
-
-                    <LineText
-                      color="#00CA69"
-                      heading="Познавательно-речевое развитие"
-                      text="Благодаря «Пчёлкам» воспитанники в увлекательной форме работают с алгоритмами. Они привыкают к выполнению последовательных действий, а также учатся мыслить логично. Когнитивные способности совершенствуются с каждым днем таких занятий!"
-                      number="2"></LineText>
-
-                    <LineText
-                      color="#8E59FF"
-                      heading="Художественно-эстетическое развитие"
-                      text="«Пчёлки» не только функциональны, но еще и красивы. Дети видят, как в одном предмете сочетаются польза и эстетика, и это отлично влияет на формирование представлений о прекрасном."
-                      number="3"></LineText>
-
-                    <LineText
-                      color="#11D9E5"
-                      heading="Речевое развитие"
-                      text="Во время игры педагог обязательно ставит перед детьми конкретную задачу — им важно понять ее точно, поэтому они задают дополнительные вопросы. Также они общаются друг с другом, потому что ищут совместные решения. На занятиях ваши воспитанники постоянно попадают в новые коммуникативные ситуации, а это очень важно для речевого развития."
-                      number="4"></LineText>
-
-                    <LineText
-                      color="#FE6A9A"
-                      heading="Физическое развитие"
-                      text="«Пчёлка»-робот активно перемещается в пространстве, а дети задают траекторию движения. Несомненно, это помогает развивать у воспитанников пространственное мышление! Наблюдая за шагами робота, они и сами начинают лучше ориентироваться в пространстве."
-                      number="5"></LineText>
-
-                    <TouchableOpacity
-                      onPress={() => {
-                        setShowThird(!showThird);
-                      }}
-                      style={{
-                        width: useResponsiveWidth(90),
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        marginTop: isPortrait()
-                          ? useResponsiveHeight(4)
-                          : useResponsiveHeight(8),
-                      }}>
-                      <Text
-                        style={{
-                          fontSize: isTabletAndPortrait()
-                            ? useResponsiveFontSize(1.5)
-                            : isTabletAndLandScape()
-                            ? useResponsiveFontSize(1.5)
-                            : useResponsiveFontSize(2),
-                          width: useResponsiveWidth(90),
-                          textAlign: 'right',
-                          color: CONSTANTS.COLORS.GRAY,
-                          fontStyle: 'italic',
-                        }}>
-                        {'↑свернуть'}
-                      </Text>
-                    </TouchableOpacity>
+                    <SubHeading
+                      fontWeight={'bold'}
+                      text="Использование «Пчёлки» в образовательной деятельности помогает решать следующие задачи по ФГОС:"></SubHeading>
                   </View>
+
+                  <LineText
+                    color="#F8623F"
+                    heading="Социально-коммуникативное развитие"
+                    text="«Пчелок» можно без проблем использовать при работе в группе! Дети вместе ищут пути решения поставленных задач, в процессе совершенствуя свои навыки общения. Они учатся выявлять лидера, приходить к общим выводам и брать на себя ответственность."
+                    number="1"></LineText>
+
+                  <LineText
+                    color="#00CA69"
+                    heading="Познавательно-речевое развитие"
+                    text="Благодаря «Пчёлкам» воспитанники в увлекательной форме работают с алгоритмами. Они привыкают к выполнению последовательных действий, а также учатся мыслить логично. Когнитивные способности совершенствуются с каждым днем таких занятий!"
+                    number="2"></LineText>
+
+                  <LineText
+                    color="#8E59FF"
+                    heading="Художественно-эстетическое развитие"
+                    text="«Пчёлки» не только функциональны, но еще и красивы. Дети видят, как в одном предмете сочетаются польза и эстетика, и это отлично влияет на формирование представлений о прекрасном."
+                    number="3"></LineText>
+
+                  <LineText
+                    color="#11D9E5"
+                    heading="Речевое развитие"
+                    text="Во время игры педагог обязательно ставит перед детьми конкретную задачу — им важно понять ее точно, поэтому они задают дополнительные вопросы. Также они общаются друг с другом, потому что ищут совместные решения. На занятиях ваши воспитанники постоянно попадают в новые коммуникативные ситуации, а это очень важно для речевого развития."
+                    number="4"></LineText>
+
+                  <LineText
+                    color="#FE6A9A"
+                    heading="Физическое развитие"
+                    text="«Пчёлка»-робот активно перемещается в пространстве, а дети задают траекторию движения. Несомненно, это помогает развивать у воспитанников пространственное мышление! Наблюдая за шагами робота, они и сами начинают лучше ориентироваться в пространстве."
+                    number="5"></LineText>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      setShowThird(!showThird);
+                    }}
+                    style={{
+                      width: useResponsiveWidth(90),
+                      marginLeft: 'auto',
+                      marginRight: 'auto',
+                      marginTop: isPortrait()
+                        ? useResponsiveHeight(3)
+                        : useResponsiveHeight(1.5),
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: isTabletAndPortrait()
+                          ? useResponsiveFontSize(1.5)
+                          : isTabletAndLandScape()
+                          ? useResponsiveFontSize(1.5)
+                          : useResponsiveFontSize(2),
+                        width: useResponsiveWidth(90),
+                        textAlign: 'right',
+                        color: CONSTANTS.COLORS.GRAY,
+                        fontStyle: 'italic',
+                      }}>
+                      {'↑свернуть'}
+                    </Text>
+                  </TouchableOpacity>
                 </View>
-              ) : (
-                ''
-              )}
-            </TouchableOpacity>
+              </View>
+            ) : (
+              ''
+            )}
 
             <View
               style={{
                 marginTop: isPortrait()
-                  ? useResponsiveWidth(10)
-                  : useResponsiveWidth(5),
+                  ? useResponsiveWidth(8)
+                  : useResponsiveWidth(4),
               }}>
               <TouchableOpacity
                 onPress={() => {
@@ -459,14 +461,29 @@ const AboutPage = ({navigation, route}: any) => {
                 <Heading
                   underline={true}
                   text={'Какие навыки приобретаются в процессе работы?'.toUpperCase()}></Heading>
+                <View
+                  style={{
+                    marginBottom: isPortrait()
+                      ? useResponsiveWidth(2)
+                      : useResponsiveWidth(1),
+                  }}></View>
               </TouchableOpacity>
               {showFifth ? (
                 <View>
+                  {/* <Paragraph text={"\n"}></Paragraph> */}
                   <Paragraph
-                    text="«Пчёлка» вовлекает ребенка в мир творчества, дает стимул для получения новых знаний. Позволяет детям мыслить творчески, анализировать. Логобот позволяет формировать у дошкольников основы элементарного программирования. Развивают навыки ориентации с помощью простейших ориентиров.
-Логобот можно использовать с детьми любого возраста. Например, малыши с удовольствием выполняют упражнения физкультминутки с «Пчёлкой», при этом развивая внимание и память. Например, при движении логобота вперед ребята хлопают, при движении назад топают, при поворотах направо и налево поворачивают вслед за ним.
-Логобот позволяет повысить эффективность наглядности на занятиях. Малышам легче изучать геометрические фигуры, цвета, животные и птицы. Средние и старшие дошкольники самостоятельно программируют, любят соревноваться.
-«Пчёлку» можно использовать для развития творческих способностей детей, например, в театральной деятельности помогает развить творческий потенциал ребенка, усовершенствовать простейшие навыки программирования и создать благоприятный эмоциональный фон."></Paragraph>
+                    text={
+                      '«Пчёлка» вовлекает ребенка в мир творчества, дает стимул для получения новых знаний. Позволяет детям мыслить творчески, анализировать. Логобот позволяет формировать у дошкольников основы элементарного программирования. Развивают навыки ориентации с помощью простейших ориентиров.\n'
+                    }></Paragraph>
+                  <Paragraph
+                    text={
+                      'Логобот можно использовать с детьми любого возраста. Например, малыши с удовольствием выполняют упражнения физкультминутки с «Пчёлкой», при этом развивая внимание и память. Например, при движении логобота вперед ребята хлопают, при движении назад топают, при поворотах направо и налево поворачивают вслед за ним.\n'
+                    }></Paragraph>
+                  <Paragraph
+                    text={
+                      'Логобот позволяет повысить эффективность наглядности на занятиях. Малышам легче изучать геометрические фигуры, цвета, животные и птицы. Средние и старшие дошкольники самостоятельно программируют, любят соревноваться.\n'
+                    }></Paragraph>
+                  <Paragraph text="«Пчёлку» можно использовать для развития творческих способностей детей, например, в театральной деятельности помогает развить творческий потенциал ребенка, усовершенствовать простейшие навыки программирования и создать благоприятный эмоциональный фон."></Paragraph>
                   <View
                     style={{
                       marginTop: isPortrait()
@@ -474,6 +491,7 @@ const AboutPage = ({navigation, route}: any) => {
                         : useResponsiveWidth(1.5),
                     }}>
                     <SubHeading
+                      fontWeight={'bold'}
                       color="#00CA69"
                       text="Вывод: Логоботы «Пчёлки» прекрасно подходят для работы в детском саду. Они популярны и любимы детьми за простое управление и дружелюбный дизайн. Подходят для детей 3-7 лет. Просты в эксплуатации, безопасны и являются эффективным инструментом для обучения через игру. Они позволяют делать жизнь воспитанников интересной, содержательной, наполненной радостью творчества."></SubHeading>
                   </View>
@@ -486,8 +504,8 @@ const AboutPage = ({navigation, route}: any) => {
                       marginLeft: 'auto',
                       marginRight: 'auto',
                       marginTop: isPortrait()
-                        ? useResponsiveHeight(4)
-                        : useResponsiveHeight(8),
+                        ? useResponsiveHeight(3)
+                        : useResponsiveHeight(1.5),
                     }}>
                     <Text
                       style={{
@@ -513,8 +531,8 @@ const AboutPage = ({navigation, route}: any) => {
             <View
               style={{
                 marginTop: isPortrait()
-                  ? useResponsiveWidth(10)
-                  : useResponsiveWidth(5),
+                  ? useResponsiveWidth(8)
+                  : useResponsiveWidth(4),
               }}>
               <TouchableOpacity
                 onPress={() => {
@@ -553,8 +571,8 @@ const AboutPage = ({navigation, route}: any) => {
                       marginLeft: 'auto',
                       marginRight: 'auto',
                       marginTop: isPortrait()
-                        ? useResponsiveHeight(4)
-                        : useResponsiveHeight(8),
+                        ? useResponsiveHeight(3)
+                        : useResponsiveHeight(1.5),
                     }}>
                     <Text
                       style={{
@@ -578,8 +596,6 @@ const AboutPage = ({navigation, route}: any) => {
             </View>
           </View>
         </View>
-
-
       </View>
     </LayoutWrapper>
   );

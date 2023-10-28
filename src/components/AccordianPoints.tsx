@@ -23,8 +23,8 @@ export const AccordianPoints = (props: Props) => {
     <View
       style={{
         marginBottom: isPortrait()
-          ? useResponsiveWidth(10)
-          : useResponsiveWidth(5),
+          ? useResponsiveWidth(8)
+          : useResponsiveWidth(4),
       }}>
       <TouchableOpacity
         style={{
@@ -75,8 +75,8 @@ export const AccordianPoints = (props: Props) => {
               marginLeft: 'auto',
               marginRight: 'auto',
               marginTop: isPortrait()
-                ? useResponsiveHeight(4)
-                : useResponsiveHeight(8),
+                ? useResponsiveHeight(3)
+                : useResponsiveHeight(1.5),
             }}>
             <Text
               style={{
@@ -90,7 +90,7 @@ export const AccordianPoints = (props: Props) => {
                 color: CONSTANTS.COLORS.GRAY,
                 fontStyle: 'italic',
               }}>
-              {'свернуть'}
+              {'↑свернуть'}
             </Text>
           </TouchableOpacity>
         </View>
