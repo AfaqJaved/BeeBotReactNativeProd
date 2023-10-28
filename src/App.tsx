@@ -50,6 +50,7 @@ const App = () => {
             <Stack.Screen name="ImageView" component={ImageViewPage} />
             <Stack.Screen name="PdfView" component={PdfViewPage} />
             <Stack.Screen name="LessonView" component={LessonView} />
+            <Stack.Screen name="About" component={AboutPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

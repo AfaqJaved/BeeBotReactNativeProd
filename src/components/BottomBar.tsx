@@ -24,7 +24,8 @@ import {
 } from '../utils/Utils';
 import {useTranslation} from 'react-i18next';
 
-export const BottomBar = () => {
+
+export const BottomBar = ({navigation} : any) => {
   const {t} = useTranslation();
   const appBarWidth = useResponsiveWidth(100);
   const appBarHeight = isPortrait()
@@ -70,6 +71,10 @@ export const BottomBar = () => {
         style={{width: useResponsiveWidth(11), height: useResponsiveHeight(5)}}
         alt="image"
       />
+      <TouchableOpacity onPress={()=>{
+         navigation.navigate('About');
+      }}>
+
       <Text
         style={{
           fontFamily: 'Roboto-Regular',
@@ -78,6 +83,8 @@ export const BottomBar = () => {
         }}>
         {t('about')}
       </Text>
+      </TouchableOpacity>
+
     </View>
   );
 };

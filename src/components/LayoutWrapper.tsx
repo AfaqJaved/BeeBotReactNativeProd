@@ -153,7 +153,7 @@ export const LayoutWrapper = ({
 
       {/* Main Content */}
 
-      <BottomBar />
+      <BottomBar navigation={navigation} />
     </View>
   );
 };

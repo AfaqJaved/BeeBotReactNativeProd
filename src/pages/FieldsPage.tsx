@@ -36,6 +36,7 @@ import SearchTabletLarge from '../assets/img/search_tabletlg.png';
 import {useTranslation} from 'react-i18next';
 import {FIELD_MODELS} from '../data/FieldsData';
 import {FieldModel} from '../models/FieldsModel';
+import { pageMarginTop } from '../utils/StyleUtils';
 
 const FieldsPage = ({navigation}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -59,7 +60,7 @@ const FieldsPage = ({navigation}: any) => {
 
   return (
     <LayoutWrapper navigation={navigation}>
-      <View style={{position: 'relative',marginTop : isPortrait() ? 0 :  useResponsiveHeight(5) }}>
+      <View style={{position: 'relative',marginTop : pageMarginTop() }}>
         <View style={{position : "relative"}}>
           <TextInput
             placeholder={t("lessons_search_hint")}
