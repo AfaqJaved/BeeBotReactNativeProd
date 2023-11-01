@@ -25,6 +25,7 @@ import ImageViewPage from './pages/ImageViewPage';
 import PdfViewPage from './pages/PdfViewPage';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import LessonView from './pages/LessonView';
+import MaterialPage from './pages/MaterialsPage';
 
 
 
@@ -51,6 +52,7 @@ const App = () => {
             <Stack.Screen name="PdfView" component={PdfViewPage} />
             <Stack.Screen name="LessonView" component={LessonView} />
             <Stack.Screen name="About" component={AboutPage} />
+            <Stack.Screen name="Material" component={MaterialPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

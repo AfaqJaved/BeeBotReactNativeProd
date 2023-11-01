@@ -112,7 +112,7 @@ const HomePage = ({navigation}: any) => {
           heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('materials')}
           onClick={() => {
-            console.log('called');
+            navigation.navigate("Material");
           }}></MenuItem>
       </View>
 

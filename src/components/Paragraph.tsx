@@ -17,6 +17,7 @@ export interface ParagraphProps {
   underline?: boolean;
   fontColor?: string;
   fontStyle?: string;
+  textAlign ?: string;
 }
 
 export const Paragraph = (props: ParagraphProps) => {
@@ -36,7 +37,7 @@ export const Paragraph = (props: ParagraphProps) => {
           : isTabletAndLandScape()
           ? useResponsiveFontSize(1.5)
           : useResponsiveFontSize(2.2),
-        textAlign: 'left',
+        textAlign: props.textAlign || 'left',
         alignContent: 'flex-start',
         textDecorationLine: props.underline ? 'underline' : 'none',
         fontStyle: props.fontStyle || 'normal',
