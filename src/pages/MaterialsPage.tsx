@@ -7,6 +7,7 @@ import {
   Dimensions,
   FlatList,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 import {LayoutWrapper} from '../components/LayoutWrapper';
 import {
@@ -19,14 +20,12 @@ import {
   useResponsiveHeight,
 } from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
-import BeeBotMobile from '../assets/img/beebot_mobile.png';
-import BeeBotTablet from '../assets/img/beebot_tablet.png';
 import BeeBotMarkedMobile from '../assets/img/beemarked_mobile.png';
 import BeeBotMarkedTablet from '../assets/img/beemarked_tablet.png';
 import BeeBotBottomMobile from '../assets/img/bee_bottom_mobile.png';
 import BeeBotBottomTablet from '../assets/img/bee_bottom_tablet.png';
 import PairBeeBotMobile from '../assets/img/pair_beebot_mobile.png';
-import PairBeeBotTablet from '../assets/img/pair_beebot_mobile.png';
+import PairBeeBotTablet from '../assets/img/pair_beebot_tablet.png';
 import TurnBeeBotMobile from '../assets/img/turn_beebot_mobile.png';
 import TurnBeeBotTablet from '../assets/img/turn_beebot_tablet.png';
 import TurnBeeBotLeftMobile from '../assets/img/turn_left_beebot_mobile.png';
@@ -43,6 +42,8 @@ import ScratchMobile from '../assets/img/scratch_round_mobile.png';
 import ScratchTablet from '../assets/img/scratch_round_tablet.png';
 import ScratchWebMobile from '../assets/img/scratch_web_mobile.png';
 import ScratchWebTablet from '../assets/img/scratch_web_tablet.png';
+import BeeBotHandsMobile from '../assets/img/beebot_hands_mobile.png';
+import BeeBotHandsTablet from '../assets/img/beebot_hands_tablet.png';
 
 import {
   PanGestureHandler,
@@ -52,7 +53,8 @@ import {
 import {SubHeading} from '../components/SubHeading';
 import {Paragraph} from '../components/Paragraph';
 import {Heading} from '../components/Heading';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
+import {ListWithBold} from '../components/TextWithChildren';
 
 const MaterialPage = ({navigation}: any) => {
   const [showFirst, setShowFirst] = React.useState(false);
@@ -164,7 +166,14 @@ const MaterialPage = ({navigation}: any) => {
           display: 'flex',
           justifyContent: 'center',
         }}>
-        <PanGestureHandler
+        <Image
+          style={{marginLeft: 'auto', marginRight: 'auto'}}
+          source={getResponsiveResource(
+            BeeBotHandsMobile,
+            BeeBotHandsTablet,
+            BeeBotHandsTablet,
+          )}></Image>
+        {/* <PanGestureHandler
           onGestureEvent={onPanEvent}
           ref={panRef}
           simultaneousHandlers={[pinchRef]}
@@ -192,7 +201,7 @@ const MaterialPage = ({navigation}: any) => {
               />
             </PinchGestureHandler>
           </Animated.View>
-        </PanGestureHandler>
+        </PanGestureHandler> */}
       </View>
 
       <View
@@ -302,17 +311,17 @@ const MaterialPage = ({navigation}: any) => {
                   scrollEnabled={false}
                   data={[
                     {
-                      key: 'Глаза робота со встроенными программируемыми светодиодами',
+                      key: 'Глаза робота со встроенными программируемыми светодиодами.',
                     },
                     {
-                      key: 'Кнопка записи команды «Вперед»',
+                      key: 'Кнопка записи команды «Вперед».',
                     },
                     {
                       key: 'Кнопка «Старт» для запуска введенных команд.',
                     },
-                    {key: 'Кнопка записи команды «Поворот налево»'},
+                    {key: 'Кнопка записи команды «Поворот налево».'},
                     {
-                      key: 'Кнопка удаления всех записанных команд',
+                      key: 'Кнопка удаления всех записанных команд.',
                     },
                     {
                       key: 'Кнопка записи команды «Назад».',
@@ -389,20 +398,20 @@ const MaterialPage = ({navigation}: any) => {
                       key: 'Отсек для аккумулятора 3.7В.',
                     },
                     {
-                      key: 'Разъем для зарядки',
+                      key: 'Разъем для зарядки.',
                     },
                     {
-                      key: 'Инфракрасный приемник для общения роботов',
+                      key: 'Инфракрасный приемник для общения роботов.',
                     },
-                    {key: 'Инфракрасный передатчик для общения роботов'},
+                    {key: 'Инфракрасный передатчик для общения роботов.'},
                     {
                       key: 'Включение робота. При включении глаза робота загорятся зеленым.',
                     },
                     {
-                      key: 'Включение динамика',
+                      key: 'Включение динамика.',
                     },
                     {
-                      key: 'Включение инфракрасного приемника',
+                      key: 'Включение инфракрасного приемника.',
                     },
                   ]}
                   renderItem={({item, index}: any) => {
@@ -482,47 +491,113 @@ const MaterialPage = ({navigation}: any) => {
         </TouchableOpacity>
         {showSecond ? (
           <View>
-            <FlatList
-              scrollEnabled={false}
-              data={[
-                {
-                  key: '«Пчёлка» понимает 6 различных команд: вперёд, назад, налево, направо, пауза, старт.',
-                },
-                {
-                  key: 'При исполнении команд «Вперед» и «Назад» робот линейно перемещается на 15 см',
-                },
-                {
-                  key: 'Команды «Поворот налево» и «Поворот направо» приведут к повороту робота на 90 градусов в заданную сторону',
-                },
-                {
-                  key: 'Команда «Пауза» добавляет паузу на 2 секунды перед исполнением следующей команды.',
-                },
-                {
-                  key: 'Кнопка «Старт» запускает введенные команды.',
-                },
-                {
-                  key: 'Объем памяти позволяет задать и сохранить последовательность из 500 и более команд',
-                },
-                {
-                  key: 'Кнопка удаления всех записанных команд очистит память робота и «Пчёлка» будет готова к новой последовательности команд.',
-                },
-              ]}
-              renderItem={({item, index}: any) => {
-                return (
-                  <View
-                    style={{
-                      marginBottom: 10,
-                      flexDirection: 'row',
-                      gap: useResponsiveWidth(2),
-                    }}>
-                    <Paragraph
-                      flex={4}
-                      text={(index + 1 + '.').toString()}></Paragraph>
-                    <Paragraph flex={90} text={`${item.key}`}></Paragraph>
-                  </View>
-                );
-              }}
-            />
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'1.'}></Paragraph>
+              <Text style={styles.text}>
+                «Пчёлка» понимает 6 различных команд:{''}
+                <Text style={{fontWeight: 'bold'}}>
+                  вперёд, назад, налево, направо, пауза, старт.
+                </Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'2.'}></Paragraph>
+              <Text style={styles.text}>
+                При исполнении команд{''}
+                <Text style={{fontWeight: 'bold'}}>«Вперед» и «Назад»</Text>
+                <Text>робот линейно перемещается на </Text>
+                <Text style={{fontWeight: 'bold'}}>15 см.</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'3.'}></Paragraph>
+              <Text style={styles.text}>
+                Команды{' '}
+                <Text style={{fontWeight: 'bold'}}>
+                  «Поворот налево» и «Поворот направо»{' '}
+                </Text>
+                <Text>приведут кповороту робота </Text>
+                <Text style={{fontWeight: 'bold'}}>90 градусов</Text>
+                <Text> в заданную сторону.</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'4.'}></Paragraph>
+              <Text style={styles.text}>
+                Команда <Text style={{fontWeight: 'bold'}}> «Пауза»</Text>
+                <Text> добавляет паузу на </Text>
+                <Text style={{fontWeight: 'bold'}}>2 секунды</Text>
+                <Text> перед исполнением следующей команды.</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'5.'}></Paragraph>
+              <Text style={styles.text}>
+                Кнопка <Text style={{fontWeight: 'bold'}}>«Старт»</Text>
+                <Text> запускает введенные команды. </Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'6.'}></Paragraph>
+              <Text style={styles.text}>
+                Объем памяти позволяет задать и сохранить последовательность{' '}
+                <Text style={{fontWeight: 'bold'}}>из 500 и более команд.</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'7.'}></Paragraph>
+              <Text style={styles.text}>
+                Кнопка{' '}
+                <Text style={{fontWeight: 'bold'}}>
+                  удаления всех записанных команд{' '}
+                </Text>
+                <Text>
+                  очистит память робота и «Пчёлка» будет готова к новой
+                  последовательности команд.{' '}
+                </Text>
+              </Text>
+            </View>
 
             <View
               style={{
@@ -764,10 +839,10 @@ const MaterialPage = ({navigation}: any) => {
                     key: 'Запись команды в память.',
                   },
                   {
-                    key: 'Завершение исполнения введенных команд',
+                    key: 'Завершение исполнения введенных команд.',
                   },
                   {
-                    key: 'Прием роботом ИК сигнала',
+                    key: 'Прием роботом ИК сигнала.',
                   },
                   {
                     key: 'Звуковое сопровождение можно включить или отключить с помощью переключателя на нижней поверхности робота.',
@@ -957,7 +1032,7 @@ const MaterialPage = ({navigation}: any) => {
                 <View style={{flex: 10}}>
                   <SubHeading
                     fontWeight={'bold'}
-                    text="Визуальная среда программирования Scratch"></SubHeading>
+                    text="Визуальная среда программирования Scratch на планшете."></SubHeading>
                   <Paragraph text="Программа строится из цветных блоков-команд"></Paragraph>
                 </View>
               </View>
@@ -1001,49 +1076,97 @@ const MaterialPage = ({navigation}: any) => {
                 PhoneTablet,
               )}></Image>
 
-            <FlatList
+            <View
               style={{
                 marginTop: isPortrait()
                   ? useResponsiveWidth(5)
                   : useResponsiveWidth(2.5),
-              }}
-              scrollEnabled={false}
-              data={[
-                {
-                  key: 'Убедитесь, что на вашем мобильном телефоне включены службы определения местоположения (локация),  активны Bluetooth, Wi-Fi.',
-                },
-                {
-                  key: 'Включите робота, его глаза загорятся зеленым светом.',
-                },
-                {
-                  key: 'Откройте приложение и дайте ему разрешение на определение местоположения. Запрос открывается автоматически.',
-                },
-                {
-                  key: 'Нажмите на значок Bluetooth (1) в правом верхнем углу экрана. При открытии диалогового окна нажмите на иконку сканирования (2)',
-                },
-                {
-                  key: 'При успешном соединении глаза робота станут синими.',
-                },
-                {
-                  key: 'Перейдите в пункт меню «Дистанционное управление».',
-                },
-              ]}
-              renderItem={({item, index}: any) => {
-                return (
-                  <View
-                    style={{
-                      marginBottom: 10,
-                      flexDirection: 'row',
-                      gap: useResponsiveWidth(2),
-                    }}>
-                    <Paragraph
-                      flex={4}
-                      text={(index + 1 + '.').toString()}></Paragraph>
-                    <Paragraph flex={90} text={`${item.key}`}></Paragraph>
-                  </View>
-                );
-              }}
-            />
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'1.'}></Paragraph>
+              <Text style={styles.text}>
+                Убедитесь, что на вашем мобильном телефоне включены службы
+                определения{' '}
+                <Text style={{fontWeight: 'bold'}}>местоположени </Text>
+                <Text> (локация), активны </Text>
+                <Text style={{fontWeight: 'bold'}}>Bluetooth, Wi-Fi.</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'2.'}></Paragraph>
+              <Text style={styles.text}>
+                Включите робота, его глаза загорятся зеленым светом.
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'3.'}></Paragraph>
+              <Text style={styles.text}>
+                Откройте приложение и дайте ему{' '}
+                <Text style={{fontWeight: 'bold'}}>
+                  разрешение на определение местоположения{' '}
+                </Text>
+                <Text>Запрос открывается автоматически.</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'4.'}></Paragraph>
+              <Text style={styles.text}>
+                Нажмите на значок{' '}
+                <Text style={{fontWeight: 'bold'}}>Bluetooth (1) </Text>
+                <Text>
+                  в правом верхнем углу экрана. При открытии диалогового окна
+                  нажмите на иконку
+                </Text>
+                <Text style={{fontWeight: 'bold'}}> сканирования (2).</Text>
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'5.'}></Paragraph>
+              <Text style={styles.text}>
+                При успешном соединении глаза робота станут синими.{' '}
+              </Text>
+            </View>
+
+            <View
+              style={{
+                marginBottom: 10,
+                flexDirection: 'row',
+                gap: useResponsiveWidth(2),
+              }}>
+              <Paragraph flex={4} text={'6.'}></Paragraph>
+              <Text style={styles.text}>
+                Перейдите в пункт меню{' '}
+                <Text style={{fontWeight: 'bold'}}>
+                  «Дистанционное управление».{' '}
+                </Text>
+              </Text>
+            </View>
 
             <View
               style={{
@@ -1054,50 +1177,142 @@ const MaterialPage = ({navigation}: any) => {
               <SubHeading
                 text={'Программирование в визуальной среде Scratch (доступно на планшете)'.toUpperCase()}
                 fontWeight="700"></SubHeading>
-              <FlatList
-                scrollEnabled={false}
-                data={[
-                  {
-                    key: 'Перед началом работы убедитесь, что ваша «Пчелка» включена (глаза горят зеленым светом), на планшете активны Bluetooth, Wi-Fi, служба определения местоположения (локация), выиспользуете браузер Google Chrome.',
-                  },
-                  {
-                    key: 'Для работы в Scratch необходимо нажать на соответствующий пункт меню в приложении. Приложение перенаправит вас по ссылке scratch.technoedu.ru в Google Chrome.',
-                  },
-                  {
-                    key: 'В Scratch добавьте расширение, нажав на кнопку «Добавить расширение» внижнем левом углу (1).',
-                  },
-                  {
-                    key: 'Выберете расширение «LogoBot Scratch Extension» (2).',
-                  },
-                  {
-                    key: 'После загрузки расширения появится всплывающее диалоговое окно сдоступными устройствами, в том числе Logobot. Нажмите на него, азатем на кнопку создания пары (pair). Диалоговое окно закроется автоматически',
-                  },
-                  {
-                    key: 'Если глаза робота поменяли цвет сзеленого на синий, то «Пчёлка» готова кработе.',
-                  },
-                  {
-                    key: 'Для отключения робота от Scratch просто закройте браузер. После этого его глаза снова станут зелеными.',
-                  },
-                  {
-                    key: 'Обратите внимание! Приложение «Пчёлка» и Scratch поддерживают соединение Bluetooth отдельно. Если первоначально логобот был подключен к приложению и его глаза были синими, то при переходе в Scratch, они снова станут зелеными. Таким образом логобот готов к подключению в Scratch среде. ',
-                  },
-                ]}
-                renderItem={({item, index}: any) => {
-                  return (
-                    <View
-                      style={{
-                        marginBottom: 10,
-                        flexDirection: 'row',
-                        gap: useResponsiveWidth(2),
-                      }}>
-                      <Paragraph
-                        flex={4}
-                        text={(index + 1 + '.').toString()}></Paragraph>
-                      <Paragraph flex={90} text={`${item.key}`}></Paragraph>
-                    </View>
-                  );
-                }}
-              />
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'1.'}></Paragraph>
+                <Text style={styles.text}>
+                  Перед началом работы убедитесь, что ваша «Пчелка» включена
+                  (глаза горят зеленым светом), на планшете активны{' '}
+                  <Text style={{fontWeight: 'bold'}}>Bluetooth, Wi-Fi,. </Text>
+                  <Text>служба определения </Text>
+                  <Text style={{fontWeight: 'bold'}}>местоположения </Text>
+                  <Text>(локация), вы используете браузер</Text>
+                  <Text style={{fontWeight: 'bold'}}> Google Chrome. </Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'2.'}></Paragraph>
+                <Text style={styles.text}>
+                  Для работы в <Text style={{fontWeight: 'bold'}}>Scratch</Text>
+                  <Text>
+                    необходимо нажать на соответствующий пункт меню в
+                    приложении. Приложение перенаправит вас по ссылке
+                  </Text>
+                  <Text style={{fontWeight: 'bold'}}> местоположения </Text>
+                  <Text>(локация), вы используете браузер</Text>
+                  <Text style={{fontWeight: 'bold'}}>
+                    {' '}
+                    scratch.technoedu.ru{' '}
+                  </Text>
+                  <Text>в Google Chrome</Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'3.'}></Paragraph>
+                <Text style={styles.text}>
+                  В Scratch добавьте расширение, нажав на кнопку
+                  <Text style={{fontWeight: 'bold'}}>
+                    {' '}
+                    «Добавить расширение»{' '}
+                  </Text>
+                  <Text>в нижнем левом углу (1).</Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'4.'}></Paragraph>
+                <Text style={styles.text}>
+                  Выберете расширение
+                  <Text style={{fontWeight: 'bold'}}>
+                    {' '}
+                    LogoBot Scratch Extension» (2).{' '}
+                  </Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'5.'}></Paragraph>
+                <Text style={styles.text}>
+                  После загрузки расширения появится всплывающее диалоговое окно
+                  с доступными устройствами, в том числе
+                  <Text style={{fontWeight: 'bold'}}> Logobot. </Text>
+                  <Text>
+                    Нажмите на него, а затем на кнопку создания пары (pair).
+                    Диалоговое окно закроется автоматически.
+                  </Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'6.'}></Paragraph>
+                <Text style={styles.text}>
+                  Если глаза робота поменяли цвет с зеленого на синий, то
+                  «Пчёлка» готова к работе. тически.
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'7.'}></Paragraph>
+                <Text style={styles.text}>
+                  Для отключения робота от Scratch просто закройте браузер.
+                  После этого его глаза снова станут зелеными.
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'8.'}></Paragraph>
+                <Text style={styles.text}>
+                  <Text style={{fontWeight: 'bold'}}>Обратите внимание! </Text>
+                  Приложение «Пчёлка» и Scratch поддерживают соединение
+                  Bluetooth отдельно. Если первоначально логобот был подключен к
+                  приложению и его глаза были синими, то при переходе в Scratch,
+                  они снова станут зелеными. Таким образом логобот готов к
+                  подключению в Scratch среде.
+                </Text>
+              </View>
+
               <Image
                 style={{
                   marginLeft: 'auto',
@@ -1161,7 +1376,7 @@ const MaterialPage = ({navigation}: any) => {
         {showSixth ? (
           <View>
             <Paragraph
-              text={`Зарядка логобота осуществляется двумя вариантами:.
+              text={`Зарядка логобота осуществляется двумя вариантами:
               `}
             />
             <View
@@ -1262,9 +1477,11 @@ const MaterialPage = ({navigation}: any) => {
         {showSeventh ? (
           <View>
             <Paragraph
-              text={`Программное обеспечение робота обновляется с помощью точки доступа в настройках вашего телефона или планшета.
-              `}
-            />
+              text={`Программное обеспечение робота обновляется с помощью точки доступа в настройках вашего телефона или планшета`}>
+              <Paragraph
+                fontWeight={700}
+                text=" точки доступа в настройках вашего телефона или планшета."></Paragraph>
+            </Paragraph>
             <View
               style={{
                 width: useResponsiveWidth(90),
@@ -1272,56 +1489,85 @@ const MaterialPage = ({navigation}: any) => {
                   ? useResponsiveWidth(5)
                   : useResponsiveWidth(2.5),
               }}>
-              <FlatList
-                scrollEnabled={false}
-                data={[
-                  {
-                    key: 'Включите логобота, его глаза будут гореть зеленым.',
-                  },
-                  {
-                    key: 'Включите точку доступа на вашем устройстве, передвинув ползунок вактивной положение. ',
-                  },
-                  {
-                    key: 'Измените настройки своей точки доступа на следующие: SSID (имя сети): adminPASSWORD (пароль): adminadmin',
-                  },
-                  {
-                    key: 'Затем нажмите и удерживайте кнопку «Старт» на спинке логобота в течение 5секунд, пока глаза робота незагорятся красным.',
-                  },
-                  {
-                    key: 'Отпустите кнопку, при удачном подключении к точке доступа глаза робота станут синими и запустится процесс обновления. Он занимает от3до 7 минут. После успешного обновления глаза станут зелеными.',
-                  },
-                  {
-                    key: 'После обновления логобота рекомендовано обновить приложение.',
-                  },
-                ]}
-                renderItem={({item, index}: any) => {
-                  return (
-                    <View
-                      style={{
-                        marginBottom: 10,
-                        flexDirection: 'row',
-                        gap: useResponsiveWidth(2),
-                      }}>
-                      <Paragraph
-                        flex={4}
-                        text={(index + 1 + '.').toString()}></Paragraph>
-                      <Paragraph flex={90} text={`${item.key}`}></Paragraph>
-                    </View>
-                  );
-                }}
-              />
-
-              {/* <View
+              <View
                 style={{
-                  width: useResponsiveWidth(90),
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                  borderBottomColor: 'black',
-                  borderBottomWidth: 1,
-                  marginTop: isPortrait()
-                    ? useResponsiveWidth(5)
-                    : useResponsiveWidth(2.5),
-                }}></View> */}
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'1.'}></Paragraph>
+                <Text style={styles.text}>
+                  Включите логобота, его глаза будут гореть зеленым.
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'2.'}></Paragraph>
+                <Text style={styles.text}>
+                  Включите точку доступа на вашем устройстве, передвинув
+                  ползунок в активной положение.
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'3.'}></Paragraph>
+                <Text style={styles.text}>
+                  Измените настройки своей точки доступа на следующие:{'\n'}
+                  <Text style={{fontWeight: 'bold'}}>
+                    SSID (имя сети): admin{'\n'}PASSWORD (пароль): adminadmin
+                  </Text>
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'4.'}></Paragraph>
+                <Text style={styles.text}>
+                  Затем нажмите и удерживайте кнопку «Старт» на спинке логобота
+                  в течение 5 секунд, пока глаза робота не загорятся красным.
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'5.'}></Paragraph>
+                <Text style={styles.text}>
+                  Отпустите кнопку, при удачном подключении к точке доступа
+                  глаза робота станут синими и запустится процесс обновления. Он
+                  занимает от 3 до 7 минут. После успешного обновления глаза
+                  станут зелеными.
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginBottom: 10,
+                  flexDirection: 'row',
+                  gap: useResponsiveWidth(2),
+                }}>
+                <Paragraph flex={4} text={'6.'}></Paragraph>
+                <Text style={styles.text}>
+                  После обновления логобота рекомендовано обновить приложение.
+                </Text>
+              </View>
 
               <TouchableOpacity
                 onPress={() => setShowSeventh(!showSeventh)}
@@ -1365,7 +1611,7 @@ const MaterialPage = ({navigation}: any) => {
             ? useResponsiveWidth(8)
             : useResponsiveWidth(4),
         }}>
-          <TouchableOpacity
+        <TouchableOpacity
           onPress={() => {
             // savePdf();
           }}
@@ -1395,14 +1641,34 @@ const MaterialPage = ({navigation}: any) => {
                 ? useResponsiveFontSize(1.5)
                 : useResponsiveFontSize(2),
             }}>
-            {t('download_pdf')}
+            {'скачать инструкцию в pdf'}
           </Text>
         </TouchableOpacity>
-
-
-        </View>
+      </View>
     </LayoutWrapper>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    flex: 90,
+    fontWeight: 400,
+    fontSize: isTabletAndPortrait()
+      ? useResponsiveFontSize(1.5)
+      : isTabletAndLandScape()
+      ? useResponsiveFontSize(1.5)
+      : useResponsiveFontSize(2),
+    color: CONSTANTS.COLORS.BLACK,
+    lineHeight: isTabletAndPortrait()
+      ? useResponsiveFontSize(2.2)
+      : isTabletAndLandScape()
+      ? useResponsiveFontSize(1.5)
+      : useResponsiveFontSize(2.2),
+    textAlign: 'left',
+    alignContent: 'flex-start',
+    textDecorationLine: 'none',
+    fontStyle: 'normal',
+  },
+});
 
 export default MaterialPage;

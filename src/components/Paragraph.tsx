@@ -18,6 +18,7 @@ export interface ParagraphProps {
   fontColor?: string;
   fontStyle?: string;
   textAlign ?: string;
+  fontWeight ?: number
 }
 
 export const Paragraph = (props: ParagraphProps) => {
@@ -26,6 +27,7 @@ export const Paragraph = (props: ParagraphProps) => {
       style={{
         // marginBottom: useResponsiveWidth(7),
         flex: props.flex || 0,
+        fontWeight : props.fontWeight || 400,
         fontSize: isTabletAndPortrait()
           ? useResponsiveFontSize(1.5)
           : isTabletAndLandScape()
@@ -43,6 +45,7 @@ export const Paragraph = (props: ParagraphProps) => {
         fontStyle: props.fontStyle || 'normal',
       }}>
       {props.text}
+      {props.children}
     </Text>
   );
 };
