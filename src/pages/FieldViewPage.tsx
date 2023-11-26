@@ -13,7 +13,13 @@ import {
 } from 'react-native';
 import {AppBar} from '../components/AppBar';
 import {BottomBar} from '../components/BottomBar';
-import {isPortrait, isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize} from '../utils/Utils';
+import {
+  isPortrait,
+  isTablet,
+  isTabletAndLandScape,
+  isTabletAndPortrait,
+  useResponsiveFontSize,
+} from '../utils/Utils';
 import {CONSTANTS} from '../constants/Contants';
 import {MenuItem} from '../components/Menu';
 
@@ -26,7 +32,7 @@ import {useTranslation} from 'react-i18next';
 import {Heading} from '../components/Heading';
 import {Paragraph} from '../components/Paragraph';
 import {FieldModel} from '../models/FieldsModel';
-import { pageMarginTop } from '../utils/StyleUtils';
+import {pageMarginTop} from '../utils/StyleUtils';
 
 const FieldsViewPage = ({navigation, route}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
@@ -55,15 +61,15 @@ const FieldsViewPage = ({navigation, route}: any) => {
           width: useResponsiveWidth(90),
           marginLeft: 'auto',
           marginRight: 'auto',
-          marginTop : pageMarginTop()
+          marginTop: pageMarginTop(),
         }}>
         <Text
           style={{
             fontSize: isTabletAndPortrait()
-            ? useResponsiveFontSize(1.5)
-            : isTabletAndLandScape()
-            ? useResponsiveFontSize(1.5)
-            : useResponsiveFontSize(2),
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2),
             width: useResponsiveWidth(90),
             textAlign: 'right',
             color: CONSTANTS.COLORS.GRAY,
@@ -83,10 +89,10 @@ const FieldsViewPage = ({navigation, route}: any) => {
         <Text
           style={{
             fontSize: isTabletAndPortrait()
-            ? useResponsiveFontSize(2)
-            : isTabletAndLandScape()
-            ? useResponsiveFontSize(2)
-            : useResponsiveFontSize(3.5),
+              ? useResponsiveFontSize(2)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(2)
+              : useResponsiveFontSize(3.5),
             width: useResponsiveWidth(90),
             textAlign: 'left',
             fontFamily: 'Roboto-Bold',
@@ -94,7 +100,7 @@ const FieldsViewPage = ({navigation, route}: any) => {
             color: CONSTANTS.COLORS.BLACK,
           }}>
           {t('fields_title').toUpperCase()}
-          {isPortrait() ? '\n' : " "}
+          {isPortrait() ? '\n' : ' '}
           {'«'}
           {t(model.title).toUpperCase()}
           {'»'}
@@ -103,30 +109,40 @@ const FieldsViewPage = ({navigation, route}: any) => {
       <View
         style={{
           width: useResponsiveWidth(90),
-          marginLeft : "auto",
-          marginRight : "auto",
+          marginLeft: 'auto',
+          marginRight: 'auto',
           marginBottom: useResponsiveWidth(3),
           marginTop: useResponsiveWidth(4),
         }}>
         <TouchableOpacity
+          style={{}}
           onPress={() => {
             navigation.navigate('ImageView', {
               imageMobile: model.gridImage,
-              imageTablet : model.girdImageTablet,
+              imageTablet: model.girdImageTablet,
               title: model.title,
             });
           }}>
           <Image
-            resizeMode="cover"
+            resizeMode={isTablet() ? "cover" : "cover"}
             style={{
-              aspectRatio : 1,
+              // backgroundColor : "red",
+              aspectRatio: "auto",
+              marginLeft: 'auto',
+              marginRight: 'auto',
               // marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
               // marginRight: isPortrait() ? 'auto' : 0,
               width: isTabletAndPortrait()
-              ? useResponsiveWidth(60)
-              : isTabletAndLandScape()
-              ? useResponsiveWidth(60)
-              : useResponsiveWidth(90),
+                ? useResponsiveWidth(85)
+                : isTabletAndLandScape()
+                ? useResponsiveWidth(50)
+                : useResponsiveWidth(90),
+                // height : isPortrait() ? useResponsiveHeight(50) : useResponsiveHeight(100),
+              // height: isTabletAndPortrait()
+              //   ? usere(60)
+              //   : isTabletAndLandScape()
+              //   ? useResponsiveWidth(60)
+              //   : useResponsiveWidth(90),
               borderRadius: 10,
             }}
             source={model.gridImage}></Image>
@@ -141,11 +157,11 @@ const FieldsViewPage = ({navigation, route}: any) => {
         }}>
         <Text
           style={{
-            fontSize:  isTabletAndPortrait()
-            ? useResponsiveFontSize(1.5)
-            : isTabletAndLandScape()
-            ? useResponsiveFontSize(1.5)
-            : useResponsiveFontSize(2),
+            fontSize: isTabletAndPortrait()
+              ? useResponsiveFontSize(1.5)
+              : isTabletAndLandScape()
+              ? useResponsiveFontSize(1.5)
+              : useResponsiveFontSize(2),
             color: CONSTANTS.COLORS.GRAY,
             width: useResponsiveWidth(90),
             marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
@@ -176,10 +192,10 @@ const FieldsViewPage = ({navigation, route}: any) => {
             style={{
               textAlign: 'center',
               fontSize: isTabletAndPortrait()
-              ? useResponsiveFontSize(1.5)
-              : isTabletAndLandScape()
-              ? useResponsiveFontSize(1.5)
-              : useResponsiveFontSize(2),
+                ? useResponsiveFontSize(1.5)
+                : isTabletAndLandScape()
+                ? useResponsiveFontSize(1.5)
+                : useResponsiveFontSize(2),
               color: CONSTANTS.COLORS.WHITE,
               fontStyle: 'italic',
             }}>
@@ -191,7 +207,12 @@ const FieldsViewPage = ({navigation, route}: any) => {
           {model.content.map((content, index) => {
             return (
               <View key={index}>
-                <View style={{marginTop : isPortrait() ? useResponsiveHeight(4): useResponsiveHeight(8)}}></View>
+                <View
+                  style={{
+                    marginTop: isPortrait()
+                      ? useResponsiveHeight(4)
+                      : useResponsiveHeight(8),
+                  }}></View>
                 <Heading text={t(content.heading).toUpperCase()}></Heading>
                 <Paragraph text={t(content.paragraph)}></Paragraph>
               </View>
@@ -207,15 +228,17 @@ const FieldsViewPage = ({navigation, route}: any) => {
             width: useResponsiveWidth(90),
             marginLeft: 'auto',
             marginRight: 'auto',
-            marginTop: isPortrait() ? useResponsiveHeight(4) : useResponsiveHeight(8),
+            marginTop: isPortrait()
+              ? useResponsiveHeight(4)
+              : useResponsiveHeight(8),
           }}>
           <Text
             style={{
               fontSize: isTabletAndPortrait()
-              ? useResponsiveFontSize(1.5)
-              : isTabletAndLandScape()
-              ? useResponsiveFontSize(1.5)
-              : useResponsiveFontSize(2),
+                ? useResponsiveFontSize(1.5)
+                : isTabletAndLandScape()
+                ? useResponsiveFontSize(1.5)
+                : useResponsiveFontSize(2),
               width: useResponsiveWidth(90),
               textAlign: 'right',
               color: CONSTANTS.COLORS.GRAY,
@@ -228,17 +251,19 @@ const FieldsViewPage = ({navigation, route}: any) => {
           onPress={() => navigation.navigate('Fields')}
           style={{
             width: useResponsiveWidth(90),
-            marginTop: isPortrait() ? useResponsiveHeight(3) : useResponsiveHeight(6),
+            marginTop: isPortrait()
+              ? useResponsiveHeight(3)
+              : useResponsiveHeight(6),
             marginLeft: 'auto',
             marginRight: 'auto',
           }}>
           <Text
             style={{
               fontSize: isTabletAndPortrait()
-              ? useResponsiveFontSize(1.5)
-              : isTabletAndLandScape()
-              ? useResponsiveFontSize(1.5)
-              : useResponsiveFontSize(2),
+                ? useResponsiveFontSize(1.5)
+                : isTabletAndLandScape()
+                ? useResponsiveFontSize(1.5)
+                : useResponsiveFontSize(2),
               width: useResponsiveWidth(90),
               textAlign: 'right',
               color: CONSTANTS.COLORS.GRAY,

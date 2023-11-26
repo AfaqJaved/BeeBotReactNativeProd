@@ -32,6 +32,7 @@ export const CONSTANTS = {
 
     },
     FIELD_ZOOM_SCALE_MIN : 1,
+    FIELD_ZOOM_SCALE_MAX_MOBILE : 1.1,
     FIELD_ZOOM_SCALE_MAX : 1.3,
 
 }

@@ -98,7 +98,7 @@ export const AccordianFields = (props: MenuItemProps) => {
             <Text
               style={{
                 marginLeft: accordianfieldsTitleMarginLeft,
-                fontSize: isTabletAndPortrait() ?  useResponsiveFontSize(2) : isTabletAndLandScape() ? useResponsiveFontSize(2) : useResponsiveFontSize(3),
+                fontSize: isTabletAndPortrait() ?  useResponsiveFontSize(2) : isTabletAndLandScape() ? useResponsiveFontSize(2) : useResponsiveFontSize(2.5),
                 color: CONSTANTS.COLORS.WHITE,
               }}>
               {props.title}

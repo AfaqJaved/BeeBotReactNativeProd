@@ -21,7 +21,7 @@ export default {
     lessons_search_hint: "Enter subject or field id",
     select_month: "Select Month",
     back_to_topics: "← to topics",
-    up : "↑up",
+    up: "↑up",
     download_pdf: "Download Pdf",
     fields_2: "City Street",
     fields_3: "Fairy Tale",
@@ -38,6 +38,7 @@ export default {
     street: "Street",
     figures: "Figures",
     beach: "Beach",
+    map: "Map",
     blocks: "Colors and Shapes",
     back_to_fields: "←to the list of fields",
     back_to_lessons: "←back to lessons",
@@ -66,6 +67,10 @@ export default {
         purpose_content: "Consolidation of children's knowledge about animals, the ability to distinguish and find the right animal.",
         material_content: "Play mat farm, cards with pets (as on a rug), mini-robot Bee-bot. Bee.",
         game_progress_content: "A game for children from 3 years old. The game can be played by 3-5 people. Players are given game cards. The host pulls out a small card from a special opaque bag, the player or host calls the animal. The child, with the help of a mini-robot, must lay a route to the animal indicated on his card.For children from 5 years old, the game can be complicated. Name the animals depicted on the same playing field in one word."
+    },
+    MAP_FIELD: {
+        description: "Description",
+        description_content: `The thematic field “Map of the World” is intended to introduce preschool children to the oceans, continents, their flora and fauna.\n\nhelps broaden their horizons and develop cognitive activity. The bright design of the field attracts the attention of children and maintains interest in the activity at a high level.\n\nThe presence of cells allows you to train counting, together with a logobot, and orientation in space, drawing up algorithms.`,
     },
     BLOCK_FIELD: {
         description: "Description",

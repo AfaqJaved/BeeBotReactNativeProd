@@ -13,4 +13,5 @@ export interface FieldModel {
     artNo: string,
     backgroundColor : string,
     content: Content[]
+    ratio : number,
 }

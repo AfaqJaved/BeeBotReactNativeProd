@@ -1704,6 +1704,11 @@
     "prompts" "^2.4.0"
     "semver" "^6.3.0"
 
+"@react-native-community/slider@^4.4.3":
+  "integrity" "sha512-WdjvGtqJfqcCiLwtbzie53Z/H6w6dIfRHhlW832D89ySAdE5DxLAsqRhDOG0eacuAxxEB+T9sGCkVMD0fa3aBg=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/slider/-/slider-4.4.3.tgz"
+  "version" "4.4.3"
+
 "@react-native/assets-registry@^0.72.0":
   "integrity" "sha512-Im93xRJuHHxb1wniGhBMsxLwcfzdYreSZVQGDoMJgkd6+Iky61LInGEHnQCTN0fKNYF1Dvcofb4uMmE1RQHXHQ=="
   "resolved" "https://registry.npmjs.org/@react-native/assets-registry/-/assets-registry-0.72.0.tgz"
@@ -5531,7 +5536,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@*", "prop-types@^15.7.2", "prop-types@^15.8.1":
+"prop-types@*", "prop-types@^15.5.6", "prop-types@^15.7.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -5697,6 +5702,13 @@
   "integrity" "sha512-y6ju4HS6ydJoPVoacZ/Hp3i47AfI9W4e76Jv00r01dVbr6SCCcuqk37kIbn+kYivdTxOW77UGEbhtBHHtXnhzg=="
   "resolved" "https://registry.npmjs.org/react-native-share/-/react-native-share-9.2.3.tgz"
   "version" "9.2.3"
+
+"react-native-slider@^0.11.0":
+  "integrity" "sha512-jV9K87eu9uWr0uJIyrSpBLnCKvVlOySC2wynq9TFCdV9oGgjt7Niq8Q1A8R8v+5GHsuBw/s8vEj1AAkkUi+u+w=="
+  "resolved" "https://registry.npmjs.org/react-native-slider/-/react-native-slider-0.11.0.tgz"
+  "version" "0.11.0"
+  dependencies:
+    "prop-types" "^15.5.6"
 
 "react-native-svg@^13.10.0":
   "integrity" "sha512-D/oYTmUi5nsA/2Nw4WYlF1UUi3vZqhpESpiEhpYCIFB/EMd6vz4A/uq3tIzZFcfa5z2oAdGSxRU1TaYr8IcPlQ=="

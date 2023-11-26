@@ -104,7 +104,7 @@ const FieldsPage = ({navigation}: any) => {
               backgroundColor={model.backgroundColor}
               image={model.imageSource}
               artNo={model.artNo}
-              title={t(model.title)}></AccordianFields>
+              title={t(model.title).toUpperCase()}></AccordianFields>
           </TouchableOpacity>
         );
       })}
