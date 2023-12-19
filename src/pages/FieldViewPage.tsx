@@ -115,28 +115,35 @@ const FieldsViewPage = ({navigation, route}: any) => {
           marginTop: useResponsiveWidth(4),
         }}>
         <TouchableOpacity
-          style={{}}
+          style={{
+            width: useResponsiveWidth(90),
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
           onPress={() => {
             navigation.navigate('ImageView', {
               imageMobile: model.gridImage,
               imageTablet: model.girdImageTablet,
               title: model.title,
+              ratio : model.ratio,
             });
           }}>
           <Image
-            resizeMode={isTablet() ? "cover" : "cover"}
+            resizeMode={"cover"}
             style={{
               // backgroundColor : "red",
-              aspectRatio: "auto",
+              aspectRatio: model.ratio,
               marginLeft: 'auto',
               marginRight: 'auto',
+              width : model.ratio != 1 ? useResponsiveWidth(15) : useResponsiveWidth(90),
+              height : model.ratio != 1 ? useResponsiveHeight(15) : isPortrait() ? useResponsiveHeight(40) : useResponsiveHeight(60),
               // marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
               // marginRight: isPortrait() ? 'auto' : 0,
-              width: isTabletAndPortrait()
-                ? useResponsiveWidth(85)
-                : isTabletAndLandScape()
-                ? useResponsiveWidth(50)
-                : useResponsiveWidth(90),
+              // width: isTabletAndPortrait()
+              //   ? useResponsiveWidth(85)
+              //   : isTabletAndLandScape()
+              //   ? useResponsiveWidth(50)
+              //   : useResponsiveWidth(90),
                 // height : isPortrait() ? useResponsiveHeight(50) : useResponsiveHeight(100),
               // height: isTabletAndPortrait()
               //   ? usere(60)

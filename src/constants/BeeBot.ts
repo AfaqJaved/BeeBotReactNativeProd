@@ -1,6 +1,7 @@
 
 
-export const BEEBOT_HTML_PROGRAM_MODE = `<!DOCTYPE html>
+export const BEEBOT_HTML_PROGRAM_MODE = `
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,7 +47,7 @@ background: blue;
 transform: translate(-50%, -50%);
 " -->
 
-  <body>
+  <body style="overflow: hidden;">
     <div
       style="
         width: 100vw;
@@ -483,50 +484,71 @@ id="left_arrow_icon"
       let lDisabled = false;
       let rDisabled = false;
 
+
+      function resetCheckBox(current){
+        let array = ["forward","back","left","right"];
+        array = array.filter((id)=> id !== current);
+
+        for(let x = 0 ; x < array.length ; x++) {
+          document.getElementById(array[x] + "_checkbox").checked = false;
+          document.getElementById(array[x] +"_arrow_icon").setAttribute("fill" , "#FF1515");
+          document.getElementById(array[x]).style.fill = '#ed1c24';
+        }
+      }
+
       document.getElementById("forward_checkbox").addEventListener("change" , (e)=>{
         let isChecked = e.target.checked;
         fDisabled = isChecked;
         if(isChecked) {
-          document.getElementById("forward_arrow_icon").setAttribute("fill" , "#d9d9d9");
-          document.getElementById('forward').style.fill = '#d9d9d9';
+          document.getElementById("forward_arrow_icon").setAttribute("fill" , "gray");
+          document.getElementById('forward').style.fill = 'gray';
         }
         else {
           document.getElementById("forward_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById('forward').style.fill = '#ed1c24';
 
         }
+        resetCheckBox("forward");
+
       })
 
 
       document.getElementById("back_checkbox").addEventListener("change" , (e)=>{
+
         let isChecked = e.target.checked;
         bDisabled = isChecked;
 
         if(isChecked) {
-          document.getElementById("back_arrow_icon").setAttribute("fill" , "#d9d9d9");
-          document.getElementById('back').style.fill = '#d9d9d9';
+          document.getElementById("back_arrow_icon").setAttribute("fill" , "gray");
+          document.getElementById('back').style.fill = 'gray';
 
         }
         else {
           document.getElementById("back_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById('back').style.fill = '#ed1c24';
         }
+        resetCheckBox("back");
+
       })
 
 
       document.getElementById("left_checkbox").addEventListener("change" , (e)=>{
+
         let isChecked = e.target.checked;
         lDisabled = isChecked;
 
         if(isChecked) {
-          document.getElementById("left_arrow_icon").setAttribute("fill" , "#d9d9d9");
-          document.getElementById('left').style.fill = '#d9d9d9';
+          document.getElementById("left_arrow_icon").setAttribute("fill" , "gray");
+          document.getElementById('left').style.fill = 'gray';
         }
         else {
           document.getElementById("left_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById('left').style.fill = '#ed1c24';
 
         }
+        resetCheckBox("left");
+
+
       })
 
 
@@ -535,15 +557,17 @@ id="left_arrow_icon"
         let isChecked = e.target.checked;
         rDisabled = isChecked;
         if(isChecked) {
-          document.getElementById("right_arrow_icon").setAttribute("fill" , "#d9d9d9");
-          document.getElementById('right').style.fill = '#d9d9d9';
-
-
+          document.getElementById("right_arrow_icon").setAttribute("fill" , "gray");
+          document.getElementById('right').style.fill = 'gray';
         }
         else {
           document.getElementById("right_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById('right').style.fill = '#ed1c24';
         }
+
+        resetCheckBox("right");
+
+
       })
 
 

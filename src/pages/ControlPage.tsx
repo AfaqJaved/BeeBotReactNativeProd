@@ -15,6 +15,7 @@ import {
 import {AppBar} from '../components/AppBar';
 import {
   getResponsiveResource,
+  isLandscape,
   isTablet,
   isTabletAndLandScape,
   isTabletAndPortrait,
@@ -233,6 +234,24 @@ const ControlPage = ({navigation}: any) => {
     }
   };
 
+
+  const setHeightWebView = () => {
+
+    if(isTablet() && isPortrait())
+      return useResponsiveHeight(55);
+
+    if(isLandscape())
+      return useResponsiveHeight(75)
+
+    if(isTablet() && isLandscape())
+      return useResponsiveHeight(60)
+
+    if(isPortrait())
+      return useResponsiveHeight(45);
+
+
+  }
+
   return (
     <LayoutWrapper enableScroll={true} navigation={navigation}>
       {showLoading ? (
@@ -370,10 +389,11 @@ const ControlPage = ({navigation}: any) => {
                   ? useResponsiveWidth(90)
                   : Platform.OS === 'android'
                   ? useResponsiveWidth(40)
-                  : useResponsiveWidth(25),
-              height: isPortrait()
-                ? useResponsiveHeight(45)
-                : useResponsiveHeight(80),
+                  : useResponsiveWidth(35),
+                  height : setHeightWebView(),
+              // height: isPortrait()
+              //   ? isTablet() ? useResponsiveHeight(45) :
+              //   : useResponsiveHeight(80),
               marginLeft: 'auto',
               marginRight: 'auto',
               marginTop: useResponsiveHeight(3),

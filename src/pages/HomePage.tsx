@@ -37,12 +37,11 @@ import {useTranslation} from 'react-i18next';
 import i18n from '../../translation';
 import {LangDialog} from '../dialog/LangDialog';
 import {LayoutWrapper} from '../components/LayoutWrapper';
-import { pageMarginTop } from '../utils/StyleUtils';
+import {pageMarginTop} from '../utils/StyleUtils';
 
 const HomePage = ({navigation}: any) => {
   const {t} = useTranslation();
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-
 
   React.useEffect(() => {
     Dimensions.addEventListener('change', () => {
@@ -50,72 +49,86 @@ const HomePage = ({navigation}: any) => {
     });
   }, []);
 
-
   return (
     <LayoutWrapper navigation={navigation}>
-
-      <View style={{flexDirection : 'row' , flexWrap : "wrap" , justifyContent : "center",
-      rowGap : useResponsiveWidth(1.5),columnGap : useResponsiveWidth(2),marginTop : pageMarginTop()}}>
-
-
-      <MenuItem
-        image={isPortrait() ? Lessons : LandLessons}
-        width={isTabletAndPortrait() ? 60 : isTabletAndLandScape() ? 60 : 90}
-        // heightLand={50}
-        heightLand={isTabletAndPortrait() ? 50 : isTabletAndLandScape() ? 30 : 50}
-        heightPort={25}
-        label={t('lessons')}
-        onClick={() => {
-          navigation.navigate('Lessons');
-        }}></MenuItem>
-
+      <View
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          rowGap: useResponsiveWidth(1.5),
+          columnGap: useResponsiveWidth(2),
+          marginTop: pageMarginTop(),
+        }}>
+        <MenuItem
+          image={isPortrait() ? Lessons : LandLessons}
+          width={isTabletAndPortrait() ? 60 : isTabletAndLandScape() ? 60 : 90}
+          // heightLand={50}
+          heightLand={
+            isTabletAndPortrait() ? 50 : isTabletAndLandScape() ? 30 : 50
+          }
+          heightPort={25}
+          label={t('lessons')}
+          onClick={() => {
+            navigation.navigate('Lessons');
+          }}></MenuItem>
 
         <MenuItem
           image={isPortrait() ? Fields : LandFields}
           width={isTabletAndPortrait() ? 28 : isTabletAndLandScape() ? 28 : 44}
-          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
-          heightPort={isTabletAndPortrait() ? 25 : 33 }
+          heightLand={
+            isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45
+          }
+          heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('fields')}
           onClick={() => {
-            navigation.navigate("Fields")
+            navigation.navigate('Fields');
           }}></MenuItem>
-
 
         <MenuItem
           image={isPortrait() ? Control : LandControl}
-          width={isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44}
-          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
+          width={
+            isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44
+          }
+          heightLand={
+            isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45
+          }
           heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('remote')}
           onClick={() => {
             navigation.navigate('Control');
           }}></MenuItem>
 
-
-        <MenuItem
-          image={isPortrait() ? Scratch : LandScratch}
-          width={isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44}
-          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
-          heightPort={isTabletAndPortrait() ? 25 : 33}
-          label={t('scratch')}
-          onClick={() => {
-            Linking.openURL(CONSTANTS.SCRATCH_URL).catch(err =>
-              console.error("Couldn't load page", err),
-            );
-          }}></MenuItem>
-
+          <MenuItem
+            image={isPortrait() ? Scratch : LandScratch}
+            width={
+              isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44
+            }
+            heightLand={
+              isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45
+            }
+            heightPort={isTabletAndPortrait() ? 25 : 33}
+            label={t('scratch')}
+            onClick={() => {
+              Linking.openURL(CONSTANTS.SCRATCH_URL).catch(err =>
+                console.error("Couldn't load page", err),
+              );
+            }}></MenuItem>
 
         <MenuItem
           image={isPortrait() ? Add : LandAdd}
-          width={isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44}
-          heightLand={isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45}
+          width={
+            isTabletAndPortrait() ? 28.6 : isTabletAndLandScape() ? 28.6 : 44
+          }
+          heightLand={
+            isTabletAndPortrait() ? 45 : isTabletAndLandScape() ? 30 : 45
+          }
           heightPort={isTabletAndPortrait() ? 25 : 33}
           label={t('materials')}
           onClick={() => {
-            navigation.navigate("Material");
+            navigation.navigate('Material');
           }}></MenuItem>
       </View>
-
 
       <View style={{height: useResponsiveHeight(1)}}></View>
     </LayoutWrapper>

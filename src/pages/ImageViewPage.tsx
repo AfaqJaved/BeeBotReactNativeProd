@@ -22,6 +22,7 @@ import {
 } from 'react-native';
 import {
   getResponsiveResource,
+  isPortrait,
   useResponsiveHeight,
   useResponsiveWidth,
 } from '../utils/Utils';
@@ -43,15 +44,14 @@ import {
   State,
 } from 'react-native-gesture-handler';
 import PanImage from '../components/PanImage';
-import { CONSTANTS } from '../constants/Contants';
+import {CONSTANTS} from '../constants/Contants';
 
 const ImageViewPage = ({navigation, route}: any) => {
   const image: any = route.params.imageMobile;
-  const imageTablet : any = route.params.imageTablet;
+  const imageTablet: any = route.params.imageTablet;
+  const ratio: any = route.params.ratio;
   const title: string = route.params.title;
-  const [currentScale, setScale] = React.useState(1);
-
-
+  const [currentScale, setScale] = React.useState(0);
 
   const getField = () => {
     const model = FIELD_MODELS.find(hold => {
@@ -80,12 +80,11 @@ const ImageViewPage = ({navigation, route}: any) => {
           <TouchableOpacity
             style={{marginRight: useResponsiveWidth(3)}}
             onPress={() => {
-              if (currentScale == CONSTANTS.FIELD_ZOOM_SCALE_MIN) {
-                setScale(CONSTANTS.FIELD_ZOOM_SCALE_MAX);
+              if (currentScale === 0) {
+                setScale(1);
               } else {
-                setScale(CONSTANTS.FIELD_ZOOM_SCALE_MIN);
+                setScale(0);
               }
-              // setPanEnabled(true);
             }}>
             <Image
               source={getResponsiveResource(
@@ -100,16 +99,42 @@ const ImageViewPage = ({navigation, route}: any) => {
                 model: getField(),
               });
             }}>
-            <Image source={getResponsiveResource(CrossMobile,CrossTablet,CrossTablet)}></Image>
+            <Image
+              source={getResponsiveResource(
+                CrossMobile,
+                CrossTablet,
+                CrossTablet,
+              )}></Image>
           </TouchableOpacity>
         </View>
 
-        <PanImage
-          setScale={(scale: number) => {
-            setScale(scale);
-          }}
-          image={currentScale == CONSTANTS.FIELD_ZOOM_SCALE_MIN ? image : imageTablet}
-          scale={currentScale}></PanImage>
+        {currentScale === 0 ? (
+          <TouchableOpacity
+            style={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              marginTop: 'auto',
+              marginBottom: 'auto',
+            }}
+            onPress={() => setScale(1)}>
+            <Image
+              resizeMode={'cover'}
+              style={{
+                aspectRatio: ratio,
+                width : ratio != 1 ? useResponsiveWidth(15) : useResponsiveWidth(90),
+                height : ratio != 1 ? useResponsiveHeight(15) : isPortrait() ? useResponsiveHeight(40) : useResponsiveHeight(60),
+                borderRadius: 10,
+              }}
+              source={imageTablet}></Image>
+          </TouchableOpacity>
+        ) : (
+          <PanImage
+            setScale={(scale: number) => {
+              setScale(scale);
+            }}
+            image={imageTablet}
+            scale={currentScale}></PanImage>
+        )}
       </View>
     </View>
   );
