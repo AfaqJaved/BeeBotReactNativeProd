@@ -479,10 +479,25 @@ id="left_arrow_icon"
 
     <script>
 
+      let isProgrammingStarted = false;
       let fDisabled = false;
       let bDisabled = false;
       let lDisabled = false;
       let rDisabled = false;
+
+
+      let disableAllCheckBoxesEvent = document.createEvent("Event");
+      disableAllCheckBoxesEvent.initEvent("disableAllCheckBox" , true,true);
+
+      document.addEventListener("disableAllCheckBox" , ()=>{
+        document.getElementById("forward_checkbox").disabled = true;
+        document.getElementById("back_checkbox").disabled = true;
+        document.getElementById("left_checkbox").disabled = true;
+        document.getElementById("right_checkbox").disabled = true;
+      },false)
+
+
+
 
 
       function resetCheckBox(current){
@@ -493,6 +508,36 @@ id="left_arrow_icon"
           document.getElementById(array[x] + "_checkbox").checked = false;
           document.getElementById(array[x] +"_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById(array[x]).style.fill = '#ed1c24';
+        }
+        switch(current){
+          case "forward" : {
+            bDisabled = false;
+            lDisabled = false;
+            rDisabled = false;
+            break;
+          }
+          case "back" : {
+            fDisabled = false;
+            lDisabled = false;
+            rDisabled = false;
+            break;
+          }
+          case "left" : {
+            fDisabled = false;
+            bDisabled = false;
+            rDisabled = false;
+            break;
+
+          }
+          case "right" : {
+            fDisabled = false;
+            bDisabled = false;
+            lDisabled = false;
+            break;
+          }
+          default :  {
+
+          }
         }
       }
 
@@ -508,13 +553,16 @@ id="left_arrow_icon"
           document.getElementById('forward').style.fill = '#ed1c24';
 
         }
+
+        // document.getElementById("back_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("left_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("right_checkbox").setAttribute("disabled" , true);
         resetCheckBox("forward");
 
       })
 
 
       document.getElementById("back_checkbox").addEventListener("change" , (e)=>{
-
         let isChecked = e.target.checked;
         bDisabled = isChecked;
 
@@ -527,13 +575,17 @@ id="left_arrow_icon"
           document.getElementById("back_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById('back').style.fill = '#ed1c24';
         }
+
+        // document.getElementById("forward_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("left_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("right_checkbox").setAttribute("disabled" , true);
+
         resetCheckBox("back");
 
       })
 
 
       document.getElementById("left_checkbox").addEventListener("change" , (e)=>{
-
         let isChecked = e.target.checked;
         lDisabled = isChecked;
 
@@ -546,6 +598,10 @@ id="left_arrow_icon"
           document.getElementById('left').style.fill = '#ed1c24';
 
         }
+
+        // document.getElementById("back_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("forward_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("right_checkbox").setAttribute("disabled" , true);
         resetCheckBox("left");
 
 
@@ -564,7 +620,9 @@ id="left_arrow_icon"
           document.getElementById("right_arrow_icon").setAttribute("fill" , "#FF1515");
           document.getElementById('right').style.fill = '#ed1c24';
         }
-
+        // document.getElementById("back_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("left_checkbox").setAttribute("disabled" , true);
+        // document.getElementById("forward_checkbox").setAttribute("disabled" , true);
         resetCheckBox("right");
 
 
@@ -574,10 +632,13 @@ id="left_arrow_icon"
 
       function forward() {
         if(fDisabled) return;
+        allowed = false;
         document.getElementById('forward').style.fill = '#ffffff';
         setTimeout(() => {
           document.getElementById('forward').style.fill = '#ed1c24';
         }, [200]);
+        isProgrammingStarted = true;
+        document.dispatchEvent(disableAllCheckBoxesEvent);
         window.ReactNativeWebView.postMessage('f');
       }
       function back() {
@@ -586,6 +647,8 @@ id="left_arrow_icon"
         setTimeout(() => {
           document.getElementById('back').style.fill = '#ed1c24';
         }, [200]);
+        isProgrammingStarted = true;
+        document.dispatchEvent(disableAllCheckBoxesEvent);
         window.ReactNativeWebView.postMessage('b');
       }
       function left() {
@@ -594,6 +657,8 @@ id="left_arrow_icon"
         setTimeout(() => {
           document.getElementById('left').style.fill = '#ed1c24';
         }, [200]);
+        isProgrammingStarted = true;
+        document.dispatchEvent(disableAllCheckBoxesEvent);
         window.ReactNativeWebView.postMessage('l');
       }
       function right() {
@@ -602,6 +667,8 @@ id="left_arrow_icon"
         setTimeout(() => {
           document.getElementById('right').style.fill = '#ed1c24';
         }, [200]);
+        isProgrammingStarted = true;
+        document.dispatchEvent(disableAllCheckBoxesEvent);
         window.ReactNativeWebView.postMessage('r');
       }
 
@@ -626,6 +693,10 @@ id="left_arrow_icon"
         setTimeout(() => {
           document.getElementById('empty').style.fill = '#29abe2';
         }, [200]);
+        document.getElementById("forward_checkbox").disabled = false;
+        document.getElementById("back_checkbox").disabled = false;
+        document.getElementById("left_checkbox").disabled = false;
+        document.getElementById("right_checkbox").disabled = false;
         window.ReactNativeWebView.postMessage('c');
       }
 
@@ -633,6 +704,7 @@ id="left_arrow_icon"
     </script>
   </body>
 </html>
+
 `;
 
 

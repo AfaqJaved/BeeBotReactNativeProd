@@ -247,9 +247,7 @@ const ControlPage = ({navigation}: any) => {
       return useResponsiveHeight(60)
 
     if(isPortrait())
-      return useResponsiveHeight(45);
-
-
+      return useResponsiveHeight(50);
   }
 
   return (
@@ -433,7 +431,7 @@ const ControlPage = ({navigation}: any) => {
               })}
             </ScrollView>
           </View>
-          <View style={{marginTop: useResponsiveHeight(2)}}>
+          <View style={{marginTop: useResponsiveHeight(2),width : useResponsiveWidth(90),marginLeft : "auto",marginRight : "auto"}}>
             <Paragraph
               textAlign="center"
               text="Для запуска алгоритма нажмите «Старт» на спинке виртуальной Пчёлки"></Paragraph>

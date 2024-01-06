@@ -67,6 +67,9 @@ export const getResponsiveResource = (mobile: any, tablet: any, tabletlg: any) =
 
 
 
+
+
+
 export const isPortrait = () => {
     const dim = Dimensions.get('screen');
     return dim.height >= dim.width;
