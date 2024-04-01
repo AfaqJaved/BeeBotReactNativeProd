@@ -479,11 +479,32 @@ id="left_arrow_icon"
 
     <script>
 
+
+
       let isProgrammingStarted = false;
       let fDisabled = false;
       let bDisabled = false;
       let lDisabled = false;
       let rDisabled = false;
+
+
+      //for ios
+      window.addEventListener("message", (event) => {
+        isProgrammingStarted = false;
+        document.getElementById("forward_checkbox").disabled = false;
+        document.getElementById("back_checkbox").disabled = false;
+        document.getElementById("left_checkbox").disabled = false;
+        document.getElementById("right_checkbox").disabled = false;
+      });
+
+      //for android
+      document.addEventListener("message", (event) => {
+        isProgrammingStarted = false;
+        document.getElementById("forward_checkbox").disabled = false;
+        document.getElementById("back_checkbox").disabled = false;
+        document.getElementById("left_checkbox").disabled = false;
+        document.getElementById("right_checkbox").disabled = false;
+      });
 
 
       let disableAllCheckBoxesEvent = document.createEvent("Event");
@@ -685,6 +706,8 @@ id="left_arrow_icon"
         setTimeout(() => {
           document.getElementById('pause').style.fill = '#29abe2';
         }, [200]);
+        isProgrammingStarted = true;
+        document.dispatchEvent(disableAllCheckBoxesEvent);
         window.ReactNativeWebView.postMessage('p');
       }
 
@@ -697,6 +720,7 @@ id="left_arrow_icon"
         document.getElementById("back_checkbox").disabled = false;
         document.getElementById("left_checkbox").disabled = false;
         document.getElementById("right_checkbox").disabled = false;
+        isProgrammingStarted = false;
         window.ReactNativeWebView.postMessage('c');
       }
 

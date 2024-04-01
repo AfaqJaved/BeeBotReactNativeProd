@@ -28,6 +28,7 @@ import {Months} from '../models/LessonsModel';
 import ArrowMobile from '../assets/img/arrow_mobile.png';
 import ArrowTablet from '../assets/img/arrow_tablet.png';
 import ArrowTabletLarge from '../assets/img/arrow_tablet.png';
+import { getResponsiveValues } from '../utils/responsive';
 
 export interface AccordianProps {
   onClick(): void;
@@ -47,28 +48,20 @@ export const Accordian = (props: AccordianProps) => {
   const accordianImageWidth = isPortrait()
     ? useResponsiveWidth(15)
     : useResponsiveWidth(7.5);
-  const accordianTitleFontSize = useResponsiveFontSize(2);
   const accordianTitleMarginLeft = useResponsiveWidth(4);
   const selectMonthMargin = isPortrait()
     ? useResponsiveHeight(2)
     : useResponsiveHeight(5);
-  const selectMonthFontSize = useResponsiveFontSize(2.5);
 
   const monthGridGap = isPortrait()
     ? useResponsiveWidth(1)
     : useResponsiveWidth(0);
-  const monthGridHeight = isPortrait()
-    ? useResponsiveHeight(60)
-    : useResponsiveHeight(70);
 
   const [selectedMonth, setSelectedMonth] = React.useState<Months | undefined>(
     undefined,
   );
 
-  // React.useEffect(()=>{
-  //   console.log(useResponsiveHeight(3));
 
-  // },[])
 
   return (
     <View
@@ -85,26 +78,8 @@ export const Accordian = (props: AccordianProps) => {
           marginRight: 'auto',
           width: accordianWidth,
           justifyContent: 'space-between',
-          paddingTop: isTabletAndPortrait()
-            ? useResponsiveHeight(1)
-            : isTabletAndLandScape()
-            ? useResponsiveHeight(1.5)
-            : useResponsiveHeight(2),
-          paddingBottom: isTabletAndPortrait()
-            ? useResponsiveHeight(1)
-            : isTabletAndLandScape()
-            ? useResponsiveHeight(1.5)
-            : useResponsiveHeight(2),
-          paddingLeft: isTabletAndPortrait()
-            ? useResponsiveHeight(0.5)
-            : isTabletAndLandScape()
-            ? useResponsiveHeight(1.5)
-            : useResponsiveHeight(4),
-          paddingRight: isTabletAndPortrait()
-            ? useResponsiveHeight(1)
-            : isTabletAndLandScape()
-            ? useResponsiveHeight(1.5)
-            : useResponsiveHeight(4),
+          paddingTop: useResponsiveHeight(getResponsiveValues(2,2.5,1.5,1.5)),
+          paddingBottom: useResponsiveHeight(getResponsiveValues(2,2.5,1.5,1.5)),
           alignItems: 'center',
           backgroundColor: props.accordianBackgroundColor,
         }}>
@@ -119,27 +94,19 @@ export const Accordian = (props: AccordianProps) => {
             width: useResponsiveWidth(90),
             marginLeft: 'auto',
             marginRight: 'auto',
-            paddingLeft: isTabletAndPortrait()
-              ? useResponsiveWidth(2.5)
-              : isTabletAndLandScape()
-              ? useResponsiveWidth(1.5)
-              : useResponsiveWidth(4),
-            paddingRight: isTabletAndPortrait()
-            ? useResponsiveWidth(2.5)
-            : isTabletAndLandScape()
-            ? useResponsiveWidth(1.5)
-            : useResponsiveWidth(4),
+            paddingLeft: useResponsiveWidth(getResponsiveValues(4,2,2.5,1.5)),
+            paddingRight:useResponsiveWidth(getResponsiveValues(4,2,2.5,1.5)),
           }}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Image
               source={props.accordianImage}
               style={{
                 aspectRatio: 1,
-                width: accordianImageWidth,
+                width: useResponsiveWidth(getResponsiveValues(15,7,10,7)),
               }}></Image>
             <Text
               style={{
-                marginLeft: accordianTitleMarginLeft,
+                marginLeft: useResponsiveWidth(getResponsiveValues(4,2,2.5,1.5)),
                 fontSize: isTabletAndPortrait() ?  useResponsiveFontSize(1.5) : isTabletAndLandScape() ? useResponsiveFontSize(1.2) : useResponsiveFontSize(2),
                 color: CONSTANTS.COLORS.WHITE,
               }}>

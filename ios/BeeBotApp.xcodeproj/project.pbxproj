@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BeeBotAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BeeBotAppTests.m */; };
-		02042B4E29CE400899540AAB /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6E41DC9231E4934AF7986E5 /* Roboto-ThinItalic.ttf */; };
-		0C80B921A6F3F58F76C31292 /* libPods-BeeBotApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BeeBotApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2B64114C0B2345C581E4BC75 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24289913D56B4CAD8CFA392F /* Roboto-Medium.ttf */; };
-		33CAC798D588420DBA7129A5 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D55CF50CC96F47D18AE51D6C /* Roboto-Italic.ttf */; };
-		35E3B6DBE87C492594CC616E /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A46DA0F3C67B4BEC80BAF915 /* Roboto-MediumItalic.ttf */; };
-		571BF2719FAD4372AAC838BA /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5530BD8BD854B14B65E764A /* Roboto-BoldItalic.ttf */; };
-		5A3A026D8CAC455398DFC0E6 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED8A1D312DC746988C9265B1 /* Roboto-LightItalic.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-BeeBotApp-BeeBotAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BeeBotApp-BeeBotAppTests.a */; };
+		48B4DA9B94BD11CBEFE331C5 /* libPods-BeeBotApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BF183B1C0D1396F8A4A676 /* libPods-BeeBotApp.a */; };
+		62F3C21BD7D5A4950D97FF0A /* libPods-BeeBotApp-BeeBotAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5074405D0E2AD30874BEE3C6 /* libPods-BeeBotApp-BeeBotAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A66F3B2B82DD4002A17AD13A /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38CA37D9DD554323B63F5508 /* Roboto-Light.ttf */; };
-		D3C30BFF88E5487EBC7C06BF /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0528232C2D3B4596A5A416EB /* Roboto-Bold.ttf */; };
-		E3926BE734D6472CAFBA1ABF /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4753BF9563F14326B519D974 /* Roboto-Thin.ttf */; };
-		F93D16AFBF05410498EB1580 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD913B14CB0B4284B19EA473 /* Roboto-Regular.ttf */; };
-		FE6B723E6B1D41DBB657B408 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E886F39181714A559ED43302 /* Roboto-Black.ttf */; };
-		FFA23A39603944029B8655CD /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ACC5096105B4707802C696D /* Roboto-BlackItalic.ttf */; };
+		FA50311F2B8B683000FB1E86 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E886F39181714A559ED43302 /* Roboto-Black.ttf */; };
+		FA5031202B8B683000FB1E86 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ACC5096105B4707802C696D /* Roboto-BlackItalic.ttf */; };
+		FA5031212B8B683000FB1E86 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0528232C2D3B4596A5A416EB /* Roboto-Bold.ttf */; };
+		FA5031222B8B683000FB1E86 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5530BD8BD854B14B65E764A /* Roboto-BoldItalic.ttf */; };
+		FA5031232B8B683000FB1E86 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D55CF50CC96F47D18AE51D6C /* Roboto-Italic.ttf */; };
+		FA5031242B8B683000FB1E86 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38CA37D9DD554323B63F5508 /* Roboto-Light.ttf */; };
+		FA5031252B8B683000FB1E86 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED8A1D312DC746988C9265B1 /* Roboto-LightItalic.ttf */; };
+		FA5031262B8B683000FB1E86 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24289913D56B4CAD8CFA392F /* Roboto-Medium.ttf */; };
+		FA5031272B8B683000FB1E86 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A46DA0F3C67B4BEC80BAF915 /* Roboto-MediumItalic.ttf */; };
+		FA5031282B8B683000FB1E86 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD913B14CB0B4284B19EA473 /* Roboto-Regular.ttf */; };
+		FA5031292B8B683000FB1E86 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4753BF9563F14326B519D974 /* Roboto-Thin.ttf */; };
+		FA50312A2B8B683000FB1E86 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6E41DC9231E4934AF7986E5 /* Roboto-ThinItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,32 +42,32 @@
 		00E356EE1AD99517003FC87E /* BeeBotAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeBotAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BeeBotAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeeBotAppTests.m; sourceTree = "<group>"; };
-		0528232C2D3B4596A5A416EB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		0528232C2D3B4596A5A416EB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* BeeBotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeBotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BeeBotApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = BeeBotApp/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BeeBotApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BeeBotApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BeeBotApp/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BeeBotApp-BeeBotAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeBotApp-BeeBotAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24289913D56B4CAD8CFA392F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		38CA37D9DD554323B63F5508 /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-BeeBotApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp.debug.xcconfig"; path = "Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp.debug.xcconfig"; sourceTree = "<group>"; };
-		4753BF9563F14326B519D974 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-BeeBotApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp.release.xcconfig"; path = "Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-BeeBotApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeBotApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24289913D56B4CAD8CFA392F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		38CA37D9DD554323B63F5508 /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		4753BF9563F14326B519D974 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		5074405D0E2AD30874BEE3C6 /* libPods-BeeBotApp-BeeBotAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeBotApp-BeeBotAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BeeBotApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-BeeBotApp-BeeBotAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp-BeeBotAppTests.release.xcconfig"; path = "Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		9ACC5096105B4707802C696D /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
-		A46DA0F3C67B4BEC80BAF915 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
-		CD913B14CB0B4284B19EA473 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		D55CF50CC96F47D18AE51D6C /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
-		D6E41DC9231E4934AF7986E5 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		E886F39181714A559ED43302 /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		8626C85AFFD3FE67B393A078 /* Pods-BeeBotApp-BeeBotAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp-BeeBotAppTests.release.xcconfig"; path = "Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		94BF183B1C0D1396F8A4A676 /* libPods-BeeBotApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeBotApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ACC5096105B4707802C696D /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A46DA0F3C67B4BEC80BAF915 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		B4933D6A8CFA3119702AFF77 /* Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAC2065F4047F629E7C464E9 /* Pods-BeeBotApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp.release.xcconfig"; path = "Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp.release.xcconfig"; sourceTree = "<group>"; };
+		CD913B14CB0B4284B19EA473 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D55CF50CC96F47D18AE51D6C /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		D6E41DC9231E4934AF7986E5 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		E886F39181714A559ED43302 /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		ED8A1D312DC746988C9265B1 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
-		F5530BD8BD854B14B65E764A /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		ED8A1D312DC746988C9265B1 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		F400DD4310B0E310804F48C9 /* Pods-BeeBotApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeBotApp.debug.xcconfig"; path = "Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F5530BD8BD854B14B65E764A /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-BeeBotApp-BeeBotAppTests.a in Frameworks */,
+				62F3C21BD7D5A4950D97FF0A /* libPods-BeeBotApp-BeeBotAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-BeeBotApp.a in Frameworks */,
+				48B4DA9B94BD11CBEFE331C5 /* libPods-BeeBotApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,15 +137,14 @@
 				D6E41DC9231E4934AF7986E5 /* Roboto-ThinItalic.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-BeeBotApp.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-BeeBotApp-BeeBotAppTests.a */,
+				94BF183B1C0D1396F8A4A676 /* libPods-BeeBotApp.a */,
+				5074405D0E2AD30874BEE3C6 /* libPods-BeeBotApp-BeeBotAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,10 +184,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-BeeBotApp.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-BeeBotApp.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-BeeBotApp-BeeBotAppTests.release.xcconfig */,
+				F400DD4310B0E310804F48C9 /* Pods-BeeBotApp.debug.xcconfig */,
+				CAC2065F4047F629E7C464E9 /* Pods-BeeBotApp.release.xcconfig */,
+				B4933D6A8CFA3119702AFF77 /* Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig */,
+				8626C85AFFD3FE67B393A078 /* Pods-BeeBotApp-BeeBotAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,12 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BeeBotAppTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				B0B88C7C0C163393683F0FB4 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				C424E5D28A2CC165EE831D7C /* [CP] Embed Pods Frameworks */,
+				19081D1FBFD9D4A6B8F8FBBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,14 +220,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BeeBotApp" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				355FB0C31FE9AE6E47E608F1 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				C616788A9FF457A8AF1B8F82 /* [CP] Embed Pods Frameworks */,
+				7A7BBC607D75D10BC627E8A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,20 +286,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA50311F2B8B683000FB1E86 /* Roboto-Black.ttf in Resources */,
+				FA5031202B8B683000FB1E86 /* Roboto-BlackItalic.ttf in Resources */,
+				FA5031212B8B683000FB1E86 /* Roboto-Bold.ttf in Resources */,
+				FA5031222B8B683000FB1E86 /* Roboto-BoldItalic.ttf in Resources */,
+				FA5031232B8B683000FB1E86 /* Roboto-Italic.ttf in Resources */,
+				FA5031242B8B683000FB1E86 /* Roboto-Light.ttf in Resources */,
+				FA5031252B8B683000FB1E86 /* Roboto-LightItalic.ttf in Resources */,
+				FA5031262B8B683000FB1E86 /* Roboto-Medium.ttf in Resources */,
+				FA5031272B8B683000FB1E86 /* Roboto-MediumItalic.ttf in Resources */,
+				FA5031282B8B683000FB1E86 /* Roboto-Regular.ttf in Resources */,
+				FA5031292B8B683000FB1E86 /* Roboto-Thin.ttf in Resources */,
+				FA50312A2B8B683000FB1E86 /* Roboto-ThinItalic.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				FE6B723E6B1D41DBB657B408 /* Roboto-Black.ttf in Resources */,
-				FFA23A39603944029B8655CD /* Roboto-BlackItalic.ttf in Resources */,
-				D3C30BFF88E5487EBC7C06BF /* Roboto-Bold.ttf in Resources */,
-				571BF2719FAD4372AAC838BA /* Roboto-BoldItalic.ttf in Resources */,
-				33CAC798D588420DBA7129A5 /* Roboto-Italic.ttf in Resources */,
-				A66F3B2B82DD4002A17AD13A /* Roboto-Light.ttf in Resources */,
-				5A3A026D8CAC455398DFC0E6 /* Roboto-LightItalic.ttf in Resources */,
-				2B64114C0B2345C581E4BC75 /* Roboto-Medium.ttf in Resources */,
-				35E3B6DBE87C492594CC616E /* Roboto-MediumItalic.ttf in Resources */,
-				F93D16AFBF05410498EB1580 /* Roboto-Regular.ttf in Resources */,
-				E3926BE734D6472CAFBA1ABF /* Roboto-Thin.ttf in Resources */,
-				02042B4E29CE400899540AAB /* Roboto-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,46 +322,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		19081D1FBFD9D4A6B8F8FBBA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BeeBotApp-BeeBotAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		355FB0C31FE9AE6E47E608F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -384,24 +361,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+		7A7BBC607D75D10BC627E8A5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -418,21 +378,60 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
+		B0B88C7C0C163393683F0FB4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeeBotApp-BeeBotAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C424E5D28A2CC165EE831D7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp-BeeBotAppTests/Pods-BeeBotApp-BeeBotAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C616788A9FF457A8AF1B8F82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeBotApp/Pods-BeeBotApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -487,7 +486,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig */;
+			baseConfigurationReference = B4933D6A8CFA3119702AFF77 /* Pods-BeeBotApp-BeeBotAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -514,7 +513,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-BeeBotApp-BeeBotAppTests.release.xcconfig */;
+			baseConfigurationReference = 8626C85AFFD3FE67B393A078 /* Pods-BeeBotApp-BeeBotAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -538,14 +537,17 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-BeeBotApp.debug.xcconfig */;
+			baseConfigurationReference = F400DD4310B0E310804F48C9 /* Pods-BeeBotApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J5KT52955Y;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BeeBotApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeeBotApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,8 +558,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.afaqjaved.logobot;
 				PRODUCT_NAME = BeeBotApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -570,13 +573,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-BeeBotApp.release.xcconfig */;
+			baseConfigurationReference = CAC2065F4047F629E7C464E9 /* Pods-BeeBotApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J5KT52955Y;
 				INFOPLIST_FILE = BeeBotApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeeBotApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -587,8 +593,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.afaqjaved.logobot;
 				PRODUCT_NAME = BeeBotApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;

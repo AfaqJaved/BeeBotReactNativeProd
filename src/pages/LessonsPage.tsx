@@ -36,20 +36,16 @@ import { pageMarginTop } from '../utils/StyleUtils';
 
 const LessonsPage = ({navigation}: any) => {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const mainContentWidth = useResponsiveWidth(100);
-  const mainContentHeight = isPortrait()
-    ? useResponsiveHeight(85)
-    : useResponsiveHeight(70);
-  const roudedBorderWidth = useResponsiveWidth(100);
-  const roudedBorderHeight = useResponsiveHeight(6);
-  const roudedBorderMarginTop = useResponsiveHeight(-3);
-
   const [lessons, setLessons] = React.useState(LESSONS_MODELS);
   const {t} = useTranslation();
   useEffect(() => {
-    Dimensions.addEventListener('change', () => {
+    const subscription = Dimensions.addEventListener('change', () => {
       forceUpdate();
     });
+
+    return ()=> {
+      subscription.remove();
+    }
   }, []);
 
 
@@ -105,7 +101,7 @@ const LessonsPage = ({navigation}: any) => {
             accordianTitle={lesson.accordianTitle}
             show={lesson.isAccordianBodyVisible}
             monthAndTopics={lesson.months}
-            onMonthClick={month => {
+            onMonthClick={ month => {
               const updated = lessons.map(hold => {
                 hold.months.map(monthHold => {
                   if (month.month === monthHold.month) {
