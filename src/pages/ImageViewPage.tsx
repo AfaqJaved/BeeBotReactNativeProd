@@ -121,8 +121,8 @@ const ImageViewPage = ({navigation, route}: any) => {
               resizeMode={'cover'}
               style={{
                 aspectRatio: ratio,
-                width : ratio != 1 ? useResponsiveWidth(15) : useResponsiveWidth(90),
-                height : ratio != 1 ? useResponsiveHeight(15) : isPortrait() ? useResponsiveHeight(40) : useResponsiveHeight(60),
+                width : ratio != 0.9 ? useResponsiveWidth(15) : useResponsiveWidth(90),
+                height : ratio != 0.9 ? useResponsiveHeight(15) : isPortrait() ? useResponsiveHeight(40) : useResponsiveHeight(60),
                 borderRadius: 10,
               }}
               source={imageTablet}></Image>

@@ -56,6 +56,41 @@ export default {
     oct: "Oct",
     nov: "Nov",
     dec: "Dec",
+    russian_alphabet : "Russian Alphabet",
+    RUSSIAN_ALPHABET_START_FIELD: {
+        description: "Description",
+        description_content: `The field will help you learn the alphabet, expand your vocabulary and horizons. The field is used for conducting classes on speech development and vocabulary formation. It can also be used as an additional material for the formation of reading skills. In a playful way, the child will get acquainted with sounds, syllables, letters`,
+    },
+    animals : "Animals",
+    ANIMALS_FIELD: {
+        description: "Description",
+        description_content: `The map introduces children to wild and domestic animals. The use of the field in the classroom contributes to:\n\n1. Consolidating children's knowledge about wild and domestic animals;\n2. the use of singular nouns in speech, denoting animals and their cubs;\n3. development of attention, memory, thinking;\n4. fostering a good attitude towards animals.\n\nGames:\n\n1) The path is set after solving the riddle;\n2) Differentiation of wild and domestic animals, Bee programming after responses;\n3) Called a baby animal, children set the path to the parent;\n4) The feeds that the animal feeds on are listed, the children, after naming, set the path for the Bee\n5) Programming comes after the description of the animal It is suggested to play with or without schematic hints.`,
+    },
+    professions : "Professions",
+    PROFESSIONS_FIELD: {
+        description: "Description",
+        description_content: `The map "Professions" contributes to the expansion, systematization and consolidation of knowledge about modern professions.\nPurpose:\nPromotes:\n\n- consolidation of children's knowledge about professions, their name and type of activity.\n- fixing the names of the subjects necessary for people of these professions to work.\n- the development of imagination, attention, logical thinking.\n- development of coherent speech, memory, curiosity, observation;\n- the development of interest in professions and their importance in our lives.\n\nEducates:\n\n- respect for human labor.Works out:\n- the use of grammatical categories;\n- the use of the word denoting spatial relations.\n\nGames:\n1) Children program the path of the Bee with or without hints after the correct answer to the riddle.\n2) Describe the actions or necessary tools for any profession, announce the name, and then build a route.\n3) They can differentiate on the basis of the demand for professions (city or rural area, widespread necessity).\n4) They compose mini-stories about how people of different professions visit each other, staying in the right square with a person of a certain profession or giving a light signal.`,
+    },
+    birds : "Birds",
+    BIRDS_FIELD: {
+        description: "Description",
+        description_content: `The thematic field will help in generalizing and consolidating knowledge on this topic.\n\nPromotes:\n\n- the formation of generalized ideas about wintering and migratory birds, their distinction on an essential basis (the possibility of satisfying the need for food);\n- deepening the understanding of the causes of bird flight (disappearance of the main food, freezing of reservoirs, land);\n- formation of the representation and consolidation of the classification of birds on the example of wintering (crow, sparrow, tit) and migratory (oriole, crane, starling);\n- formation of children's ability to describe birds by characteristic features and recognize them by description;\n- enriching the dictionary by introducing the words: food, migratory, wintering;\n- fostering love for birds, the desire to help them in winter conditions;\n- working out the use of grammatical categories;\n- working out the use of words denoting spatial relations.\n\nGames:\n\n1) A riddle is being solved, the answer to which is a migratory or wintering bird. To program the Bee's path, children can use hint cubes, schematic cards, or set a path without hints\n2) Children can come up with a fairy tale in which a Bee will move from one bird to another according to the plot of the fairy tale\n3) Children can complete a bird differentiation task by stopping at the appropriate bird or a bee can travel through the field and give a glowing signal on selected birds.`,
+    },
+    fruits : "Fruits And Vegetables",
+    FRUITS_FIELD: {
+        description: "Description",
+        description_content: `The thematic field contributes to the generalization and consolidation of children's knowledge on the topic.\n\nPurpose:\n\n1. To form generalized ideas about vegetables and fruits, to clarify ideas about the variety of vegetables and fruits;\n2. To form the ability to generalize concepts according to essential features, to reflect the result of generalization in a detailed speech judgment;\n3.Develop attention, memory, imagination, vocabulary;\n4. Develop an interest in the study of nature;\n5. Practice the use of grammatical categories;\n6. Practice the use of the word denoting spatial relationships.\n\nGames:\n1) A riddle is being solved, the answer to which is a certain vegetable or fruit.  To program a Bee's path, children can use clue cubes, schematic flashcards, or set a path without hints.\n2) Children can come up with a fairy tale in which a Bee will move from one picture to another according to the plot of the fairy tale.`,
+    },
+    numbers : "Numbers",
+    NUMBERS_FIELD: {
+        description: "Description",
+        description_content: `The thematic field «Numbers» is designed to form elementary mathematical concepts in children.\n\nThe field will help in:\n\n- fixing the ordinal account to 10;\n- the ability to distinguish numbers and find the right ones;\n- learning arithmetic operations;\n- development of skills to establish causal relationships and find new solutions;\n- consolidating the ability to compose and solve examples;\n- the development of children's ability to navigate on the plane.\n\nPURPOSE:\n\n1. Helps you build your own algorithms and understand others' ones.\n2. Teaches the consistent solution of the task.\n3. Spatial thinking and orientation in the coordinate system.\n4. Helps to increase vocabulary.\n5. Logical and critical thinking.Game. The teacher programs the robot in advance to leave the mats in the right places so that the children have time to record the information. After the Bee appears on the equal sign, the child must calculate the correct answer and, together with the teacher, talk out the further route for the Bee. The child will learn to visually perceive information, quickly count and navigate in the space of the field to select the desired cell.`,
+    },
+    snakes : "Snake and stairs",
+    SNAKES_FIELD: {
+        description: "Description",
+        description_content: `The thematic field "Snakes and stairs" helps in mastering basic robotics skills, develops motor skills and spatial thinking. The field is a roving game: divided into equal squares, the colored cells are numbered from 1 to 30.\n\nThe main task is to get to the finish line first. Participants take turns throwing a die, moving around the field to the number of cells that have fallen out using the "Bee" logobot. There are symbols on the field that can both help the player climb higher than the rest of the stairs and go down. Snake traps mean a descent to the end of the tail.`,
+    },
     FARM_FIELD: {
         description: "Description",
         games: "Didactic Games",
@@ -82,7 +117,7 @@ export default {
     },
     FAIRY_TALE_FIELD: {
         description: "Description",
-        description_content: "The playing field Fairy Tale promotes the development of fantasy and imagination, communication skills, vocabulary expansion. A plan of a fairy-tale village is applied on the rug, which allows you to organize a trip to the heroes of the fairy tales Three Bears,Jack and the Beanstalk,Three Little Pigs in the royal castle and gingerbread house.",
+        description_content: `The field «Fairy tale characters» will help children:\n\n- recall the heroes of fairy tales;\n- summarize, consolidate and expand children's knowledge of fairy tales;\n- enrich your vocabulary;\n- to develop individual literary preferences; children's horizons with the help of a game task;\n- develop mental processes: speech, imagination, memory, thinking;- to foster an interest in reading, a love of oral folk art, and the ability to work in a team;\n- to work out the use of grammatical categories;\n- to work out the use of words denoting spatial relations.\n\nGames:\n\n1) The fairy-tale characters are chosen according to the answer to the riddle and after the Bee is given the path;\n2) The bee begins her journey after reading an excerpt from a fairy tale;\n3) Programming takes place after the description of the hero of the fairy tale;\n4) Children are invited to choose the heroes of folk or author's fairy tales, then the Bee begins the path after programming. You can play using dice, schematic cards, or programming without prompts.`,
     },
     BEACH_FIELD: {
         description: "Description",

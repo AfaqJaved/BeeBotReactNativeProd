@@ -1,8 +1,21 @@
 
 
 import { useState } from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 import { DEVICE } from '../constants/Contants';
+import { Characteristic } from 'react-native-ble-plx';
+import base64 from 'react-native-base64';
+
+
+export const writeBleLogic = async (char : Characteristic , message : string) => {
+    if(Platform.OS === 'android') {
+        await char.writeWithoutResponse(base64.encode(message))
+    }
+
+    if(Platform.OS === 'ios') {
+        await char.writeWithResponse(base64.encode(message))
+    }
+}
 
 export const deviceType = (): DEVICE => {
     const width = Dimensions.get('screen').width;

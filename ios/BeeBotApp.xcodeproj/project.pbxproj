@@ -543,22 +543,22 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = J5KT52955Y;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BeeBotApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = BeeBotApp;
+				INFOPLIST_KEY_CFBundleDisplayName = Logobot;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.afaqjaved.logobot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solverse.logobot;
 				PRODUCT_NAME = BeeBotApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -579,21 +579,21 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = J5KT52955Y;
 				INFOPLIST_FILE = BeeBotApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = BeeBotApp;
+				INFOPLIST_KEY_CFBundleDisplayName = Logobot;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.afaqjaved.logobot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solverse.logobot;
 				PRODUCT_NAME = BeeBotApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

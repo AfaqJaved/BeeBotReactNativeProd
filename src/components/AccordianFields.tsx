@@ -41,17 +41,17 @@ export const AccordianFields = (props: MenuItemProps) => {
   const accordianfieldsImageWidth = isPortrait()
     ? useResponsiveWidth(15)
     : useResponsiveWidth(7.5);
-  const accordianfieldsTitleFontSize = useResponsiveFontSize(3);
+  // const accordianfieldsTitleFontSize = useResponsiveFontSize(3);
   const accordianfieldsTitleMarginLeft = useResponsiveWidth(4);
-  const selectMonthMargin = isPortrait()
-    ? useResponsiveHeight(2)
-    : useResponsiveHeight(5);
-  const selectMonthFontSize = useResponsiveFontSize(2.5);
+  // const selectMonthMargin = isPortrait()
+  //   ? useResponsiveHeight(2)
+  //   : useResponsiveHeight(5);
+  // const selectMonthFontSize = useResponsiveFontSize(2.5);
 
-  const monthGridGap = isPortrait() ? useResponsiveWidth(1) : 0;
-  const monthGridHeight = isPortrait()
-    ? useResponsiveHeight(45)
-    : useResponsiveHeight(70);
+  // const monthGridGap = isPortrait() ? useResponsiveWidth(1) : 0;
+  // const monthGridHeight = isPortrait()
+  //   ? useResponsiveHeight(45)
+  //   : useResponsiveHeight(70);
   return (
     <View style={{marginTop: isTabletAndPortrait()
       ? useResponsiveHeight(2)

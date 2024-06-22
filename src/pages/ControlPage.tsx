@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ImageBackground, Alert, Dimensions, Button, Platform } from "react-native";
 import { AppBar } from "../components/AppBar";
-import { getResponsiveResource, isLandscape, isTablet, isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize, useResponsiveHeight, useResponsiveWidth } from "../utils/Utils";
+import { getResponsiveResource, isLandscape, isTablet, isTabletAndLandScape, isTabletAndPortrait, useResponsiveFontSize, useResponsiveHeight, useResponsiveWidth, writeBleLogic } from "../utils/Utils";
 import { BottomBar } from "../components/BottomBar";
 import { isPortrait } from "../utils/Utils";
 import { CONSTANTS } from "../constants/Contants";
@@ -79,10 +79,11 @@ const ControlPage = ({ navigation }: any) => {
 
   const handleWebViewMessageForRemote = async (event: any) => {
     const message = event.nativeEvent.data;
-    console.log(message);
+    console.log(message,"afaq");
+    // console.log(char);
 
-    if (char != null) await char.writeWithoutResponse(base64.encode(message));
-  };
+    if (char != null) await writeBleLogic(char,message);
+   };
 
   const handleWebViewMessageForProgramMode = async (event: any) => {
     const message = event.nativeEvent.data;
@@ -192,23 +193,23 @@ const ControlPage = ({ navigation }: any) => {
         commands.forEach(async (command) => {
           switch (command.command) {
             case Commands.F: {
-              if (char != null) await char.writeWithoutResponse(base64.encode("f"));
+              if (char != null) await writeBleLogic(char,'f');
               break;
             }
             case Commands.B: {
-              if (char != null) await char.writeWithoutResponse(base64.encode("b"));
+              if (char != null) await writeBleLogic(char,'b');
               break;
             }
             case Commands.L: {
-              if (char != null) await char.writeWithoutResponse(base64.encode("l"));
+              if (char != null) await writeBleLogic(char,'l');
               break;
             }
             case Commands.R: {
-              if (char != null) await char.writeWithoutResponse(base64.encode("r"));
+              if (char != null) await writeBleLogic(char,'r');
               break;
             }
             case Commands.P: {
-              if (char != null) await char.writeWithoutResponse(base64.encode("p"));
+              if (char != null) await writeBleLogic(char,'p');
               break;
             }
             default: {

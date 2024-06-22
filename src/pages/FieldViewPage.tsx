@@ -135,8 +135,8 @@ const FieldsViewPage = ({navigation, route}: any) => {
               aspectRatio: model.ratio,
               marginLeft: 'auto',
               marginRight: 'auto',
-              width : model.ratio != 1 ? useResponsiveWidth(15) : useResponsiveWidth(90),
-              height : model.ratio != 1 ? useResponsiveHeight(15) : isPortrait() ? useResponsiveHeight(40) : useResponsiveHeight(60),
+              width : model.ratio != 0.9 ? useResponsiveWidth(15) : useResponsiveWidth(90),
+              height : model.ratio != 0.9 ? useResponsiveHeight(15) : isPortrait() ? useResponsiveHeight(40) : useResponsiveHeight(60),
               // marginLeft: isPortrait() ? 'auto' : useResponsiveWidth(5),
               // marginRight: isPortrait() ? 'auto' : 0,
               // width: isTabletAndPortrait()
